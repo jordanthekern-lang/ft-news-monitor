@@ -1,0 +1,380 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/" class="text-sm text-slate-500 hover:text-slate-800">&larr; back</a>
+
+<section class="mt-3 bg-white rounded-lg border border-slate-200 p-6 space-y-6">
+    <header>
+        <h1 class="text-lg font-semibold">Settings and Diagnostics</h1>
+        <p class="text-sm text-slate-500">Preferences below are stored in the local database. Secrets and machine configuration come from <code>.env</code>. Keywords, feeds, outlets and excludes are managed in the admin pages.</p>
+    </header>
+
+    {% if saved %}
+    <div class="p-3 rounded bg-emerald-50 border border-emerald-200 text-sm text-emerald-800">
+        Settings saved.
+    </div>
+    {% endif %}
+
+    <form method="post" action="/settings/update" class="border border-slate-200 rounded-lg p-4 space-y-5">
+        <h2 class="text-xs uppercase tracking-wider text-slate-500">Preferences</h2>
+
+        <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Home markets</label>
+            <p class="text-xs text-slate-500 mb-2">This installation collects and shows news for the selected markets. None selected = all markets.</p>
+            <div class="flex flex-wrap gap-2">
+                {% for m in all_markets %}
+                <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-slate-200 cursor-pointer hover:border-flix-green text-sm">
+                    <input type="checkbox" name="home_markets" value="{{ m }}"
+                           {% if m in runtime.home_markets %}checked{% endif %}
+                           class="accent-flix-green" />
+                    <span>{{ m }}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1" for="f-min-score">Default min. score</label>
+                <input type="number" id="f-min-score" name="min_score_default" min="0" max="10" required
+                       value="{{ runtime.min_score_default }}"
+                       class="w-full border border-slate-300 rounded px-3 py-2 text-sm focus:border-flix-green focus:outline-none" />
+                <p class="text-xs text-slate-500 mt-1">Dashboard shows articles with at least this score (0–10).</p>
+            </div>
+            <div>
+                <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1" for="f-prescreen-days">Pre-screen bypass days</label>
+                <input type="number" id="f-prescreen-days" name="ai_skip_prescreen_days_override" min="0"
+                       value="{{ runtime.ai_skip_prescreen_days_override }}"
+                       placeholder="{{ settings.ai_skip_prescreen_days }}"
+                       class="w-full border border-slate-300 rounded px-3 py-2 text-sm focus:border-flix-green focus:outline-none" />
+                <p class="text-xs text-slate-500 mt-1">Articles newer than this many days skip the keyword pre-screen and always go to the AI. Empty = use default ({{ settings.ai_skip_prescreen_days }}).</p>
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Scheduler</label>
+            <div class="flex flex-wrap items-center gap-4">
+                <label class="inline-flex items-center gap-2 cursor-pointer text-sm">
+                    <input type="checkbox" name="scheduler_enabled" value="1"
+                           {% if runtime.scheduler_enabled %}checked{% endif %}
+                           class="accent-flix-green w-4 h-4" />
+                    <span>Run collection automatically every day at</span>
+                </label>
+                <input type="time" name="scheduler_time" required value="{{ runtime.scheduler_time }}"
+                       class="border border-slate-300 rounded px-3 py-1.5 text-sm focus:border-flix-green focus:outline-none" />
+            </div>
+            <p class="text-xs text-slate-500 mt-1">Takes effect at next app start.</p>
+        </div>
+
+        <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Keyword suggestions</label>
+            <label class="inline-flex items-center gap-2 cursor-pointer text-sm">
+                <input type="checkbox" name="suggest_keywords_enabled" value="1"
+                       {% if runtime.suggest_keywords_enabled %}checked{% endif %}
+                       class="accent-flix-green w-4 h-4" />
+                <span>Let Claude propose new keywords while scoring articles</span>
+            </label>
+            <p class="text-xs text-slate-500 mt-1">
+                When on, Claude may suggest 1–3 phrases per article that would have
+                caught it via keyword pre-screen. Review and approve suggestions on
+                the <a href="/admin/suggestions" class="text-flix-green hover:underline">Suggestions</a> page.
+                Costs a small amount of extra output tokens per scored article.
+            </p>
+        </div>
+
+        <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Translation targets</label>
+            <p class="text-xs text-slate-500 mb-2">
+                Articles in these languages stay in their original language.
+                Anything else is auto-translated to English via Google Translate.
+            </p>
+            <div class="space-y-2">
+                <label class="inline-flex items-center gap-2 cursor-pointer text-sm">
+                    <input type="radio" name="translation_target_langs_mode" value="auto"
+                           {% if runtime.translation_target_langs_mode != 'manual' %}checked{% endif %}
+                           class="accent-flix-green translation-mode" />
+                    <span>Auto (derive from home markets)
+                        <span class="text-xs text-slate-500">
+                            — currently keeps: {{ runtime.translation_target_langs_effective|join(', ')|upper or '—' }}
+                        </span>
+                    </span>
+                </label>
+                <label class="inline-flex items-center gap-2 cursor-pointer text-sm">
+                    <input type="radio" name="translation_target_langs_mode" value="manual"
+                           {% if runtime.translation_target_langs_mode == 'manual' %}checked{% endif %}
+                           class="accent-flix-green translation-mode" />
+                    <span>Manual selection</span>
+                </label>
+                <div class="translation-manual-fields flex flex-wrap gap-2 pl-6 pt-2 {% if runtime.translation_target_langs_mode != 'manual' %}opacity-50{% endif %}">
+                    {% for code in all_languages %}
+                    <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-slate-200 cursor-pointer hover:border-flix-green text-sm">
+                        <input type="checkbox" name="translation_target_langs" value="{{ code|lower }}"
+                               {% if code|lower in runtime.translation_target_langs_manual %}checked{% endif %}
+                               class="accent-flix-green translation-manual-cb" />
+                        <span>{{ code }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-end pt-2 border-t border-slate-100">
+            <button type="submit"
+                    class="px-4 py-2 rounded bg-flix-green text-slate-900 text-sm font-medium hover:bg-flix-green/80">
+                Save settings
+            </button>
+        </div>
+    </form>
+
+    <form method="post" action="/setup/outlook" class="border border-slate-200 rounded-lg p-4 space-y-4">
+        <input type="hidden" name="return_to" value="settings" />
+        <h2 class="text-xs uppercase tracking-wider text-slate-500">Newsletter mailbox (Outlook)</h2>
+        <p class="text-xs text-slate-500">
+            Reads a single named folder from your locally running Outlook desktop
+            app. No passwords, no OAuth. Change this when you set up a new folder
+            or move to a different mailbox.
+        </p>
+
+        <label class="inline-flex items-center gap-2 cursor-pointer text-sm">
+            <input type="checkbox" name="outlook_enabled" id="settings-outlook-enabled" value="1"
+                   {% if outlook_state.enabled %}checked{% endif %}
+                   class="accent-flix-green w-4 h-4" />
+            <span>Enable Outlook newsletter ingest</span>
+        </label>
+
+        <div class="grid grid-cols-12 gap-3 settings-outlook-fields">
+            <div class="col-span-12">
+                <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Folder path (required)</label>
+                <input type="text" name="outlook_folder_path" id="settings-outlook-folder-path"
+                       value="{{ outlook_state.folder_path }}"
+                       placeholder="Posteingang/BT Verkehr"
+                       class="w-full border border-slate-300 rounded px-3 py-2 text-sm focus:border-flix-green focus:outline-none" />
+                <p class="text-xs text-slate-500 mt-1">
+                    Path separator <code>/</code>. Use the exact folder name as shown in Outlook.
+                </p>
+            </div>
+            <div class="col-span-12 md:col-span-6">
+                <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Store / mailbox (optional)</label>
+                <input type="text" name="outlook_store_name" id="settings-outlook-store-name"
+                       value="{{ outlook_state.store_name }}"
+                       placeholder="leave empty for the default account"
+                       class="w-full border border-slate-300 rounded px-3 py-2 text-sm focus:border-flix-green focus:outline-none" />
+            </div>
+            <div class="col-span-6 md:col-span-3">
+                <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Max age (days)</label>
+                <input type="number" name="outlook_max_age_days"
+                       value="{{ outlook_state.max_age_days }}" min="1" max="90"
+                       class="w-full border border-slate-300 rounded px-3 py-2 text-sm focus:border-flix-green focus:outline-none" />
+            </div>
+            <div class="col-span-6 md:col-span-3">
+                <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Max links / email</label>
+                <input type="number" name="outlook_max_links_per_email"
+                       value="{{ outlook_state.max_links_per_email }}" min="1" max="200"
+                       class="w-full border border-slate-300 rounded px-3 py-2 text-sm focus:border-flix-green focus:outline-none" />
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 border-t border-slate-100">
+            <button type="submit"
+                    class="px-4 py-2 rounded bg-flix-green text-slate-900 text-sm font-medium hover:bg-flix-green/80">
+                Save Outlook settings
+            </button>
+            <button type="button" id="btn-test-outlook-settings"
+                    class="px-4 py-2 rounded border border-slate-300 text-slate-700 text-sm font-medium hover:border-flix-green">
+                Test connection
+            </button>
+            <span id="test-outlook-result-settings" class="text-sm text-slate-500"></span>
+        </div>
+    </form>
+
+    <script>
+      // Grey out Outlook fields when Enable is off (mirror wizard behaviour).
+      (function() {
+          const cb = document.getElementById("settings-outlook-enabled");
+          const fields = document.querySelector(".settings-outlook-fields");
+          if (!cb || !fields) return;
+          function apply() {
+              const on = cb.checked;
+              fields.classList.toggle("opacity-50", !on);
+              fields.querySelectorAll("input").forEach(el => { el.disabled = !on; });
+          }
+          cb.addEventListener("change", apply);
+          apply();
+      })();
+
+      // Translation-manual checkboxes should be greyed out in auto mode.
+      (function() {
+          const radios = document.querySelectorAll(".translation-mode");
+          const wrap = document.querySelector(".translation-manual-fields");
+          if (!radios.length || !wrap) return;
+          function apply() {
+              const manual = document.querySelector(".translation-mode:checked")?.value === "manual";
+              wrap.classList.toggle("opacity-50", !manual);
+              wrap.querySelectorAll("input").forEach(el => { el.disabled = !manual; });
+          }
+          radios.forEach(r => r.addEventListener("change", apply));
+          apply();
+      })();
+
+      // Test-Outlook button — same route as the wizard.
+      (function() {
+          const btn = document.getElementById("btn-test-outlook-settings");
+          const out = document.getElementById("test-outlook-result-settings");
+          if (!btn || !out) return;
+          btn.addEventListener("click", async () => {
+              btn.disabled = true;
+              const original = btn.textContent;
+              btn.textContent = "Testing…";
+              out.textContent = "";
+              out.className = "text-sm text-slate-500";
+              try {
+                  const fd = new FormData();
+                  fd.append("outlook_folder_path",
+                            document.getElementById("settings-outlook-folder-path").value);
+                  fd.append("outlook_store_name",
+                            document.getElementById("settings-outlook-store-name").value);
+                  const resp = await fetch("/setup/test-outlook", { method: "POST", body: fd });
+                  const data = await resp.json();
+                  if (data.ok) {
+                      out.textContent = "✓ " + (data.folder_name || data.folder_path) +
+                                        " · " + data.item_count + " items · " +
+                                        data.latency_ms + " ms";
+                      out.className = "text-sm text-emerald-700";
+                  } else {
+                      out.textContent = "✗ " + (data.error || "unknown error");
+                      out.className = "text-sm text-rose-700";
+                  }
+              } catch (err) {
+                  out.textContent = "✗ " + err.message;
+                  out.className = "text-sm text-rose-700";
+              } finally {
+                  btn.disabled = false;
+                  btn.textContent = original;
+              }
+          });
+      })();
+    </script>
+
+    <div>
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-2">Loaded configuration</h2>
+        {% if diag.counts %}
+        <dl class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <dt class="text-slate-600">Keywords</dt>
+            <dd class="font-medium">{{ diag.counts.keywords }}</dd>
+            <dt class="text-slate-600">RSS feeds / queries</dt>
+            <dd class="font-medium">{{ diag.counts.feeds }}</dd>
+            <dt class="text-slate-600">Outlets</dt>
+            <dd class="font-medium">{{ diag.counts.outlets }}</dd>
+            <dt class="text-slate-600">Excluded terms</dt>
+            <dd class="font-medium">{{ diag.counts.negative_keywords }}</dd>
+            <dt class="text-slate-600">Last loaded</dt>
+            <dd>{{ diag.last_loaded_at or '–' }}</dd>
+        </dl>
+        {% else %}
+        <p class="text-sm text-slate-500">No configuration loaded.</p>
+        {% endif %}
+        {% if diag.error %}
+            <div class="mt-3 p-3 rounded bg-rose-50 border border-rose-200 text-sm text-rose-800">
+                Error: {{ diag.error }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-2">Translation</h2>
+        <p class="text-xs text-slate-500 mb-2">
+            Articles in languages other than English get translated to English via
+            Google Translate (no API key required, unofficial endpoint). Disable
+            with <code>TRANSLATION_ENABLED=false</code> in <code>.env</code>.
+        </p>
+        <dl class="grid grid-cols-3 gap-x-6 gap-y-2 text-sm">
+            <div>
+                <dt class="text-slate-500 text-xs">Status</dt>
+                <dd class="font-medium {% if translation_enabled %}text-emerald-700{% else %}text-slate-500{% endif %}">
+                    {{ 'on' if translation_enabled else 'off' }}
+                </dd>
+            </div>
+            <div>
+                <dt class="text-slate-500 text-xs">Translated articles</dt>
+                <dd class="font-medium">{{ translation_stats.translated }}</dd>
+            </div>
+            <div>
+                <dt class="text-slate-500 text-xs">Pending</dt>
+                <dd class="font-medium">{{ translation_stats.pending }}</dd>
+            </div>
+        </dl>
+    </div>
+
+    <div>
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-2">Learning from your clicks</h2>
+        <p class="text-xs text-slate-500 mb-2">
+            Each time you <strong>star</strong> or <strong>ignore</strong> an article, the tool learns.
+            Recent star/ignore examples feed into Claude's prompt on the next run.
+            From 3 clicks per domain onwards, the score also adjusts automatically (-2 to +2).
+        </p>
+        <dl class="grid grid-cols-3 gap-x-6 gap-y-2 text-sm mb-3">
+            <div>
+                <dt class="text-slate-500 text-xs">Starred articles</dt>
+                <dd class="font-medium text-emerald-700">{{ feedback_totals.starred }}</dd>
+            </div>
+            <div>
+                <dt class="text-slate-500 text-xs">Ignored articles</dt>
+                <dd class="font-medium text-rose-700">{{ feedback_totals.ignored }}</dd>
+            </div>
+            <div>
+                <dt class="text-slate-500 text-xs">Domains with signal</dt>
+                <dd class="font-medium">{{ feedback_totals.domains_with_signal }}</dd>
+            </div>
+        </dl>
+        {% if feedback_domains %}
+            <div class="border border-slate-200 rounded overflow-hidden">
+                <table class="w-full text-sm">
+                    <thead class="bg-slate-50 text-slate-600 text-xs uppercase tracking-wider">
+                        <tr>
+                            <th class="px-3 py-2 text-left">Domain</th>
+                            <th class="px-3 py-2 text-right">Stars</th>
+                            <th class="px-3 py-2 text-right">Ignores</th>
+                            <th class="px-3 py-2 text-right">Adjustment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in feedback_domains %}
+                        <tr class="border-t border-slate-100">
+                            <td class="px-3 py-1.5 text-slate-800">{{ d.domain }}</td>
+                            <td class="px-3 py-1.5 text-right text-emerald-700">{{ d.stars }}</td>
+                            <td class="px-3 py-1.5 text-right text-rose-700">{{ d.ignores }}</td>
+                            <td class="px-3 py-1.5 text-right font-medium {% if d.adjustment > 0 %}text-emerald-700{% elif d.adjustment < 0 %}text-rose-600{% else %}text-slate-400{% endif %}">
+                                {% if d.adjustment > 0 %}+{% endif %}{{ d.adjustment }}
+                                {% if d.stars + d.ignores < 3 %}
+                                    <span class="text-[10px] text-slate-400 ml-1">(needs more)</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-xs text-slate-500 italic">No clicks recorded yet.</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-2">Runtime</h2>
+        <dl class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <dt class="text-slate-600">Claude model</dt>
+            <dd>{{ settings.anthropic_model }}</dd>
+            <dt class="text-slate-600">Dashboard port</dt>
+            <dd>{{ settings.dashboard_port }}</dd>
+            <dt class="text-slate-600">Timezone</dt>
+            <dd>{{ settings.timezone }}</dd>
+            <dt class="text-slate-600">Max age (days)</dt>
+            <dd>{{ settings.max_age_days }}</dd>
+            <dt class="text-slate-600">Highlight window (days)</dt>
+            <dd>{{ settings.highlight_days }}</dd>
+            <dt class="text-slate-600">AI filter parallel</dt>
+            <dd>{{ settings.ai_filter_max_parallel }}</dd>
+        </dl>
+    </div>
+</section>
+{% endblock %}

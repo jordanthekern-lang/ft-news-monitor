@@ -1,0 +1,11 @@
+# Dev/test-only dependencies.
+#
+# These are NOT vendored into the release ZIP (build_release.py installs
+# only requirements.txt into lib/). Install alongside the runtime deps for
+# local development and CI:
+#
+#     pip install -r requirements.txt -r requirements-dev.txt
+#
+pytest>=8.3.3
+pytest-asyncio>=0.24.0
+respx>=0.21.1

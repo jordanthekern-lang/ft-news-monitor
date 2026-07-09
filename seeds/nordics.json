@@ -1,0 +1,968 @@
+{
+  "market": "Nordics",
+  "seed_version": 1,
+  "keywords": [
+    {
+      "suchbegriff": "elbuss Klimatklivet",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Klimatklivet is Sweden's largest green-transition funding vehicle; primary channel for e-bus support"
+    },
+    {
+      "suchbegriff": "Klimatklivet transportbuss",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Wider Klimatklivet coach/bus phrasing"
+    },
+    {
+      "suchbegriff": "turistbuss+elbuss",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "SV coach-specific combo; turistbuss = long-distance coach, tokens both >=4 chars"
+    },
+    {
+      "suchbegriff": "expressbuss+elektrifiering",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "SV long-distance express-coach electrification"
+    },
+    {
+      "suchbegriff": "Naturvårdsverket elbuss",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Swedish EPA administers Klimatklivet e-bus decisions"
+    },
+    {
+      "suchbegriff": "elbusspremie Sverige",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Elbusspremie is the Swedish electric-bus purchase premium term"
+    },
+    {
+      "suchbegriff": "Enova busselektrifisering",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "notizen": "Enova is Norway's main climate-fund body; runs bus electrification support"
+    },
+    {
+      "suchbegriff": "ekspressbuss+Enova",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "NO long-distance coach combo with the state funder"
+    },
+    {
+      "suchbegriff": "elbuss+støtte",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "NO 'støtte' = subsidy; combo hedges elbuss noise"
+    },
+    {
+      "suchbegriff": "langdistansebuss elektrisk",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "NO long-distance electric coach - Flix core segment"
+    },
+    {
+      "suchbegriff": "hydrogenbuss Norge",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Norwegian H2 bus programme signal"
+    },
+    {
+      "suchbegriff": "Grøn Transportpulje bus",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Danish 'Green Transport Pool' - main bus decarbonisation instrument"
+    },
+    {
+      "suchbegriff": "fjernbus+grøn",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "DA long-distance-coach + green combo; fjernbus is unambiguous coach term"
+    },
+    {
+      "suchbegriff": "turistbus+elektrisk",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "DA touring-coach electrification combo"
+    },
+    {
+      "suchbegriff": "elbus tilskud Danmark",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "DA subsidy-focused query for e-bus purchase support"
+    },
+    {
+      "suchbegriff": "grøn omstilling bus",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "DA green-transition phrasing across bus fleet stories"
+    },
+    {
+      "suchbegriff": "sähköbussi hankintatuki",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "FI 'electric-bus purchase support' - literal programme name"
+    },
+    {
+      "suchbegriff": "linja-auto+sähköbussi",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "FI generic bus + e-bus combo; both tokens >=4 chars"
+    },
+    {
+      "suchbegriff": "kaukoliikenne+sähköbussi",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "FI long-distance service + e-bus combo"
+    },
+    {
+      "suchbegriff": "Traficom sähköbussi",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "FI transport agency administering e-bus support"
+    },
+    {
+      "suchbegriff": "kaukobussi hankintatuki",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "FI long-distance coach purchase-support phrasing"
+    },
+    {
+      "suchbegriff": "biokaasubussi",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Low",
+      "notizen": "FI biogas bus - alternative-fuel signal"
+    },
+    {
+      "suchbegriff": "HVO buss Norge",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "HVO biofuel adoption in Norwegian bus fleets"
+    },
+    {
+      "suchbegriff": "laddinfrastruktur buss",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "notizen": "SV depot-charging infrastructure for buses"
+    },
+    {
+      "suchbegriff": "ladeinfrastruktur buss",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "NO variant - depot/corridor charging"
+    },
+    {
+      "suchbegriff": "upphandling elbuss",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Tenders",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "SV 'upphandling' = procurement/tender - core signal"
+    },
+    {
+      "suchbegriff": "anbud elbuss Norge",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Tenders",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "NO 'anbud' = tender - PTA procurement"
+    },
+    {
+      "suchbegriff": "udbud elbus Danmark",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Tenders",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "DA 'udbud' = tender term"
+    },
+    {
+      "suchbegriff": "Nordic electric bus procurement",
+      "sprache": "EN",
+      "markt": [
+        "Nordics",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "EN cross-market coverage of Nordic PTAs and operator tenders"
+    },
+    {
+      "suchbegriff": "Nordic coach fleet electrification",
+      "sprache": "EN",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Sustainable-bus.com and similar EN trade press phrasing"
+    }
+  ],
+  "feeds": [
+    {
+      "outlet": "Bussmagasinet",
+      "url": "https://www.bussmagasinet.no/",
+      "rss_feed": "https://www.bussmagasinet.no/feed/",
+      "prioritaet": "High",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "notizen": "Neutral Nordic bus trade magazine (NO) - broad Nordic coverage of manufacturers, operators, policy"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Nordics",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN trade press with dedicated Nordic coverage - operator/manufacturer stories"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "rss_feed": "https://www.bus-news.com/feed/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Nordics",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "notizen": "EN global bus trade press - Nordic operator/PTA context"
+    },
+    {
+      "outlet": "Ny Teknik",
+      "url": "https://www.nyteknik.se/",
+      "rss_feed": "https://www.nyteknik.se/?lab_viewport=rss",
+      "prioritaet": "High",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Drivetrain technology"
+      ],
+      "notizen": "Sweden's leading tech/industry weekly - electrification and mobility coverage"
+    },
+    {
+      "outlet": "Teknisk Ukeblad (TU)",
+      "url": "https://www.tu.no/",
+      "rss_feed": "https://www.tu.no/feeds/general.xml",
+      "prioritaet": "High",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "notizen": "Norway's main tech/engineering weekly - covers Enova, transport, energy"
+    },
+    {
+      "outlet": "Tekniikan Maailma",
+      "url": "https://www.tekniikanmaailma.fi/",
+      "rss_feed": "https://www.tekniikanmaailma.fi/feed/",
+      "prioritaet": "Medium",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Drivetrain technology",
+        "E-buses"
+      ],
+      "notizen": "Finnish tech/automotive magazine - broad but reaches transport"
+    },
+    {
+      "outlet": "Yle Uutiset",
+      "url": "https://yle.fi/",
+      "rss_feed": "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_UUTISET",
+      "prioritaet": "Medium",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Finnish public broadcaster - broad news; filter on keywords"
+    },
+    {
+      "outlet": "SVT Nyheter",
+      "url": "https://www.svt.se/nyheter/",
+      "rss_feed": "https://www.svt.se/nyheter/rss.xml",
+      "prioritaet": "Medium",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Swedish public TV news - broad; filter on keywords"
+    },
+    {
+      "outlet": "NRK",
+      "url": "https://www.nrk.no/",
+      "rss_feed": "https://www.nrk.no/toppsaker.rss",
+      "prioritaet": "Medium",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Norwegian public broadcaster - top stories feed"
+    },
+    {
+      "outlet": "DR Nyheder",
+      "url": "https://www.dr.dk/nyheder/",
+      "rss_feed": "https://www.dr.dk/nyheder/service/feeds/allenyheder",
+      "prioritaet": "Medium",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Danish public broadcaster all-news feed"
+    },
+    {
+      "outlet": "Altinget Transport",
+      "url": "https://www.altinget.dk/transport/",
+      "rss_feed": "https://www.altinget.dk/transport/rss",
+      "prioritaet": "High",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Danish political/policy news specialised in transport - high signal for policy"
+    },
+    {
+      "outlet": "Aftenposten",
+      "url": "https://www.aftenposten.no/",
+      "rss_feed": "https://www.aftenposten.no/rss",
+      "prioritaet": "Low",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Norwegian daily of record - policy/business coverage"
+    },
+    {
+      "outlet": "European Commission - Press releases",
+      "url": "https://ec.europa.eu/commission/presscorner/",
+      "rss_feed": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&type=IP",
+      "prioritaet": "Low",
+      "sprache": "EN",
+      "markt": [
+        "Nordics",
+        "EU"
+      ],
+      "outlet_typ": "EU institution",
+      "themenbereich": [],
+      "notizen": "EU Commission press releases - Nordic funding announcements often surface here"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Trafikverket",
+      "url": "https://www.trafikverket.se/",
+      "prioritaet": "High",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "notizen": "Swedish Transport Administration - infrastructure policy, no public RSS surface"
+    },
+    {
+      "outlet": "Naturvårdsverket (Swedish EPA)",
+      "url": "https://www.naturvardsverket.se/",
+      "prioritaet": "High",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Sustainability",
+        "E-buses"
+      ],
+      "notizen": "Runs Klimatklivet - primary green-transport funding decisions"
+    },
+    {
+      "outlet": "Energimyndigheten",
+      "url": "https://www.energimyndigheten.se/",
+      "prioritaet": "Medium",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Energy supply",
+        "Charging infrastructure"
+      ],
+      "notizen": "Swedish Energy Agency - grid/charging policy for bus depots"
+    },
+    {
+      "outlet": "Enova",
+      "url": "https://www.enova.no/",
+      "prioritaet": "High",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Funding bank",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "Norway's main climate/energy funder - runs bus electrification calls"
+    },
+    {
+      "outlet": "Statens vegvesen",
+      "url": "https://www.vegvesen.no/",
+      "prioritaet": "Medium",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Norwegian Public Roads Administration - vehicle/regulation policy"
+    },
+    {
+      "outlet": "Energistyrelsen (Danish Energy Agency)",
+      "url": "https://ens.dk/",
+      "prioritaet": "High",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Energy supply",
+        "Sustainability"
+      ],
+      "notizen": "Danish Energy Agency - energy/decarbonisation policy (Grøn Transportpulje sits under Trafikstyrelsen umbrella)"
+    },
+    {
+      "outlet": "Klima-, Energi- og Forsyningsministeriet (KEFM)",
+      "url": "https://kefm.dk/",
+      "prioritaet": "Medium",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Danish Ministry of Climate, Energy and Utilities - climate strategy owner"
+    },
+    {
+      "outlet": "Traficom",
+      "url": "https://www.traficom.fi/",
+      "prioritaet": "High",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Finnish Transport and Communications Agency - involved in sähköbussi hankintatuki decisions (recently reinstated)"
+    },
+    {
+      "outlet": "Linja-autoliitto (Finnish Bus and Coach Association)",
+      "url": "https://www.linja-autoliitto.fi/",
+      "prioritaet": "High",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Finnish bus/coach operators association - policy positions"
+    },
+    {
+      "outlet": "Sveriges Bussföretag (Transportföretagen)",
+      "url": "https://www.transportforetagen.se/",
+      "prioritaet": "High",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Swedish bus/coach industry federation - part of Transportföretagen"
+    },
+    {
+      "outlet": "NHO Transport",
+      "url": "https://transport.no/",
+      "prioritaet": "High",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Norwegian transport-industry association within NHO - coach operator advocacy"
+    },
+    {
+      "outlet": "Bussmagasinet",
+      "url": "https://www.bussmagasinet.no/",
+      "prioritaet": "High",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "notizen": "Main Nordic bus trade magazine (NO) - broad Nordic coverage"
+    },
+    {
+      "outlet": "Transportmagasinet",
+      "url": "https://transportmagasinet.dk/",
+      "prioritaet": "High",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Danish transport/logistics B2B magazine (Nordiske Medier) - paywalled, no public RSS"
+    },
+    {
+      "outlet": "Ny Teknik",
+      "url": "https://www.nyteknik.se/",
+      "prioritaet": "High",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Drivetrain technology"
+      ],
+      "notizen": "Swedish tech/industry weekly - strong electrification and mobility beat"
+    },
+    {
+      "outlet": "Teknisk Ukeblad (TU)",
+      "url": "https://www.tu.no/",
+      "prioritaet": "High",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Energy supply",
+        "Charging infrastructure"
+      ],
+      "notizen": "Norwegian tech/engineering weekly - Enova and transport coverage"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Nordics",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN trade press with regular Nordic coverage - VDL/Volvo/Solaris deliveries"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Nordics",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN global bus trade press - cross-market coverage"
+    },
+    {
+      "outlet": "Altinget Transport",
+      "url": "https://www.altinget.dk/transport/",
+      "prioritaet": "High",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Danish policy/transport specialist - high policy signal"
+    },
+    {
+      "outlet": "Yle Uutiset",
+      "url": "https://yle.fi/",
+      "prioritaet": "Medium",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Finnish public broadcaster news"
+    },
+    {
+      "outlet": "DR Nyheder",
+      "url": "https://www.dr.dk/nyheder/",
+      "prioritaet": "Medium",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Danish public broadcaster news"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "skolebuss",
+      "kategorie": "Off-topic",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "NO school bus - different funding logic than long-distance coaches"
+    },
+    {
+      "begriff": "skolbuss",
+      "kategorie": "Off-topic",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "SV school bus - noise"
+    },
+    {
+      "begriff": "skolebus",
+      "kategorie": "Off-topic",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "DA school bus - noise"
+    },
+    {
+      "begriff": "koulubussi",
+      "kategorie": "Off-topic",
+      "sprache": "FI",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "FI school bus - noise"
+    },
+    {
+      "begriff": "hyra buss",
+      "kategorie": "Off-topic",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "SV 'rent a bus' - private-hire noise (weddings, events)"
+    },
+    {
+      "begriff": "leie buss",
+      "kategorie": "Off-topic",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "NO 'rent a bus' - private-hire noise"
+    },
+    {
+      "begriff": "julebord",
+      "kategorie": "Off-topic",
+      "sprache": "DA",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "DA/NO Christmas-party coach hire - seasonal noise"
+    },
+    {
+      "begriff": "busulykke",
+      "kategorie": "Off-topic",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "NO bus accident reports - high frequency, no funding relevance"
+    },
+    {
+      "begriff": "bussjåfør ledig stilling",
+      "kategorie": "Job posting",
+      "sprache": "NO",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "NO bus driver job ads - SEO noise"
+    },
+    {
+      "begriff": "busschaufför jobb",
+      "kategorie": "Job posting",
+      "sprache": "SV",
+      "markt": [
+        "Nordics"
+      ],
+      "notizen": "SV bus driver recruitment - SEO noise"
+    }
+  ]
+}

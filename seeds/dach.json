@@ -1,0 +1,1370 @@
+{
+  "market": "DACH",
+  "seed_version": 2,
+  "keywords": [
+    {
+      "suchbegriff": "Wasserstoffbus Schweiz Pilot",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "CH has an active hydrogen mobility scene, often pilot-framed"
+    },
+    {
+      "suchbegriff": "Schnellladestation Bus Schweiz",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Corridor- and depot-charging query for CH context"
+    },
+    {
+      "suchbegriff": "BAV Förderung Elektrobus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "BAV (Swiss federal transport office) is the main CH authority for public-transport funding"
+    },
+    {
+      "suchbegriff": "BAFU Klimaprogramm Verkehr",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "BAFU (Swiss federal environment agency) interlocks with BFE programmes"
+    },
+    {
+      "suchbegriff": "Postauto Elektrifizierung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Low",
+      "sprache": "DE",
+      "notizen": "PostAuto is market dominant, catches strategy and procurement news"
+    },
+    {
+      "suchbegriff": "ASTRA Förderung alternative Antriebe",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Drivetrain technology",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "ASTRA runs road infrastructure, catches corridor-charging topics"
+    },
+    {
+      "suchbegriff": "Kantonale Förderung E-Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Cantonal programmes dominate the CH funding landscape, generic but important"
+    },
+    {
+      "suchbegriff": "Konzession Fernbus Schweiz",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Concession topics are CH-specifically regulated, relevant for market access"
+    },
+    {
+      "suchbegriff": "Klimafonds Schweiz Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Climate fund anchored in the climate protection act, high budget"
+    },
+    {
+      "suchbegriff": "Carbusse elektrisch Förderung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Carbus is CH-typical for coach, disambiguates from urban PT"
+    },
+    {
+      "suchbegriff": "BFE Förderung Elektromobilität Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Federal energy office runs energy and charging-infra programmes"
+    },
+    {
+      "suchbegriff": "KPC Förderung E-Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Kommunalkredit Public Consulting runs EBIN calls operationally"
+    },
+    {
+      "suchbegriff": "ASFINAG Ladestation Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Low",
+      "sprache": "DE",
+      "notizen": "ASFINAG plans corridor chargers, relevant for coach"
+    },
+    {
+      "suchbegriff": "Ladeinfrastruktur Bus Förderung Österreich",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Standalone AT funding lines for depot charging"
+    },
+    {
+      "suchbegriff": "ÖBAG Mobilitätsförderung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Low",
+      "sprache": "DE",
+      "notizen": "Fringe term but catches occasional structural news"
+    },
+    {
+      "suchbegriff": "Saubere Fahrzeuge Beschaffungsgesetz",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "SFBG is the AT counterpart to the German SaubFahrzeugBeschG, often confused, high signal"
+    },
+    {
+      "suchbegriff": "BMK Förderung emissionsfrei Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "BMK (Austrian climate ministry) runs most ZEV funding"
+    },
+    {
+      "suchbegriff": "Wasserstoff-Bus Pilotprojekt Österreich",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Pilot-project wording typical of AT FFG/BMK calls"
+    },
+    {
+      "suchbegriff": "Förderung Elektrobus EBIN",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "EBIN is Austria's flagship e-bus procurement programme, exact programme name"
+    },
+    {
+      "suchbegriff": "Reisebus Elektromobilität Österreich",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Specific to the coach use case in AT"
+    },
+    {
+      "suchbegriff": "Förderaufruf Nullemissionsbus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Nullemissionsbus is more common in AT usage than 'Zero Emission Bus'"
+    },
+    {
+      "suchbegriff": "Wasserstoffstrategie Österreich Verkehr",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Policy drift, AT hydrogen strategy is continually being firmed up"
+    },
+    {
+      "suchbegriff": "Klimaaktiv mobil Förderung Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "klimaaktiv mobil is the climate ministry's central funding line"
+    },
+    {
+      "suchbegriff": "Megawatt Charging Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "MCS is a key topic for coaches, often written in English even in DE texts"
+    },
+    {
+      "suchbegriff": "Förderaufruf alternative Antriebe Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "NOW/NIP use this exact wording on calls"
+    },
+    {
+      "suchbegriff": "Nationale Strategie Wasserstoff Verkehr",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "NWS updates, policy drift"
+    },
+    {
+      "suchbegriff": "Wasserstofftankstelle Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Catches hydrogen-infra news, coach often mentioned"
+    },
+    {
+      "suchbegriff": "BMV Förderung Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "New ministry name (formerly BMDV), often in press releases"
+    },
+    {
+      "suchbegriff": "Klimaschutzprogramm Verkehr Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "BMV wording, catches political decisions"
+    },
+    {
+      "suchbegriff": "Ladeinfrastruktur Bus Förderung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Combines infra funding with bus, very specific"
+    },
+    {
+      "suchbegriff": "Pantograph Schnellladung Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Low",
+      "sprache": "DE",
+      "notizen": "Technical, but good for spotting pilot projects"
+    },
+    {
+      "suchbegriff": "Depotladen Reisebus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Technical wording, appears in pilot-project news"
+    },
+    {
+      "suchbegriff": "Fernbus Elektromobilität Förderung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Targets the Flix use case precisely, high signal"
+    },
+    {
+      "suchbegriff": "Saubere-Fahrzeuge-Beschaffungs-Gesetz",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "SaubFahrzeugBeschG, very specific, rarely appears outside funding context"
+    },
+    {
+      "suchbegriff": "Förderrichtlinie Elektrobus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Exact ministry wording, appears verbatim in BMV/BMDV publications"
+    },
+    {
+      "suchbegriff": "Förderprogramm Elektrobus Reisebus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Specific to coach, excludes urban-PT-only hits"
+    },
+    {
+      "suchbegriff": "Zuschuss Brennstoffzellenbus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Fuel-cell bus is the official term in NIP"
+    },
+    {
+      "suchbegriff": "KfW Förderung Busflotte",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "KfW programmes often surface with this phrase in press releases"
+    },
+    {
+      "suchbegriff": "E-Reisebus Förderung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": null
+    },
+    {
+      "suchbegriff": "E-Bus Förderung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": null
+    },
+    {
+      "suchbegriff": "Alternativer Antrieb Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": null
+    },
+    {
+      "suchbegriff": "E-Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": null
+    },
+    {
+      "suchbegriff": "Ladeinfrastruktur Finanzierung",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Financing options for charging infrastructure"
+    },
+    {
+      "suchbegriff": "Wasserstoffbus Zuschuss",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "German-language term for hydrogen-bus funding"
+    },
+    {
+      "suchbegriff": "Förderung Elektrobusse",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Generic query for e-bus funding programmes across markets"
+    },
+    {
+      "suchbegriff": "E-Reisebus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets",
+        "Sustainability",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "Elektro Reisebus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "E-Fernbus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "Elektro Fernbus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "Förderung alternativer Antriebe von Bussen im Personenverkehr",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Bus fleets",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "Bundesförderung Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure",
+        "Bus fleets",
+        "Tenders",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "Ladeinfrastruktur Bus",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Tenders",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "MCS Laden",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "AFIR Ladeinfrastruktur",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "e-coach",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "ecoach",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Sustainability",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "hdv subsidy",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "electric hdv",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Sustainability"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    }
+  ],
+  "feeds": [
+    {
+      "rss_feed": "Carpostal OR Postauto elektrisch",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Market-leader watch as an early indicator"
+    },
+    {
+      "rss_feed": "BAV Bus Förderung OR Elektrifizierung",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Catches BAV press releases on bus topics"
+    },
+    {
+      "rss_feed": "https://www.bav.admin.ch/bav/de/home/das-bav/medien/medienmitteilungen.html",
+      "typ": "Website-Scrape",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "BAV press room, central anchor"
+    },
+    {
+      "rss_feed": "\"Klimafonds\" Schweiz Verkehr Bus",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Climate protection act funds, current allocation mechanism"
+    },
+    {
+      "rss_feed": "https://www.bfe.admin.ch/bfe/de/home/news-und-medien/medienmitteilungen.html",
+      "typ": "Website-Scrape",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "BFE press room, energy and charging programmes"
+    },
+    {
+      "rss_feed": "\"klimaaktiv mobil\" Bus Förderung",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Specific, catches the central BMK programme line"
+    },
+    {
+      "rss_feed": "EBIN Förderung Bus site:umweltfoerderung.at",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Direct site filter on the KPC funding portal"
+    },
+    {
+      "rss_feed": "https://www.bmk.gv.at/service/presse.html",
+      "typ": "Website-Scrape",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "BMK press room, key AT source for transport funding"
+    },
+    {
+      "rss_feed": "BMK Bus emissionsfrei OR Elektrobus",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Combines ministry with topic vocabulary"
+    },
+    {
+      "rss_feed": "https://www.umweltfoerderung.at/aktuelles",
+      "typ": "Website-Scrape",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "KPC news feed, publishes EBIN calls and deadlines"
+    },
+    {
+      "rss_feed": "https://www.busplaner.de/de/rss.xml",
+      "typ": "RSS-Feed",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Bus trade press, has its own outlet entry"
+    },
+    {
+      "rss_feed": "https://www.now-gmbh.de/aktuelles/pressemitteilungen/",
+      "typ": "Website-Scrape",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "E-buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "NOW has no clean RSS but a fixed press-release section"
+    },
+    {
+      "rss_feed": "https://www.electrive.net/feed/",
+      "typ": "RSS-Feed",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Largest DACH e-mobility industry blog, has a dedicated bus section"
+    },
+    {
+      "rss_feed": "\"Förderrichtlinie\" Elektrobus OR Brennstoffzellenbus",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Catches authority press releases very reliably"
+    },
+    {
+      "rss_feed": "Reisebus Elektro Förderung site:bmv.bund.de OR site:now-gmbh.de",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Limited to relevant authority pages"
+    },
+    {
+      "rss_feed": "\"Ladeinfrastruktur\" Bus Zuschuss OR Förderung",
+      "typ": "Google News Query",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "Broader query, catches state and municipal programmes"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Ecomento",
+      "url": "https://ecomento.de/rubrik/news-und-trends/politik/",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "E-mobility website"
+    },
+    {
+      "outlet": "Bundesamt für Energie (BFE)",
+      "url": "https://www.bfe.admin.ch",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Authority",
+      "hat_rss": false,
+      "notizen": "Runs energy and charging programmes, EnergieSchweiz"
+    },
+    {
+      "outlet": "Schweizerischer Bus-Unternehmer-Verband (BUS)",
+      "url": "https://www.bus-unternehmer.ch",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "Trade association of private bus operators, coach and scheduled service"
+    },
+    {
+      "outlet": "Bundesamt für Verkehr (BAV)",
+      "url": "https://www.bav.admin.ch",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Authority",
+      "hat_rss": false,
+      "notizen": "Central CH authority for rail and road public transport"
+    },
+    {
+      "outlet": "Bus & Bahn (Schweiz)",
+      "url": "https://www.bus-bahn.ch",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "CH trade magazine for the public-transport sector"
+    },
+    {
+      "outlet": "Kommunalkredit Public Consulting (KPC)",
+      "url": "https://www.umweltfoerderung.at",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Funding bank",
+      "hat_rss": false,
+      "notizen": "Runs EBIN and klimaaktiv mobil operationally, calls appear here"
+    },
+    {
+      "outlet": "Bus & Truck Austria",
+      "url": "https://www.busundtruck.at",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "AT trade press for commercial road transport"
+    },
+    {
+      "outlet": "BMK (Bundesministerium für Klimaschutz)",
+      "url": "https://www.bmk.gv.at",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Ministry",
+      "hat_rss": false,
+      "notizen": "Central AT ministry for climate, environment, energy, mobility, innovation and technology"
+    },
+    {
+      "outlet": "Wirtschaftskammer Österreich Bundessparte Transport",
+      "url": "https://www.wko.at",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "WKO Autobus trade group, relevant industry position on funding policy"
+    },
+    {
+      "outlet": "BMV (Bundesministerium für Verkehr)",
+      "url": "https://www.bmv.bund.de",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Ministry",
+      "hat_rss": true,
+      "notizen": "Press-release feed available"
+    },
+    {
+      "outlet": "electrive.net",
+      "url": "https://www.electrive.net",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Trade press",
+      "hat_rss": true,
+      "notizen": "Best DACH source for bus electrification"
+    },
+    {
+      "outlet": "NOW GmbH",
+      "url": "https://www.now-gmbh.de",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "E-buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Authority",
+      "hat_rss": false,
+      "notizen": "Federal programme agency, NIP host"
+    },
+    {
+      "outlet": "Omnibusrevue",
+      "url": "https://www.omnibusrevue.de",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "Classic bus trade magazine, RSS unreliable"
+    },
+    {
+      "outlet": "Busplaner",
+      "url": "https://www.busplaner.de/de",
+      "markt": [
+        "DACH"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Bus fleets",
+        "Drivetrain technology",
+        "Sustainability"
+      ],
+      "prioritaet": "Medium",
+      "sprache": null,
+      "outlet_typ": null,
+      "hat_rss": false,
+      "notizen": null
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "Glacier Express",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Classic tourism false positive"
+    },
+    {
+      "begriff": "Bergbahn",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Tourism and fare hits, no funding relevance"
+    },
+    {
+      "begriff": "Seilbahn",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Typical CH hit, often carries transport and funding context"
+    },
+    {
+      "begriff": "Postbus Tour",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Touristic PostAuto routes, no funding or drivetrain relevance"
+    },
+    {
+      "begriff": "SBB",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "High-frequency rail news, distracts from bus focus"
+    },
+    {
+      "begriff": "Oldtimer Bus",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Nostalgia and club content, no funding relevance"
+    },
+    {
+      "begriff": "ÖBB",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Rail hits, distract from bus focus, high frequency in AT news"
+    },
+    {
+      "begriff": "Wandern Bus",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Tourism and travel reports, frequent AT hit"
+    },
+    {
+      "begriff": "Postbus",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Pure brand news without funding relevance, often false positives"
+    },
+    {
+      "begriff": "Skibus",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Tourism wording, no funding context"
+    },
+    {
+      "begriff": "Trolleybus",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Classic Swiss/Solingen hits, not relevant"
+    },
+    {
+      "begriff": "Straßenbahn",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Tram investments are often mentioned alongside bus"
+    },
+    {
+      "begriff": "Schulbus",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "School-bus funding distracts, different programme logic"
+    },
+    {
+      "begriff": "Schienenverkehr",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Removes long-distance-rail hits, otherwise noisy from DB context"
+    },
+    {
+      "begriff": "LKW Förderung",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "KsNI etc. otherwise pulls in too much truck funding"
+    },
+    {
+      "begriff": "Stellenangebot Busfahrer",
+      "markt": [
+        "DACH"
+      ],
+      "kategorie": "Job posting",
+      "notizen": "Classic SEO ranking noise in the keyword set"
+    }
+  ]
+}

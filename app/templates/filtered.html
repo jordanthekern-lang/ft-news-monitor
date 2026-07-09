@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/" class="text-sm text-slate-500 hover:text-slate-800">&larr; back to dashboard</a>
+
+<header class="mt-3 mb-4">
+    <h1 class="text-lg font-semibold text-slate-900">Excluded items</h1>
+    <p class="text-sm text-slate-500 mt-1">
+        Everything that didn't make it onto the main dashboard — either dropped by the
+        pre-filter or rated low by Claude. Useful when tuning excluded terms and search
+        keywords.
+    </p>
+</header>
+
+<nav class="bg-white rounded-lg border border-slate-200 p-3 mb-4 flex flex-wrap gap-2 text-sm">
+    {% set tabs = [
+        ('alle', 'All', counts.prefilter + counts.prescreen + counts.lowscore),
+        ('prefilter', 'Pre-filter', counts.prefilter),
+        ('prescreen', 'Pre-screen', counts.prescreen),
+        ('lowscore', 'Low score', counts.lowscore),
+        ('pending', 'Pending', counts.pending),
+    ] %}
+    {% for key, label, n in tabs %}
+        <a href="/filtered?kind={{ key }}"
+           class="px-3 py-1.5 rounded border {% if kind == key %}border-flix-green bg-flix-green/10 text-slate-900{% else %}border-slate-200 text-slate-600 hover:border-flix-green{% endif %}">
+            {{ label }} <span class="ml-1 text-xs text-slate-500">({{ n }})</span>
+        </a>
+    {% endfor %}
+</nav>
+
+<section class="bg-white rounded-lg border border-slate-200 p-3 mb-4 text-xs text-slate-600 leading-relaxed">
+    <p><strong>Pre-filter:</strong> Older than the cutoff (default 180 days) <em>or</em> hit an excluded term in the title/snippet.</p>
+    <p><strong>Pre-screen:</strong> None of your high-priority keywords showed up in the text — we don't even send the article to Claude (cost optimisation).</p>
+    <p><strong>Low score:</strong> Claude looked at it but rated it below 4.</p>
+    <p><strong>Pending:</strong> Waiting for the next run (should be empty shortly after a run).</p>
+</section>
+
+{% if not articles %}
+<div class="bg-white rounded-lg border border-slate-200 p-8 text-center text-slate-500">
+    No items in this category.
+</div>
+{% else %}
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+    <table class="w-full text-sm">
+        <thead class="bg-slate-50 text-slate-600 text-xs uppercase tracking-wider">
+            <tr>
+                <th class="px-3 py-2 text-left">Reason</th>
+                <th class="px-3 py-2 text-left">Title</th>
+                <th class="px-3 py-2 text-left">Source</th>
+                <th class="px-3 py-2 text-left">Date</th>
+                <th class="px-3 py-2 text-left">Score</th>
+                <th class="px-3 py-2 text-left">Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for art in articles %}
+            <tr class="border-t border-slate-100 hover:bg-slate-50">
+                <td class="px-3 py-2 align-top">
+                    {% set badge = 'bg-slate-100 text-slate-700' %}
+                    {% if art.exclusion_reason == 'Pre-Filter' %}
+                        {% set badge = 'bg-rose-50 text-rose-700' %}
+                    {% elif art.exclusion_reason == 'Pre-Screen' %}
+                        {% set badge = 'bg-amber-50 text-amber-700' %}
+                    {% elif art.exclusion_reason in ('Niedrig bewertet', 'Low score') %}
+                        {% set badge = 'bg-blue-50 text-blue-700' %}
+                    {% endif %}
+                    <span class="text-[11px] px-2 py-0.5 rounded-full {{ badge }}">{{ art.exclusion_reason_en }}</span>
+                </td>
+                <td class="px-3 py-2 align-top max-w-md">
+                    <a href="{{ art.url }}" target="_blank" rel="noopener" class="text-slate-900 hover:underline">{{ art.title }}</a>
+                    {% if art.filter_reason %}
+                        <div class="text-xs text-rose-600 mt-0.5">{{ art.filter_reason }}</div>
+                    {% elif art.relevance_reasoning %}
+                        <div class="text-xs text-slate-500 mt-0.5">{{ art.relevance_reasoning }}</div>
+                    {% endif %}
+                </td>
+                <td class="px-3 py-2 align-top text-slate-700">{{ art.source_name or '–' }}</td>
+                <td class="px-3 py-2 align-top text-slate-600">{{ art.published_at | date_only or '–' }}</td>
+                <td class="px-3 py-2 align-top text-slate-700">
+                    {% if art.ai_filtered %}{{ art.final_score }}{% else %}–{% endif %}
+                </td>
+                <td class="px-3 py-2 align-top">
+                    <a href="/article/{{ art.id }}" class="text-xs text-slate-500 hover:text-slate-800">open</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

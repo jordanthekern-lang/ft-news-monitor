@@ -1,0 +1,915 @@
+{
+  "market": "Italy",
+  "seed_version": 1,
+  "keywords": [
+    {
+      "suchbegriff": "autobus elettrici PNRR",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "PNRR is the primary funding stream for Italian bus decarbonisation"
+    },
+    {
+      "suchbegriff": "PNRR autobus zero emissioni",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Exact PNRR investment line wording for zero-emission buses"
+    },
+    {
+      "suchbegriff": "PNRR trasporto pubblico locale",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Broader PNRR TPL pillar - covers procurement announcements"
+    },
+    {
+      "suchbegriff": "bando autobus elettrici",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Bando' is the standard Italian term for public tender"
+    },
+    {
+      "suchbegriff": "avviso pubblico bus elettrici",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Avviso pubblico' runs parallel to bando at ministerial/regional level"
+    },
+    {
+      "suchbegriff": "decreto autobus elettrici",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "MIT/MASE 'decreto' triggers new funding tranches"
+    },
+    {
+      "suchbegriff": "MIT decreto rinnovo parco autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Ministry decree wording for fleet-renewal programmes"
+    },
+    {
+      "suchbegriff": "MASE bando mobilità sostenibile",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "MASE co-owns sustainable-mobility calls alongside MIT"
+    },
+    {
+      "suchbegriff": "ecobonus autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Ecobonus scheme extension to buses - directly relevant to Flix"
+    },
+    {
+      "suchbegriff": "Fondo Automotive autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Automotive Fund is MIMIT's supply-chain instrument, touches buses"
+    },
+    {
+      "suchbegriff": "contributo acquisto autobus elettrico",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Purchase-incentive wording - high signal for funding news"
+    },
+    {
+      "suchbegriff": "incentivi autobus idrogeno",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "H2 bus incentive term"
+    },
+    {
+      "suchbegriff": "autobus idrogeno bando",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "High",
+      "notizen": "H2-specific tender query"
+    },
+    {
+      "suchbegriff": "pullman+elettrico",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo avoids Pullman Hotels; 'pullman' is Italian colloquial for coach"
+    },
+    {
+      "suchbegriff": "pullman+PNRR",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo filters Pullman-hotel noise on PNRR coach coverage"
+    },
+    {
+      "suchbegriff": "pullman+finanziamento",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo hedges Pullman-hotel noise while catching financing coverage of pullman buses"
+    },
+    {
+      "suchbegriff": "corriera+elettrica",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Low",
+      "notizen": "'Corriera' is regional Italian for intercity coach"
+    },
+    {
+      "suchbegriff": "trasporto lunga percorrenza autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Long-distance coach terminology - Flix core segment"
+    },
+    {
+      "suchbegriff": "bus a lunga percorrenza elettrico",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Long-distance e-bus specific"
+    },
+    {
+      "suchbegriff": "infrastruttura ricarica autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "notizen": "Depot- and corridor-charging Italian phrasing"
+    },
+    {
+      "suchbegriff": "stazione idrogeno autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "H2 refuelling station specificity"
+    },
+    {
+      "suchbegriff": "TPL elettrico decreto",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "TPL (Trasporto Pubblico Locale) - regulated urban PT funding lines"
+    },
+    {
+      "suchbegriff": "gara autobus elettrici",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Tenders",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Gara' = tender/auction - direct procurement news"
+    },
+    {
+      "suchbegriff": "flotta autobus decarbonizzazione",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Fleet strategy",
+        "Sustainability"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Fleet decarbonisation strategy term"
+    },
+    {
+      "suchbegriff": "HVO autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "HVO biofuel adoption for buses - relevant transition path"
+    },
+    {
+      "suchbegriff": "biocarburanti autobus",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Italian biofuel terminology"
+    },
+    {
+      "suchbegriff": "Piano Nazionale Idrogeno trasporti",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Italian national hydrogen strategy - policy drift signal"
+    },
+    {
+      "suchbegriff": "Italy electric bus funding",
+      "sprache": "EN",
+      "markt": [
+        "Italy",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "English-language cross-market coverage of Italy funding"
+    },
+    {
+      "suchbegriff": "Italy coach fleet electrification",
+      "sprache": "EN",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Sustainable-bus.com and similar EN trade press use this phrasing"
+    }
+  ],
+  "feeds": [
+    {
+      "outlet": "Ministero delle Infrastrutture e dei Trasporti (MIT)",
+      "url": "https://www.mit.gov.it/",
+      "rss_feed": "https://www.mit.gov.it/rss.xml",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "MIT press-release feed - policy owner for infrastructure and transport"
+    },
+    {
+      "outlet": "Ferpress",
+      "url": "https://www.ferpress.it/",
+      "rss_feed": "https://www.ferpress.it/feed/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Italian rail/transport/logistics press agency - solid PNRR and TPL coverage"
+    },
+    {
+      "outlet": "Agenzia stampa Mobilita",
+      "url": "https://www.mobilita.news/",
+      "rss_feed": "https://www.mobilita.news/items.rss",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "notizen": "Full news feed across road/rail/maritime mobility topics"
+    },
+    {
+      "outlet": "Autobus Web (Vado e Torno)",
+      "url": "https://www.autobusweb.com/",
+      "rss_feed": "https://www.autobusweb.com/feed/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "notizen": "La rivista del trasporto pubblico in Italia - primary bus trade magazine"
+    },
+    {
+      "outlet": "ANAV",
+      "url": "https://www.anav.it/",
+      "rss_feed": "https://www.anav.it/feed/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Coach operator association - lobbying positions on funding/reg"
+    },
+    {
+      "outlet": "Motus-E",
+      "url": "https://www.motus-e.org/",
+      "rss_feed": "https://www.motus-e.org/feed/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "Italian e-mobility association - market data and advocacy"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Italy",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN trade press with heavy Italy coverage - BYD/Iveco Italy stories"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "rss_feed": "https://www.bus-news.com/feed/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Italy",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "notizen": "EN global bus trade press - useful cross-market coverage"
+    },
+    {
+      "outlet": "Il Sole 24 Ore - Economia",
+      "url": "https://www.ilsole24ore.com/",
+      "rss_feed": "https://www.ilsole24ore.com/rss/economia.xml",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Italian business paper - PNRR and industrial-policy coverage"
+    },
+    {
+      "outlet": "Il Sole 24 Ore - Italia",
+      "url": "https://www.ilsole24ore.com/",
+      "rss_feed": "https://www.ilsole24ore.com/rss/italia.xml",
+      "prioritaet": "Low",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "General Italy news - useful for cross-cutting policy signal"
+    },
+    {
+      "outlet": "ANSA - Economia",
+      "url": "https://www.ansa.it/",
+      "rss_feed": "https://www.ansa.it/sito/notizie/economia/economia_rss.xml",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Main Italian wire service - broad economy feed, filter on keywords"
+    },
+    {
+      "outlet": "Vado e Torno Edizioni",
+      "url": "https://vadoetorno.com/",
+      "rss_feed": "https://vadoetorno.com/feed/",
+      "prioritaet": "Low",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "notizen": "Publisher umbrella feed - largely magazine issue announcements"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Ministero delle Infrastrutture e dei Trasporti (MIT)",
+      "url": "https://www.mit.gov.it/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Policy owner for transport and infrastructure - decrees originate here"
+    },
+    {
+      "outlet": "Ministero dell'Ambiente e della Sicurezza Energetica (MASE)",
+      "url": "https://www.mase.gov.it/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [
+        "Sustainability",
+        "Hydrogen infrastructure"
+      ],
+      "notizen": "Climate/energy ministry - co-owns sustainable mobility funding calls"
+    },
+    {
+      "outlet": "Ministero delle Imprese e del Made in Italy (MIMIT)",
+      "url": "https://www.mimit.gov.it/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "Runs Fondo Automotive and industrial-policy incentives"
+    },
+    {
+      "outlet": "Governo Italiano - PNRR portal",
+      "url": "https://www.italiadomani.gov.it/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Official PNRR / NextGenerationEU implementation portal"
+    },
+    {
+      "outlet": "Cassa Depositi e Prestiti (CDP)",
+      "url": "https://www.cdp.it/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Funding bank",
+      "themenbereich": [],
+      "notizen": "State investment bank - co-finances infrastructure/fleet projects"
+    },
+    {
+      "outlet": "Ferpress",
+      "url": "https://www.ferpress.it/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Rail/transport press agency - reliable PNRR TPL beat reporting"
+    },
+    {
+      "outlet": "Agenzia stampa Mobilita (mobilita.news)",
+      "url": "https://www.mobilita.news/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "notizen": "Broad mobility news agency"
+    },
+    {
+      "outlet": "Autobus Web",
+      "url": "https://www.autobusweb.com/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "notizen": "Vado e Torno bus magazine - primary Italian bus trade press"
+    },
+    {
+      "outlet": "Trasporti-Italia",
+      "url": "https://www.trasporti-italia.com/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Italian transport/logistics portal - no RSS, needs scrape"
+    },
+    {
+      "outlet": "ANAV (Associazione Nazionale Autotrasporto Viaggiatori)",
+      "url": "https://www.anav.it/",
+      "prioritaet": "High",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "National association of coach/bus passenger transport operators"
+    },
+    {
+      "outlet": "ASSTRA",
+      "url": "https://www.asstra.it/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets",
+        "Fleet strategy"
+      ],
+      "notizen": "Italian public transport operators association - 144 member firms, ~75% market"
+    },
+    {
+      "outlet": "Motus-E",
+      "url": "https://www.motus-e.org/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "E-mobility industry association - market data and advocacy"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Italy",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN trade press with dedicated Italy coverage - Iveco, BYD, Solaris"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Italy",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN global bus news - cross-market context"
+    },
+    {
+      "outlet": "Il Sole 24 Ore",
+      "url": "https://www.ilsole24ore.com/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Main Italian business daily - covers PNRR and industrial policy"
+    },
+    {
+      "outlet": "ANSA",
+      "url": "https://www.ansa.it/",
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Main Italian wire service"
+    },
+    {
+      "outlet": "Corriere della Sera - Economia",
+      "url": "https://www.corriere.it/economia/",
+      "prioritaet": "Low",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Major Italian daily - RSS behind CDN restrictions"
+    },
+    {
+      "outlet": "La Repubblica - Economia",
+      "url": "https://www.repubblica.it/economia/",
+      "prioritaet": "Low",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Major Italian daily - RSS behind CDN restrictions"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "Pullman hotel",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Excludes Pullman Hotels brand - biggest false-positive risk"
+    },
+    {
+      "begriff": "hotel Pullman",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Variant word order for Pullman hotel chain"
+    },
+    {
+      "begriff": "Accor Pullman",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Accor is the Pullman hotel parent group"
+    },
+    {
+      "begriff": "pullman gita",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "'Gita' = day trip - tourism false positive"
+    },
+    {
+      "begriff": "gita scolastica",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "School trip - not fleet-transformation relevant"
+    },
+    {
+      "begriff": "autobus scolastico",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "School bus operations - different funding logic"
+    },
+    {
+      "begriff": "pullman matrimonio",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Wedding coach hire - noise"
+    },
+    {
+      "begriff": "autobus cerimonia",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Ceremony/event bus hire - noise"
+    },
+    {
+      "begriff": "autobus incidente",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Accident reports - high frequency, no funding relevance"
+    },
+    {
+      "begriff": "Trenitalia",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Rail operator - high frequency rail bias"
+    },
+    {
+      "begriff": "Frecciarossa",
+      "kategorie": "Off-topic",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "High-speed rail brand - not bus-relevant"
+    },
+    {
+      "begriff": "autista autobus assunzione",
+      "kategorie": "Job posting",
+      "sprache": "IT",
+      "markt": [
+        "Italy"
+      ],
+      "notizen": "Bus driver recruitment ads - SEO noise"
+    }
+  ]
+}

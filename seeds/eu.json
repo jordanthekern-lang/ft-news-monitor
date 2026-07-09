@@ -1,0 +1,930 @@
+{
+  "market": "EU",
+  "seed_version": 2,
+  "keywords": [
+    {
+      "suchbegriff": "AFIR coach charging",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Alternative Fuels Infrastructure Regulation — direct coach/HDV charging obligations along TEN-T"
+    },
+    {
+      "suchbegriff": "CEF Transport call zero-emission bus",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Connecting Europe Facility — main EU infrastructure funding line"
+    },
+    {
+      "suchbegriff": "AFIF call charging infrastructure",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Alternative Fuels Infrastructure Facility — CEF sub-programme for charging"
+    },
+    {
+      "suchbegriff": "Innovation Fund clean transport",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "EU Innovation Fund — flagship instrument for demo/pilot decarbonisation projects"
+    },
+    {
+      "suchbegriff": "CINEA call for proposals bus",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "CINEA runs CEF and Innovation Fund operationally — where calls actually get published"
+    },
+    {
+      "suchbegriff": "Clean Vehicles Directive bus procurement",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "CVD quotas trigger national procurement — high policy signal"
+    },
+    {
+      "suchbegriff": "Zero Emission Bus Europe procurement",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "ZEB is the standard shorthand across EU trade press and tenders"
+    },
+    {
+      "suchbegriff": "TEN-T coach electrification",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "TEN-T corridors are the backbone for AFIR/CEF spend"
+    },
+    {
+      "suchbegriff": "EU hydrogen bank transport",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "European Hydrogen Bank — auctions supporting green H2 production with mobility offtake"
+    },
+    {
+      "suchbegriff": "Heavy-duty CO2 standards coach",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "HDV CO2 regulation (Fit for 55) sets coach-manufacturer trajectories"
+    },
+    {
+      "suchbegriff": "Horizon Europe coach electric",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Horizon Europe innovation actions — R&D funding channel Flix already uses"
+    },
+    {
+      "suchbegriff": "DG MOVE clean bus",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "DG MOVE owns transport regulation — policy origin point"
+    },
+    {
+      "suchbegriff": "EIB financing zero-emission bus",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "European Investment Bank finances fleet transformation via national vehicles"
+    },
+    {
+      "suchbegriff": "coach+megawatt charging",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Combo: MCS deployment for coach — narrows to relevant hits, avoids HGV-only stories"
+    },
+    {
+      "suchbegriff": "e-bus+battery+procurement",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Tenders",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Combo keyword for EU tender news mentioning battery-electric bus lots"
+    },
+    {
+      "suchbegriff": "IRU coach decarbonisation",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "prioritaet": "Low",
+      "sprache": "EN",
+      "notizen": "IRU position papers set industry line on CO2, AFIR, driver rules"
+    },
+    {
+      "suchbegriff": "ACEA bus coach position",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Low",
+      "sprache": "EN",
+      "notizen": "ACEA bus/coach working group statements — OEM industry stance"
+    },
+    {
+      "suchbegriff": "Emissionsfreier Reisebus EU-Förderung",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "DE coverage of EU-level coach funding — Reisebus is the coach term"
+    },
+    {
+      "suchbegriff": "AFIR Ladeinfrastruktur Bus",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "DE-language AFIR implementation news, bus context"
+    },
+    {
+      "suchbegriff": "EU Innovationsfonds Verkehr",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "notizen": "DE wording for Innovation Fund transport-sector projects"
+    },
+    {
+      "suchbegriff": "European Hydrogen Bank auction",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Hydrogen infrastructure",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Second Hydrogen Bank auction shapes green-H2 economics for coach"
+    },
+    {
+      "suchbegriff": "AFIR Ladeinfrastruktur",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "DE",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "e-coach",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "ecoach",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Sustainability",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "hdv subsidy",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "electric hdv",
+      "markt": [
+        "DACH",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Sustainability"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Restored from Jordan's pre-reset custom additions on 2026-07-07"
+    },
+    {
+      "suchbegriff": "autocar+zéro émission Europe",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "notizen": "FR combo: 'autocar' unambiguous coach, restricts to zero-emission news"
+    },
+    {
+      "suchbegriff": "AFIR autocar recharge",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "notizen": "FR-language AFIR coverage — AFIR is used verbatim in FR press"
+    },
+    {
+      "suchbegriff": "appel à propositions CEF transport",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "notizen": "FR wording for CEF calls — catches EU funding announcements in FR media"
+    },
+    {
+      "suchbegriff": "autobus emissioni zero UE",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "notizen": "IT-language EU zero-emission bus coverage — dual-relevance for Italy market"
+    },
+    {
+      "suchbegriff": "CEF trasporti autobus",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "IT",
+      "notizen": "IT wording for CEF Transport calls; helpful for IT press picking up EU funding"
+    }
+  ],
+  "feeds": [
+    {
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Leading pan-European EN trade press for sustainable bus/coach — first stop for tech and market news"
+    },
+    {
+      "rss_feed": "https://bus-news.com/feed/",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "EN bus-industry trade press with strong EU coverage"
+    },
+    {
+      "rss_feed": "https://ec.europa.eu/commission/presscorner/api/rss?language=en",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Central EC press feed; catches DG MOVE/CLIMA announcements and policy launches"
+    },
+    {
+      "rss_feed": "https://cinea.ec.europa.eu/node/2/rss_en",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "Executive agency running CEF Transport, AFIF, Innovation Fund calls — direct source for funding calls"
+    },
+    {
+      "rss_feed": "https://transport.ec.europa.eu/node/2/rss_en",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "DG MOVE newsroom feed — AFIR, CVD, TEN-T, passenger rights updates"
+    },
+    {
+      "rss_feed": "https://climate.ec.europa.eu/node/2/rss_en",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "DG CLIMA feed — ETS, Innovation Fund, heavy-duty CO2 standards"
+    },
+    {
+      "rss_feed": "https://alternative-fuels-observatory.ec.europa.eu/rss.xml",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "DG MOVE data portal for AFIR monitoring, infra stats and country dashboards"
+    },
+    {
+      "rss_feed": "https://www.iru.org/rss.xml",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "notizen": "International Road Transport Union — coach/bus policy voice, Brussels lobbying"
+    },
+    {
+      "rss_feed": "https://hydrogeneurope.eu/feed/",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "notizen": "Sector body tracking H2 Bank, HRS rollout and IPCEI hydrogen projects"
+    },
+    {
+      "rss_feed": "https://www.h2eart.eu/feed/",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Low",
+      "sprache": "EN",
+      "notizen": "Underground hydrogen storage advocacy — background context for H2 corridor availability"
+    },
+    {
+      "rss_feed": "https://www.ville-rail-transports.com/feed/",
+      "typ": null,
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "notizen": "FR public-transport trade press with EU-market coverage (Deutsche Bahn, EU liberalisation)"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "Leading EN trade press for bus electrification in Europe"
+    },
+    {
+      "outlet": "Bus-News",
+      "url": "https://bus-news.com/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "EN bus-industry news portal, EU-focused"
+    },
+    {
+      "outlet": "Euractiv Transport",
+      "url": "https://www.euractiv.com/section/transport/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "Brussels policy press — reliable early signal on legislative moves"
+    },
+    {
+      "outlet": "Politico Europe Mobility",
+      "url": "https://www.politico.eu/section/mobility/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "Insider Brussels policy news; strong on Council/Parliament negotiations"
+    },
+    {
+      "outlet": "Transport & Environment",
+      "url": "https://www.transportenvironment.org/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "Green-mobility NGO shaping EU policy debates on HDV CO2, AFIR, ETS2"
+    },
+    {
+      "outlet": "electrive (English edition)",
+      "url": "https://www.electrive.com/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "EN edition of electrive; dedicated utility-vehicle/bus section"
+    },
+    {
+      "outlet": "DG MOVE (European Commission)",
+      "url": "https://transport.ec.europa.eu/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "EU institution",
+      "hat_rss": false,
+      "notizen": "Directorate-General for Mobility and Transport — regulation origin"
+    },
+    {
+      "outlet": "DG CLIMA (European Commission)",
+      "url": "https://climate.ec.europa.eu/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "outlet_typ": "EU institution",
+      "hat_rss": false,
+      "notizen": "DG for Climate Action — Innovation Fund, ETS2, HDV CO2 legislation"
+    },
+    {
+      "outlet": "CINEA",
+      "url": "https://cinea.ec.europa.eu/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "EU institution",
+      "hat_rss": false,
+      "notizen": "European Climate, Infrastructure and Environment Executive Agency — manages CEF and Innovation Fund"
+    },
+    {
+      "outlet": "European Commission Press Corner",
+      "url": "https://ec.europa.eu/commission/presscorner/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "outlet_typ": "EU institution",
+      "hat_rss": false,
+      "notizen": "Central Commission press room — cross-DG announcements"
+    },
+    {
+      "outlet": "European Alternative Fuels Observatory",
+      "url": "https://alternative-fuels-observatory.ec.europa.eu/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Hydrogen infrastructure",
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "EU institution",
+      "hat_rss": false,
+      "notizen": "Data portal for AFIR monitoring"
+    },
+    {
+      "outlet": "IRU",
+      "url": "https://www.iru.org/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "sprache": "EN",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "International Road Transport Union — coach/bus sector globally"
+    },
+    {
+      "outlet": "ACEA",
+      "url": "https://www.acea.auto/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "European Automobile Manufacturers Association — bus/coach WG issues position papers"
+    },
+    {
+      "outlet": "Hydrogen Europe",
+      "url": "https://hydrogeneurope.eu/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "Sector body tracking H2 Bank, HRS rollout, IPCEI hydrogen projects"
+    },
+    {
+      "outlet": "UITP",
+      "url": "https://www.uitp.org/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "outlet_typ": "Association",
+      "hat_rss": false,
+      "notizen": "International public-transport association — data and advocacy on urban+regional bus"
+    },
+    {
+      "outlet": "CIVITAS Initiative",
+      "url": "https://civitas.eu/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "prioritaet": "Low",
+      "sprache": "EN",
+      "outlet_typ": "EU institution",
+      "hat_rss": false,
+      "notizen": "EU-funded network of urban-mobility cities — pilots + demonstrator news"
+    },
+    {
+      "outlet": "European Investment Bank",
+      "url": "https://www.eib.org/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "outlet_typ": "Funding bank",
+      "hat_rss": false,
+      "notizen": "EU public bank — finances national fleet-renewal programmes and charging infra"
+    },
+    {
+      "outlet": "Mobilettre",
+      "url": "https://www.mobilettre.com/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "FR mobility trade press covering EU regulation, cross-border coach market"
+    },
+    {
+      "outlet": "Ville, Rail & Transports",
+      "url": "https://www.ville-rail-transports.com/",
+      "markt": [
+        "EU"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "outlet_typ": "Trade press",
+      "hat_rss": false,
+      "notizen": "FR public-transport trade press with EU-market coverage"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "Eurovision",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Song contest — bus-branded fan travel stories are pure noise"
+    },
+    {
+      "begriff": "European elections",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Election coverage dominates EU news windows without funding signal"
+    },
+    {
+      "begriff": "maritime hydrogen",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Shipping H2 pilots often surface in Innovation Fund lists — off-topic for coach"
+    },
+    {
+      "begriff": "aviation SAF",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Sustainable Aviation Fuel — heavy EU-funding overlap, wrong sector"
+    },
+    {
+      "begriff": "rail freight",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "CEF also funds rail — freight stories crowd out bus/coach signal"
+    },
+    {
+      "begriff": "school transport",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "School bus tenders operate on separate policy tracks"
+    },
+    {
+      "begriff": "cruise ship",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "AFIR shore-power stories mention cruise vessels — off-topic for coach"
+    },
+    {
+      "begriff": "EU football",
+      "markt": [
+        "EU"
+      ],
+      "kategorie": "Off-topic",
+      "notizen": "Team-bus stories rank on 'EU bus' queries — no funding relevance"
+    }
+  ]
+}

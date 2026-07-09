@@ -1,0 +1,4 @@
+# Windows batch files must ship with CRLF so cmd.exe parses them cleanly.
+# Belt-and-braces with build/build_release.py::_normalise_bat_crlf.
+*.bat text eol=crlf
+*.cmd text eol=crlf

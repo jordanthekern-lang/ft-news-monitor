@@ -1,0 +1,927 @@
+{
+  "market": "France",
+  "seed_version": 1,
+  "keywords": [
+    {
+      "suchbegriff": "appel à projets autocar électrique",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "ADEME/France 2030 AAP wording, separates coach from urban PT cleanly"
+    },
+    {
+      "suchbegriff": "aide à l'acquisition autocar électrique",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Purchase-aid wording for coaches, high signal"
+    },
+    {
+      "suchbegriff": "ADEME autocar zéro émission",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "ADEME is main funding-agency name; coach-specific call vocabulary"
+    },
+    {
+      "suchbegriff": "France 2030 mobilité lourde",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "France 2030 investment plan pillar for heavy mobility"
+    },
+    {
+      "suchbegriff": "verdissement du parc autocars",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "Fleet-greening idiom used by ministry and FNTV"
+    },
+    {
+      "suchbegriff": "autocar+subvention",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "AND-combo: keeps subsidy stories, kills school-tour noise"
+    },
+    {
+      "suchbegriff": "autocar+ADEME",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "AND-combo: catches ADEME programme mentions alongside coach"
+    },
+    {
+      "suchbegriff": "car longue distance zéro émission",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Long-distance-coach ZEV wording, Flix use case"
+    },
+    {
+      "suchbegriff": "bus longue distance électrique",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Long-distance e-bus wording, alternate to 'car longue distance'"
+    },
+    {
+      "suchbegriff": "infrastructure de recharge autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "High",
+      "notizen": "Coach charging infra, ADEME AAP topic"
+    },
+    {
+      "suchbegriff": "station hydrogène autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Hydrogen refuelling station for coach"
+    },
+    {
+      "suchbegriff": "autocar hydrogène France",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "H2 coach France-scoped query"
+    },
+    {
+      "suchbegriff": "FNTV autocar électrique",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "FNTV is the coach-operators federation, position statements matter"
+    },
+    {
+      "suchbegriff": "ZFE poids lourds autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Low-emission-zone rules for HDVs, drives fleet demand"
+    },
+    {
+      "suchbegriff": "Bpifrance financement autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Public investment bank finances fleet transformation"
+    },
+    {
+      "suchbegriff": "AAP autocar zéro émission",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "AAP acronym for appel à projets, common in official calls"
+    },
+    {
+      "suchbegriff": "autocar+ZEV zéro émission",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "AND-combo catching English 'ZEV' acronym in French text"
+    },
+    {
+      "suchbegriff": "autocar+France 2030",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "AND-combo: France 2030 mentions of coach"
+    },
+    {
+      "suchbegriff": "AFIF autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Alternative Fuels Infrastructure Facility (EU) — visible on FR corridor projects"
+    },
+    {
+      "suchbegriff": "certificat économie énergie transport",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [],
+      "prioritaet": "Medium",
+      "notizen": "CEE scheme sometimes funds fleet transition"
+    },
+    {
+      "suchbegriff": "aide flotte autocars propres",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Clean-fleet aid, catches national and regional schemes"
+    },
+    {
+      "suchbegriff": "recharge dépôt autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Depot-charging vocabulary, pilot-project signal"
+    },
+    {
+      "suchbegriff": "HVO autocar France",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "HVO biodiesel adoption in coach fleets"
+    },
+    {
+      "suchbegriff": "biocarburant autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Biofuel-coach generic term"
+    },
+    {
+      "suchbegriff": "SRADDET transport voyageurs",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Fleet strategy"
+      ],
+      "prioritaet": "Low",
+      "notizen": "Regional strategy plans covering passenger transport"
+    },
+    {
+      "suchbegriff": "transition énergétique autocar",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "Drivetrain technology"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Energy-transition frame catching strategy stories"
+    },
+    {
+      "suchbegriff": "appel à manifestation intérêt bus",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Tenders",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "AMI is the other common French funding-call format"
+    }
+  ],
+  "feeds": [
+    {
+      "outlet": "Bus & Car",
+      "url": "https://www.busetcar.com/",
+      "rss_feed": "https://www.busetcar.com/rss.xml",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "Central FR coach & passenger-transport trade publication, valid RSS 2.0"
+    },
+    {
+      "outlet": "Ministère de la Transition écologique — Actualités",
+      "url": "https://www.ecologie.gouv.fr/",
+      "rss_feed": "https://ecologie.gouv.fr/rss-actualites.xml",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "Ministry news feed — covers transport, ADEME oversight, funding announcements"
+    },
+    {
+      "outlet": "Ministère de la Transition écologique — Presse",
+      "url": "https://www.ecologie.gouv.fr/",
+      "rss_feed": "https://ecologie.gouv.fr/rss-presse.xml",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "Ministry press releases feed — high signal for funding calls"
+    },
+    {
+      "outlet": "Ville, Rail & Transports",
+      "url": "https://www.ville-rail-transports.com/",
+      "rss_feed": "https://www.ville-rail-transports.com/feed/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "FR mobility/passenger-transport publication, updates hourly"
+    },
+    {
+      "outlet": "AVERE-France",
+      "url": "https://www.avere-france.org/",
+      "rss_feed": "https://www.avere-france.org/feed/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "National e-mobility association, policy and infrastructure signal"
+    },
+    {
+      "outlet": "H2 Mobile",
+      "url": "https://www.h2-mobile.fr/",
+      "rss_feed": "https://www.h2-mobile.fr/feed/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "notizen": "FR hydrogen-mobility news portal, dedicated bus/heavy sections"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "EN trade press with regular FR-market coverage (Keolis, RATP, Transdev)"
+    },
+    {
+      "outlet": "Bus-News",
+      "url": "https://www.bus-news.com/",
+      "rss_feed": "https://www.bus-news.com/feed/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN bus-industry news, covers FR tenders and deliveries"
+    },
+    {
+      "outlet": "electrive",
+      "url": "https://www.electrive.net/",
+      "rss_feed": "https://www.electrive.net/feed/",
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure",
+        "Drivetrain technology"
+      ],
+      "notizen": "Largest e-mobility trade site, covers FR OEMs and charging deals"
+    },
+    {
+      "outlet": "Journal de l'Automobile",
+      "url": "https://journalauto.com/",
+      "rss_feed": "https://journalauto.com/feed/",
+      "prioritaet": "Low",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Drivetrain technology"
+      ],
+      "notizen": "Automotive trade press — light on bus but catches OEM/policy stories"
+    },
+    {
+      "outlet": "France Mobilités",
+      "url": "https://www.francemobilites.fr/",
+      "rss_feed": "https://www.francemobilites.fr/rss/news/feed",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Fleet strategy",
+        "Sustainability"
+      ],
+      "notizen": "National mobility-innovation platform, regional AAPs and calls"
+    },
+    {
+      "outlet": "Reporterre",
+      "url": "https://reporterre.net/",
+      "rss_feed": "https://reporterre.net/spip.php?page=backend",
+      "prioritaet": "Low",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Environmental daily, transport policy angle; noisy but occasional exclusives"
+    },
+    {
+      "outlet": "European Commission Press Corner (FR)",
+      "url": "https://ec.europa.eu/commission/presscorner/",
+      "rss_feed": "https://ec.europa.eu/commission/presscorner/api/rss?language=fr&pageSize=15",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "EU institution",
+      "themenbereich": [],
+      "notizen": "EC press feed in FR — catches AFIR, CEF, ZEB announcements as French communiqués"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "ADEME",
+      "url": "https://www.ademe.fr/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Agence de la transition écologique — core FR funding agency for coach/bus programmes"
+    },
+    {
+      "outlet": "Ministère de la Transition écologique",
+      "url": "https://www.ecologie.gouv.fr/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "Policy owner for transport and climate"
+    },
+    {
+      "outlet": "Bpifrance",
+      "url": "https://www.bpifrance.fr/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Funding bank",
+      "themenbereich": [
+        "Fleet strategy"
+      ],
+      "notizen": "Public investment bank co-financing France 2030 mobility calls"
+    },
+    {
+      "outlet": "Bus & Car",
+      "url": "https://www.busetcar.com/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "notizen": "Bus & Car - Transport de Voyageurs, has feed row too"
+    },
+    {
+      "outlet": "Mobilettre",
+      "url": "https://mobilettre.com/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Editorial mobility newsletter (subscriber-gated); public RSS stale so kept as outlet only"
+    },
+    {
+      "outlet": "Ville, Rail & Transports",
+      "url": "https://www.ville-rail-transports.com/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Mobility trade publication, feed row exists"
+    },
+    {
+      "outlet": "Mobilités Magazine",
+      "url": "https://mobilitesmagazine.com/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "French public-transport & mobility magazine"
+    },
+    {
+      "outlet": "FNTV",
+      "url": "https://www.fntv.fr/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Federation of coach and passenger-road-transport operators — key policy voice"
+    },
+    {
+      "outlet": "AVERE-France",
+      "url": "https://www.avere-france.org/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "National e-mobility association since 1978"
+    },
+    {
+      "outlet": "H2 Mobile",
+      "url": "https://www.h2-mobile.fr/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "notizen": "Hydrogen-mobility trade portal"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses"
+      ],
+      "notizen": "EN trade press, wide EU + FR coverage"
+    },
+    {
+      "outlet": "Bus-News",
+      "url": "https://www.bus-news.com/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN bus-industry news"
+    },
+    {
+      "outlet": "Les Échos",
+      "url": "https://www.lesechos.fr/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [
+        "Fleet strategy"
+      ],
+      "notizen": "Business daily, transport/industry M&A and policy pieces"
+    },
+    {
+      "outlet": "Le Monde",
+      "url": "https://www.lemonde.fr/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Reference daily, économie/transports desk"
+    },
+    {
+      "outlet": "Actu-Environnement",
+      "url": "https://www.actu-environnement.com/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Environmental/energy trade site with transport section"
+    },
+    {
+      "outlet": "France Mobilités",
+      "url": "https://www.francemobilites.fr/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Fleet strategy",
+        "Sustainability"
+      ],
+      "notizen": "National sustainable-mobility platform under Cerema/ministry"
+    },
+    {
+      "outlet": "GART",
+      "url": "https://gart.org/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Groupement des Autorités Responsables de Transport (transit authorities network)"
+    },
+    {
+      "outlet": "Novethic",
+      "url": "https://www.novethic.fr/",
+      "prioritaet": "Low",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Sustainable-finance/ESG publication, occasional transport-transition coverage"
+    },
+    {
+      "outlet": "electrive",
+      "url": "https://www.electrive.net/",
+      "prioritaet": "Medium",
+      "sprache": "DE",
+      "markt": [
+        "France",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "e-mobility trade site (DE HQ) with wide EU coverage — feed row also exists"
+    },
+    {
+      "outlet": "Reporterre",
+      "url": "https://reporterre.net/",
+      "prioritaet": "Low",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Independent ecology daily, feed row also exists"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "SNCF",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "High-frequency rail news, distracts from bus/coach focus"
+    },
+    {
+      "begriff": "TGV",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "High-speed-rail hits, classic rail-bias false positive"
+    },
+    {
+      "begriff": "autocar tourisme",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "Inbound-tourism coach packages, no funding relevance"
+    },
+    {
+      "begriff": "tourisme réceptif",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "Inbound tourism reports mentioning coach transfers"
+    },
+    {
+      "begriff": "autocar scolaire",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "School-bus services, different funding logic than long-distance coach"
+    },
+    {
+      "begriff": "voyage scolaire",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "School-trip vocabulary, high-frequency FR false positive"
+    },
+    {
+      "begriff": "autocar grève",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "Strike coverage without funding context"
+    },
+    {
+      "begriff": "hôtel autocar",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "Hotel-with-coach-parking listings"
+    },
+    {
+      "begriff": "offre d'emploi conducteur autocar",
+      "kategorie": "Job posting",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "Driver job ads clutter SEO"
+    },
+    {
+      "begriff": "location autocar mariage",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "France"
+      ],
+      "notizen": "Wedding-bus rental ads, no policy relevance"
+    }
+  ]
+}

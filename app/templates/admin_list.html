@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}{{ meta.label }} · FT News Monitor{% endblock %}
+
+{% block content %}
+<header class="flex items-center justify-between mb-4">
+    <div>
+        <h1 class="text-lg font-semibold text-slate-900">{{ meta.label }}</h1>
+        <p class="text-sm text-slate-500">{{ rows|length }} entries{% if selected_market %} · market: {{ selected_market }}{% endif %}</p>
+    </div>
+    <div class="flex items-center gap-3">
+        <form method="get" class="flex items-center gap-2 text-sm">
+            <label for="market-filter" class="text-xs uppercase tracking-wider text-slate-500">Market</label>
+            <select id="market-filter" name="market" onchange="this.form.submit()"
+                    class="border border-slate-200 rounded px-2 py-1.5 text-sm bg-white focus:border-flix-green focus:outline-none">
+                <option value="">All markets</option>
+                {% for m in all_markets %}
+                    <option value="{{ m }}" {% if m == selected_market %}selected{% endif %}>{{ m }}</option>
+                {% endfor %}
+            </select>
+        </form>
+        <a href="/admin/{{ slug }}/new"
+           class="px-3 py-1.5 rounded bg-flix-green text-slate-900 text-sm font-medium hover:bg-flix-green/80">
+            + Add {{ meta.singular }}
+        </a>
+        <a href="/admin/export-config"
+           class="px-3 py-1.5 rounded border border-slate-200 text-sm text-slate-600 hover:text-slate-900 hover:border-slate-300"
+           title="Download all four config tables as a JSON seed pack">
+            Export configuration (JSON)
+        </a>
+    </div>
+</header>
+
+{% if not rows %}
+<div class="bg-white rounded-lg border border-slate-200 p-8 text-center text-slate-500">
+    {% if selected_market %}
+        No {{ meta.label|lower }} for market <strong>{{ selected_market }}</strong>.
+        <a href="/admin/{{ slug }}" class="underline hover:text-slate-800">Show all markets</a>
+    {% else %}
+        No {{ meta.label|lower }} yet. Click <strong>Add {{ meta.singular }}</strong> to create one.
+    {% endif %}
+</div>
+{% else %}
+<div class="bg-white rounded-lg border border-slate-200 overflow-x-auto">
+    <table class="w-full text-sm">
+        <thead class="bg-slate-50 text-slate-600 text-xs uppercase tracking-wider">
+            <tr>
+                {% for col in meta.list_columns %}
+                    {% set field = meta.fields|selectattr('name', 'equalto', col)|first %}
+                    <th class="px-3 py-2 text-left whitespace-nowrap">{{ field.label }}</th>
+                {% endfor %}
+                <th class="px-3 py-2 text-right whitespace-nowrap">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr class="border-t border-slate-100 hover:bg-slate-50 align-top">
+                {% for col in meta.list_columns %}
+                    {% set field = meta.fields|selectattr('name', 'equalto', col)|first %}
+                    {% set val = row.get(col) %}
+                    <td class="px-3 py-2 text-slate-800 max-w-xs">
+                        {% if field.type == 'multiselect' %}
+                            {% if val %}
+                                <div class="flex flex-wrap gap-1">
+                                    {% for v in val %}
+                                        <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">{{ v }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <span class="text-slate-400">–</span>
+                            {% endif %}
+                        {% elif field.type == 'checkbox' %}
+                            {% if val %}
+                                <span class="text-emerald-700">yes</span>
+                            {% else %}
+                                <span class="text-slate-400">no</span>
+                            {% endif %}
+                        {% elif col == 'url' or col == 'rss_feed' %}
+                            {% if val %}
+                                <a href="{{ val }}" target="_blank" rel="noopener" class="text-slate-700 hover:underline break-all">{{ val }}</a>
+                            {% else %}
+                                <span class="text-slate-400">–</span>
+                            {% endif %}
+                        {% else %}
+                            {% if val %}{{ val }}{% else %}<span class="text-slate-400">–</span>{% endif %}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+                <td class="px-3 py-2 text-right whitespace-nowrap">
+                    <a href="/admin/{{ slug }}/{{ row.id }}/edit"
+                       class="text-xs text-slate-600 hover:text-slate-900 px-2 py-1">Edit</a>
+                    <form method="post" action="/admin/{{ slug }}/{{ row.id }}/delete" class="inline"
+                          onsubmit="return confirm('Delete this {{ meta.singular }}?');">
+                        <button type="submit" class="text-xs text-rose-600 hover:text-rose-800 px-2 py-1">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

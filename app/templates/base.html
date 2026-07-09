@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}FT News Monitor{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              flix: {
+                green: "#97d700",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      details > summary { list-style: none; cursor: pointer; }
+      details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+    <header class="bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <span class="inline-block w-3 h-3 rounded-full bg-flix-green"></span>
+                <span class="font-semibold text-slate-800">FT News Monitor</span>
+            </a>
+            {% block nav %}
+            <nav class="flex items-center gap-2 text-sm">
+                <span title="Last collection run · next scheduled run"
+                      class="hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs text-slate-600">
+                    <span>Last run: <span class="font-medium text-slate-800">{{ header_chip_last_run() }}</span></span>
+                    <span class="text-slate-300">·</span>
+                    <span>Next: <span class="font-medium text-slate-800">{{ header_chip_next_run() }}</span></span>
+                </span>
+                <a href="/admin/keywords" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Keywords
+                </a>
+                <a href="/admin/feeds" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Feeds
+                </a>
+                <a href="/admin/outlets" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Outlets
+                </a>
+                <a href="/admin/negative-keywords" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Excludes
+                </a>
+                <a href="/admin/golden" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Golden set
+                    {% set _g = nav_golden_count() %}
+                    {% if _g > 0 %}
+                        <span class="ml-1 text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-600">{{ _g }}</span>
+                    {% endif %}
+                </a>
+                {% set _s = nav_suggestions_count() %}
+                {% if _s > 0 %}
+                <a href="/admin/suggestions" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Suggestions
+                    <span class="ml-1 text-[10px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800">{{ _s }}</span>
+                </a>
+                {% endif %}
+                <span class="w-px h-5 bg-slate-200 mx-1"></span>
+                <button id="btn-rerun"
+                        class="px-3 py-1.5 rounded border border-slate-200 text-slate-700 hover:border-flix-green hover:text-slate-900">
+                    Run collection
+                </button>
+                <button id="btn-reload"
+                        class="px-3 py-1.5 rounded border border-slate-200 text-slate-700 hover:border-flix-green hover:text-slate-900">
+                    Reload config
+                </button>
+                <a href="/settings" class="px-3 py-1.5 rounded border border-transparent text-slate-600 hover:text-slate-900">
+                    Settings
+                </a>
+            </nav>
+            {% endblock %}
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-6">
+        {% block content %}{% endblock %}
+    </main>
+
+    <div id="toast" class="fixed bottom-6 right-6 hidden bg-slate-900 text-white text-sm px-4 py-2 rounded shadow-lg"></div>
+
+    <script>
+      function showToast(msg, ok = true) {
+        const el = document.getElementById("toast");
+        el.textContent = msg;
+        el.className = "fixed bottom-6 right-6 text-sm px-4 py-2 rounded shadow-lg " +
+                       (ok ? "bg-slate-900 text-white" : "bg-red-700 text-white");
+        el.classList.remove("hidden");
+        setTimeout(() => el.classList.add("hidden"), 3500);
+      }
+
+      async function postJSON(url) {
+        const resp = await fetch(url, { method: "POST" });
+        if (!resp.ok) {
+          const err = new Error(`HTTP ${resp.status}`);
+          err.status = resp.status;
+          throw err;
+        }
+        return resp.json();
+      }
+
+      const reloadBtn = document.getElementById("btn-reload");
+      if (reloadBtn) {
+        reloadBtn.addEventListener("click", async () => {
+          reloadBtn.disabled = true;
+          reloadBtn.textContent = "Loading…";
+          try {
+            const data = await postJSON("/reload-config");
+            const c = data.counts;
+            showToast(`Config reloaded: ${c.keywords} keywords · ${c.feeds} feeds · ${c.outlets} outlets · ${c.negative_keywords} excludes`);
+          } catch (err) {
+            showToast("Reload failed: " + err.message, false);
+          } finally {
+            reloadBtn.disabled = false;
+            reloadBtn.textContent = "Reload config";
+          }
+        });
+      }
+
+      const rerunBtn = document.getElementById("btn-rerun");
+      if (rerunBtn) {
+        rerunBtn.addEventListener("click", async () => {
+          rerunBtn.disabled = true;
+          rerunBtn.textContent = "Running…";
+          try {
+            const data = await postJSON("/run-collection");
+            const c = data.collector;
+            showToast(`Run complete: ${c.total_new} new · ${data.ai_filter?.scored ?? 0} scored`);
+            setTimeout(() => location.reload(), 1500);
+          } catch (err) {
+            if (err.status === 409) {
+              showToast("A collection run is already in progress.", false);
+            } else {
+              showToast("Run failed: " + err.message, false);
+            }
+          } finally {
+            rerunBtn.disabled = false;
+            rerunBtn.textContent = "Run collection";
+          }
+        });
+      }
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

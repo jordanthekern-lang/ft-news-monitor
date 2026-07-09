@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Golden Set · FT News Monitor{% endblock %}
+
+{% block content %}
+<a href="/" class="text-sm text-slate-500 hover:text-slate-800">&larr; back to dashboard</a>
+
+<header class="mt-3 mb-4">
+    <h1 class="text-lg font-semibold text-slate-900">Golden set</h1>
+    <p class="text-sm text-slate-500 mt-1 max-w-3xl">
+        Your personal eval set. Label articles as <span class="font-medium text-emerald-700">Relevant</span>
+        (should score high) or <span class="font-medium text-rose-700">Noise</span>
+        (should score low). Then run
+        <code class="bg-slate-100 rounded px-1 py-0.5 text-xs">python scripts/run_eval.py</code>
+        to re-score them against the current prompt and see precision/recall/F1.
+        Labels are separate from Star/Ignore so the eval set doesn't leak into
+        the model's few-shot prompt.
+    </p>
+</header>
+
+<nav class="bg-white rounded-lg border border-slate-200 p-3 mb-4 flex flex-wrap gap-2 text-sm">
+    {% set tabs = [
+        (None, 'All', counts.total),
+        ('relevant', 'Relevant', counts.relevant),
+        ('noise', 'Noise', counts.noise),
+    ] %}
+    {% for key, label, n in tabs %}
+        <a href="{% if key %}/admin/golden?label={{ key }}{% else %}/admin/golden{% endif %}"
+           class="px-3 py-1.5 rounded border {% if filter_label == key %}border-flix-green bg-flix-green/10 text-slate-900{% else %}border-slate-200 text-slate-600 hover:border-flix-green{% endif %}">
+            {{ label }} <span class="ml-1 text-xs text-slate-500">({{ n }})</span>
+        </a>
+    {% endfor %}
+</nav>
+
+{% if not articles %}
+<div class="bg-white rounded-lg border border-slate-200 p-8 text-center text-slate-500">
+    No labeled articles yet. Open an article and click <strong>R</strong> (relevant) or <strong>N</strong> (noise).
+</div>
+{% else %}
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+    <table class="w-full text-sm">
+        <thead class="bg-slate-50 text-slate-600 text-xs uppercase tracking-wider">
+            <tr>
+                <th class="px-3 py-2 text-left">Label</th>
+                <th class="px-3 py-2 text-left">Title</th>
+                <th class="px-3 py-2 text-left">Market</th>
+                <th class="px-3 py-2 text-left">Score</th>
+                <th class="px-3 py-2 text-left">Labeled</th>
+                <th class="px-3 py-2 text-left">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for art in articles %}
+            <tr class="border-t border-slate-100 hover:bg-slate-50" id="golden-row-{{ art.id }}">
+                <td class="px-3 py-2 align-top">
+                    {% if art.golden_label == 'relevant' %}
+                        <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">Relevant</span>
+                    {% else %}
+                        <span class="text-[11px] px-2 py-0.5 rounded-full bg-rose-50 text-rose-700">Noise</span>
+                    {% endif %}
+                </td>
+                <td class="px-3 py-2 align-top max-w-md">
+                    <a href="{{ art.url }}" target="_blank" rel="noopener" class="text-slate-900 hover:underline">
+                        {{ art.title }}
+                    </a>
+                    <div class="text-xs text-slate-500 mt-0.5">{{ art.source_name or '–' }}</div>
+                </td>
+                <td class="px-3 py-2 align-top text-slate-700">{{ art.country or '–' }}</td>
+                <td class="px-3 py-2 align-top text-slate-700">
+                    {% if art.ai_filtered %}{{ art.final_score }}{% else %}–{% endif %}
+                </td>
+                <td class="px-3 py-2 align-top text-xs text-slate-500">
+                    {{ art.golden_added_at | local_dt }}
+                </td>
+                <td class="px-3 py-2 align-top">
+                    <a href="/article/{{ art.id }}" class="text-xs text-slate-500 hover:text-slate-800">open</a>
+                    <button class="golden-clear-btn ml-2 text-xs text-rose-600 hover:text-rose-800"
+                            data-id="{{ art.id }}">unlabel</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.querySelectorAll(".golden-clear-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      try {
+        await postJSON(`/article/${id}/golden/clear`);
+        const row = document.getElementById(`golden-row-${id}`);
+        if (row) row.remove();
+      } catch (err) {
+        showToast("Unlabel failed: " + err.message, false);
+      }
+    });
+  });
+</script>
+{% endblock %}

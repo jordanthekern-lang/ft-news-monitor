@@ -1,0 +1,898 @@
+{
+  "market": "Portugal",
+  "seed_version": 1,
+  "keywords": [
+    {
+      "suchbegriff": "autocarro elétrico PRR",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "PRR is Portugal's main recovery-plan funding stream for e-buses"
+    },
+    {
+      "suchbegriff": "PRR mobilidade autocarros",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "notizen": "Broader PRR mobility investment line targeting fleets"
+    },
+    {
+      "suchbegriff": "Fundo Ambiental autocarro elétrico",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Fundo Ambiental is the primary PT green-transport funding vehicle"
+    },
+    {
+      "suchbegriff": "Fundo Ambiental mobilidade sustentável",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Broader Fundo Ambiental line covering sustainable mobility calls"
+    },
+    {
+      "suchbegriff": "aviso autocarros elétricos",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Aviso' is the standard Portuguese term for a public funding call"
+    },
+    {
+      "suchbegriff": "concurso autocarros zero emissões",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Concurso público' triggers procurement announcements for ZE buses"
+    },
+    {
+      "suchbegriff": "autocarro hidrogénio Portugal",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "H2-bus specific query — pilot projects underway in Portugal"
+    },
+    {
+      "suchbegriff": "financiamento autocarro hidrogénio",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Hydrogen buses",
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "H2-bus financing wording — catches DGEG/Fundo Ambiental H2 calls"
+    },
+    {
+      "suchbegriff": "autocarro longo curso elétrico",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Long-distance coach electrification — Flix core segment in PT"
+    },
+    {
+      "suchbegriff": "autocarro expresso descarbonização",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Sustainability"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Expresso' = PT generic for long-distance service (Rede Expressos is competitor)"
+    },
+    {
+      "suchbegriff": "incentivo aquisição autocarro elétrico",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Purchase-incentive phrasing — high signal for funding news"
+    },
+    {
+      "suchbegriff": "autocarro+subsídio",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo catches subsidy stories while filtering rental/travel noise"
+    },
+    {
+      "suchbegriff": "autocarro+concurso",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Tenders"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo targets procurement announcements specifically"
+    },
+    {
+      "suchbegriff": "autocarro+incentivo",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo hedges general 'autocarro' noise; catches incentive coverage"
+    },
+    {
+      "suchbegriff": "carregamento autocarro elétrico",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Charging infrastructure",
+        "Energy supply"
+      ],
+      "prioritaet": "High",
+      "notizen": "Depot- and corridor-charging Portuguese phrasing"
+    },
+    {
+      "suchbegriff": "posto abastecimento hidrogénio autocarro",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Hydrogen infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "H2 refuelling station specificity"
+    },
+    {
+      "suchbegriff": "HVO autocarro",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "HVO biofuel adoption for buses — key transition path"
+    },
+    {
+      "suchbegriff": "biocombustíveis autocarro",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Alternative fuels (HVO/biofuels)"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Portuguese biofuel terminology"
+    },
+    {
+      "suchbegriff": "frota autocarros descarbonização",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Fleet strategy",
+        "Sustainability"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Fleet decarbonisation strategy term"
+    },
+    {
+      "suchbegriff": "ANTROP autocarros elétricos",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "ANTROP is the coach operator association — advocacy signals"
+    },
+    {
+      "suchbegriff": "IMT autocarros elétricos",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "IMT (Instituto da Mobilidade e dos Transportes) regulates PT road transport"
+    },
+    {
+      "suchbegriff": "AMT transporte rodoviário passageiros",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Low",
+      "notizen": "AMT is the mobility regulator — tariffs / concession decisions"
+    },
+    {
+      "suchbegriff": "Portugal 2030 mobilidade sustentável",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Portugal 2030 is the 2021-2027 EU cohesion partnership programme"
+    },
+    {
+      "suchbegriff": "Portugal 2030 autocarros",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Portugal 2030 fleet-renewal calls under mobility axis"
+    },
+    {
+      "suchbegriff": "Compete 2030 mobilidade",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "prioritaet": "Low",
+      "notizen": "Compete 2030 — €3.9bn EU competitiveness/innovation programme"
+    },
+    {
+      "suchbegriff": "camioneta elétrica",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Low",
+      "notizen": "'Camioneta' = older PT-PT term for coach, still surfaces in press"
+    },
+    {
+      "suchbegriff": "Portugal electric bus funding",
+      "sprache": "EN",
+      "markt": [
+        "Portugal",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "English-language cross-market coverage of PT funding"
+    },
+    {
+      "suchbegriff": "Portugal coach fleet electrification",
+      "sprache": "EN",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Sustainable-bus.com and similar EN trade press phrasing"
+    }
+  ],
+  "feeds": [
+    {
+      "outlet": "Recuperar Portugal (PRR)",
+      "url": "https://recuperarportugal.gov.pt/",
+      "rss_feed": "https://recuperarportugal.gov.pt/feed/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Official PRR / NextGenerationEU implementation portal — decisive funding source"
+    },
+    {
+      "outlet": "Portugal 2030",
+      "url": "https://portugal2030.pt/",
+      "rss_feed": "https://portugal2030.pt/feed/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Portugal 2030 partnership agreement — €23bn 2021-27 EU cohesion pot"
+    },
+    {
+      "outlet": "Compete 2030",
+      "url": "https://compete2030.gov.pt/",
+      "rss_feed": "https://compete2030.gov.pt/feed/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "€3.9bn competitiveness/innovation programme — funds mobility R&D"
+    },
+    {
+      "outlet": "UVE — Utilizadores de Veículos Elétricos",
+      "url": "https://www.uve.pt/",
+      "rss_feed": "https://www.uve.pt/page/feed/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "PT e-mobility user association — market data and advocacy"
+    },
+    {
+      "outlet": "ECO — Economia Online",
+      "url": "https://eco.sapo.pt/",
+      "rss_feed": "https://eco.sapo.pt/feed/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "PT online business daily — strong PRR/Portugal 2030 beat"
+    },
+    {
+      "outlet": "Jornal de Negócios",
+      "url": "https://www.jornaldenegocios.pt/",
+      "rss_feed": "https://www.jornaldenegocios.pt/rss",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Portuguese business daily — industrial policy coverage"
+    },
+    {
+      "outlet": "Jornal Económico",
+      "url": "https://jornaleconomico.sapo.pt/",
+      "rss_feed": "https://www.jornaleconomico.pt/feed",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Weekly business paper — EU funds & mobility coverage"
+    },
+    {
+      "outlet": "Público — Economia",
+      "url": "https://www.publico.pt/",
+      "rss_feed": "https://feeds.feedburner.com/PublicoEconomia",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Público economy section via Feedburner — primary PT quality daily"
+    },
+    {
+      "outlet": "Expresso",
+      "url": "https://expresso.pt/",
+      "rss_feed": "https://feeds.feedburner.com/expresso-geral",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Weekly quality paper (Impresa) — general feed via Feedburner"
+    },
+    {
+      "outlet": "Observador",
+      "url": "https://observador.pt/",
+      "rss_feed": "https://observador.pt/feed/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "PT online daily — political and economic coverage"
+    },
+    {
+      "outlet": "RTP Notícias — Economia",
+      "url": "https://www.rtp.pt/noticias/",
+      "rss_feed": "https://www.rtp.pt/noticias/rss/economia",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Public broadcaster economy feed — reliable government-policy pickup"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Portugal",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN bus trade press — covers Portugal deployments (CaetanoBus, Solaris PT)"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "rss_feed": "https://www.bus-news.com/feed/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Portugal",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "notizen": "EN global bus news — cross-market coverage useful for PT"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Ministério das Infraestruturas e Habitação",
+      "url": "https://www.portugal.gov.pt/pt/gc25/area-de-governo/infraestruturas-e-habitacao",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Ministry that owns transport policy — no direct RSS, monitor via keywords"
+    },
+    {
+      "outlet": "Ministério do Ambiente e Energia",
+      "url": "https://www.portugal.gov.pt/pt/gc25/area-de-governo/ambiente-e-energia",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [
+        "Sustainability",
+        "Energy supply"
+      ],
+      "notizen": "Ministry that co-owns Fundo Ambiental and climate mobility calls"
+    },
+    {
+      "outlet": "IMT — Instituto da Mobilidade e dos Transportes",
+      "url": "https://www.imt-ip.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Regulator for PT road, rail and maritime transport — no RSS, needs scrape"
+    },
+    {
+      "outlet": "AMT — Autoridade da Mobilidade e dos Transportes",
+      "url": "https://www.amt-autoridade.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Economic mobility regulator — concession & tariff decisions"
+    },
+    {
+      "outlet": "Fundo Ambiental",
+      "url": "https://www.fundoambiental.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Primary PT climate funding vehicle for buses/coaches — no RSS"
+    },
+    {
+      "outlet": "DGEG — Direção-Geral de Energia e Geologia",
+      "url": "https://www.dgeg.gov.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Energy supply",
+        "Hydrogen infrastructure"
+      ],
+      "notizen": "PT energy regulator — H2 strategy and fuel supply oversight"
+    },
+    {
+      "outlet": "Recuperar Portugal (PRR)",
+      "url": "https://recuperarportugal.gov.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "PT recovery-plan implementation portal — main mobility funding line"
+    },
+    {
+      "outlet": "Portugal 2030",
+      "url": "https://portugal2030.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "2021-27 EU partnership agreement — €23bn cohesion envelope"
+    },
+    {
+      "outlet": "Compete 2030",
+      "url": "https://compete2030.gov.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Competitiveness/innovation operational programme"
+    },
+    {
+      "outlet": "IAPMEI",
+      "url": "https://www.iapmei.pt/",
+      "prioritaet": "Low",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "PT competitiveness & innovation agency — SME funding routes"
+    },
+    {
+      "outlet": "ANTROP",
+      "url": "https://antrop.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "National coach/bus operators' association — lobbying + industry data"
+    },
+    {
+      "outlet": "UVE — Utilizadores de Veículos Elétricos",
+      "url": "https://www.uve.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "E-buses",
+        "Charging infrastructure"
+      ],
+      "notizen": "PT electric-vehicle user association — advocacy and market data"
+    },
+    {
+      "outlet": "ACAP",
+      "url": "https://www.acap.pt/",
+      "prioritaet": "Low",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Portuguese automotive industry association — registrations data"
+    },
+    {
+      "outlet": "Público",
+      "url": "https://www.publico.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Primary PT quality daily — solid business/policy beat"
+    },
+    {
+      "outlet": "Expresso",
+      "url": "https://expresso.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Weekly quality paper (Impresa group)"
+    },
+    {
+      "outlet": "ECO — Economia Online",
+      "url": "https://eco.sapo.pt/",
+      "prioritaet": "High",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "PT online business daily — strong EU-funds coverage"
+    },
+    {
+      "outlet": "Jornal de Negócios",
+      "url": "https://www.jornaldenegocios.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Portuguese business daily"
+    },
+    {
+      "outlet": "Jornal Económico",
+      "url": "https://jornaleconomico.sapo.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Weekly business paper"
+    },
+    {
+      "outlet": "Observador",
+      "url": "https://observador.pt/",
+      "prioritaet": "Medium",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "PT online daily — political and economic coverage"
+    },
+    {
+      "outlet": "Ambiente Online",
+      "url": "https://www.ambienteonline.pt/",
+      "prioritaet": "Low",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "PT environment trade portal — no working RSS, needs scrape"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "ônibus",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "BR-PT variant — filters Brazilian coverage that leaks into PT search"
+    },
+    {
+      "begriff": "aluguer autocarro",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Bus rental services — not fleet-transformation relevant"
+    },
+    {
+      "begriff": "autocarro turístico",
+      "kategorie": "Advertisement",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Sightseeing tours — noise for city tour operators"
+    },
+    {
+      "begriff": "excursão autocarro",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Excursion / day-trip coach hire"
+    },
+    {
+      "begriff": "autocarro casamento",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Wedding coach hire — SEO noise"
+    },
+    {
+      "begriff": "autocarro escolar",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "School bus operations — different funding logic"
+    },
+    {
+      "begriff": "Comboios de Portugal",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "CP is the national rail operator — high frequency, rail bias"
+    },
+    {
+      "begriff": "metro Lisboa",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Lisbon Metro — urban rail noise"
+    },
+    {
+      "begriff": "autocarro acidente",
+      "kategorie": "Off-topic",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Accident reports — no funding/transformation signal"
+    },
+    {
+      "begriff": "motorista autocarro recrutamento",
+      "kategorie": "Job posting",
+      "sprache": "PT",
+      "markt": [
+        "Portugal"
+      ],
+      "notizen": "Bus driver recruitment ads"
+    }
+  ]
+}

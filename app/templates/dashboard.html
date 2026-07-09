@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid grid-cols-12 gap-6">
+    <!-- Sidebar -->
+    <aside class="col-span-12 lg:col-span-3 space-y-4">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+            <h3 class="text-xs uppercase tracking-wider text-slate-500 mb-3">Overview</h3>
+            <dl class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">New today</dt>
+                    <dd class="font-medium">{{ stats.new_today }}</dd>
+                </div>
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">This week</dt>
+                    <dd class="font-medium">{{ stats.this_week }}</dd>
+                </div>
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">Score 8+</dt>
+                    <dd class="font-medium">{{ stats.high_score }}</dd>
+                </div>
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">Scored</dt>
+                    <dd class="font-medium">{{ stats.scored }}</dd>
+                </div>
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">
+                        <a href="/filtered" class="hover:text-slate-900 hover:underline">Filtered out</a>
+                    </dt>
+                    <dd class="font-medium text-slate-400">
+                        <a href="/filtered" class="hover:text-slate-900">{{ stats.filtered_out }}</a>
+                    </dd>
+                </div>
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">Starred</dt>
+                    <dd class="font-medium">{{ stats.starred }}</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+            <h3 class="text-xs uppercase tracking-wider text-slate-500 mb-3">Sources</h3>
+            <dl class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">Active</dt>
+                    <dd class="font-medium text-emerald-700">{{ source_health.active }}</dd>
+                </div>
+                <div class="flex justify-between">
+                    <dt class="text-slate-600">Failing on last run</dt>
+                    <dd class="font-medium {% if source_health.failing > 0 %}text-amber-700{% else %}text-slate-400{% endif %}">{{ source_health.failing }}</dd>
+                </div>
+            </dl>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <section class="col-span-12 lg:col-span-9 space-y-4">
+        <!-- Filter bar -->
+        <form method="get" class="bg-white rounded-lg border border-slate-200 p-4">
+            <div class="grid grid-cols-12 gap-3 text-sm">
+                <div class="col-span-12 md:col-span-8 space-y-3">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Themes</label>
+                        <div class="flex flex-wrap gap-1">
+                            {% for t in all_themes %}
+                            <label class="inline-flex items-center gap-1 px-2 py-1 rounded border border-slate-200 cursor-pointer hover:border-flix-green">
+                                <input type="checkbox" name="theme" value="{{ t }}" {% if t in filters.themes %}checked{% endif %} class="accent-flix-green" />
+                                <span>{{ t }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Markets</label>
+                        <div class="flex flex-wrap gap-1">
+                            {% for m in all_markets %}
+                            <label class="inline-flex items-center gap-1 px-2 py-1 rounded border border-slate-200 cursor-pointer hover:border-flix-green">
+                                <input type="checkbox" name="market" value="{{ m }}" {% if m in filters.markets %}checked{% endif %} class="accent-flix-green" />
+                                <span>{{ m }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-6 md:col-span-2">
+                    <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Min. score: {{ filters.min_score }}</label>
+                    <input type="range" name="min_score" min="0" max="10" value="{{ filters.min_score }}" class="w-full accent-flix-green" oninput="this.previousElementSibling.textContent='Min. score: '+this.value" />
+                </div>
+                <div class="col-span-6 md:col-span-2 space-y-2">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Time window</label>
+                        <select name="days" class="w-full border border-slate-200 rounded px-2 py-1">
+                            {% for d in [7, 14, 30, 60, 90, 180] %}
+                            <option value="{{ d }}" {% if filters.days == d %}selected{% endif %}>{{ d }} days</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Status</label>
+                        <select name="status" class="w-full border border-slate-200 rounded px-2 py-1">
+                            <option value="all" {% if filters.status == 'all' %}selected{% endif %}>All</option>
+                            <option value="new" {% if filters.status == 'new' %}selected{% endif %}>New</option>
+                            <option value="starred" {% if filters.status == 'starred' %}selected{% endif %}>Starred</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-span-12 flex flex-wrap items-center justify-end gap-2">
+                    <a href="/export.md?{{ filters_qs }}"
+                       class="px-3 py-1.5 rounded border border-slate-200 text-slate-700 hover:border-flix-green hover:text-slate-900"
+                       title="Download filtered articles as Markdown">
+                        Download Markdown
+                    </a>
+                    <a href="/export.csv?{{ filters_qs }}"
+                       class="px-3 py-1.5 rounded border border-slate-200 text-slate-700 hover:border-flix-green hover:text-slate-900"
+                       title="Download filtered articles as CSV (Excel)">
+                        Download CSV
+                    </a>
+                    <button type="button" id="btn-copy-md"
+                            data-copy-url="/export.md?copy=1&{{ filters_qs }}"
+                            class="px-3 py-1.5 rounded border border-slate-200 text-slate-700 hover:border-flix-green hover:text-slate-900">
+                        Copy as Markdown
+                    </button>
+                    <button class="px-4 py-1.5 rounded bg-slate-800 text-white hover:bg-slate-700">Apply</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Article list -->
+        <div class="space-y-3">
+            {% if not articles %}
+                {# v0.6.1: branch empty-state on source_health. If ≥90% of
+                   sources are failing (typical corporate-proxy / offline
+                   symptom), don't tell the user to fiddle with filters —
+                   point them at IT. #}
+                {% set _sh_active = (source_health.active or 0) %}
+                {% set _sh_failing = (source_health.failing or 0) %}
+                {% set _sh_total = _sh_active + _sh_failing %}
+                {% if _sh_total > 0 and _sh_failing >= (_sh_total * 0.9) %}
+                <div class="bg-rose-50 rounded-lg border border-rose-200 p-8 text-center text-rose-900">
+                    <div class="text-base font-semibold mb-2">Almost every news source is failing.</div>
+                    <p class="text-sm text-rose-800 max-w-xl mx-auto">
+                        {{ _sh_failing }} of {{ _sh_total }} sources returned errors in the last run.
+                        This usually means your corporate proxy or VPN is blocking outbound HTTPS to Google News,
+                        Bing News, GDELT, or RSS feed hosts. Check with FlixBus IT that
+                        <code class="bg-white/60 rounded px-1">news.google.com</code>,
+                        <code class="bg-white/60 rounded px-1">www.bing.com</code>, and
+                        <code class="bg-white/60 rounded px-1">api.gdeltproject.org</code>
+                        are allow-listed.
+                    </p>
+                </div>
+                {% else %}
+                <div class="bg-white rounded-lg border border-slate-200 p-8 text-center text-slate-500">
+                    No matches with these filters. Lower the score or widen the time window.
+                </div>
+                {% endif %}
+            {% endif %}
+
+            {% for art in articles %}
+                {% set score = art.final_score %}
+                {% set days_old = art.published_at | days_old %}
+                <article class="bg-white rounded-lg border border-slate-200 p-4 flex gap-4" id="article-{{ art.id }}">
+                    <div class="flex-shrink-0 w-14 text-center">
+                        {% set badge_class = 'bg-slate-200 text-slate-600' %}
+                        {% if score >= 10 %}
+                            {% set badge_class = 'bg-emerald-600 text-white' %}
+                        {% elif score >= 7 %}
+                            {% set badge_class = 'bg-blue-600 text-white' %}
+                        {% elif score >= 4 %}
+                            {% set badge_class = 'bg-amber-400 text-amber-900' %}
+                        {% endif %}
+                        <div class="rounded-md px-2 py-3 text-lg font-semibold {{ badge_class }}">
+                            {{ score }}
+                        </div>
+                        {% if art.trust_bonus and art.trust_bonus > 0 %}
+                            <div class="mt-1 text-[10px] text-slate-500" title="Trust bonus from outlet match">
+                                +{{ art.trust_bonus }} trust
+                            </div>
+                        {% endif %}
+                        {% if art.feedback_bonus and art.feedback_bonus != 0 %}
+                            <div class="mt-1 text-[10px] {% if art.feedback_bonus > 0 %}text-emerald-700{% else %}text-rose-600{% endif %}"
+                                 title="Learning effect from your star/ignore clicks for this domain">
+                                {{ '+' if art.feedback_bonus > 0 }}{{ art.feedback_bonus }} learn
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            {% if art.source_type == 'newsletter' %}
+                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-200"
+                                      title="This article was ingested from an email in Outlook, not a web page.">
+                                    ✉ Newsletter
+                                </span>
+                            {% endif %}
+                            {% for theme in art.themes_parsed %}
+                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">{{ theme }}</span>
+                            {% endfor %}
+                            {% if art.category %}
+                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-50 text-slate-600 border border-slate-200">{{ art.category }}</span>
+                            {% endif %}
+                            {% if art.is_translated %}
+                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-700"
+                                      title="Original title: {{ art.title }}">
+                                    translated from {{ art.language|upper }}
+                                </span>
+                            {% endif %}
+                        </div>
+                        <h2 class="text-base font-medium text-slate-900 leading-snug">
+                            {% if art.source_type == 'newsletter' %}
+                                {# For newsletters, art.url is only the first body link — not the mail itself.
+                                   Route the title to the detail page instead, where a prominent "Open in Outlook"
+                                   button opens the actual email. #}
+                                <a href="/article/{{ art.id }}" class="hover:underline">{{ art.display_title or art.title }}</a>
+                            {% else %}
+                                <a href="{{ art.url }}" target="_blank" rel="noopener" class="hover:underline">{{ art.display_title or art.title }}</a>
+                            {% endif %}
+                        </h2>
+                        {% if art.is_translated and art.title %}
+                            <p class="text-xs text-slate-400 italic mt-0.5">Original: {{ art.title }}</p>
+                        {% endif %}
+                        <div class="mt-1 text-xs text-slate-500 flex flex-wrap gap-x-3 gap-y-0.5">
+                            <span>
+                                {{ art.source_name or 'unknown' }}
+                                {% if art.outlet_match %}
+                                    · <span class="text-emerald-700" title="Outlet match: {{ art.outlet_match.outlet_name }} ({{ art.outlet_match.priority or 'n/a' }})">★ outlet match</span>
+                                {% endif %}
+                            </span>
+                            <span class="{% if days_old is not none and days_old <= highlight_days %}text-rose-600 font-medium{% endif %}">
+                                {{ art.published_at | date_only or 'no date' }}
+                            </span>
+                        </div>
+                        {% if art.relevance_reasoning %}
+                        <details class="mt-2 text-sm text-slate-600">
+                            <summary class="text-xs text-slate-500 hover:text-slate-700">Show reasoning</summary>
+                            <p class="mt-1 text-slate-700">{{ art.relevance_reasoning }}</p>
+                        </details>
+                        {% endif %}
+                    </div>
+                    <div class="flex-shrink-0 flex flex-col gap-1 text-xs">
+                        <button class="action-btn px-2 py-1 rounded border border-slate-200 hover:border-flix-green {% if art.starred %}bg-amber-50 border-amber-300{% endif %}"
+                                data-id="{{ art.id }}" data-action="star">
+                            {% if art.starred %}★ Starred{% else %}☆ Star{% endif %}
+                        </button>
+                        <button class="action-btn px-2 py-1 rounded border border-slate-200 hover:border-flix-green {% if art.read %}bg-slate-100{% endif %}"
+                                data-id="{{ art.id }}" data-action="read">
+                            {% if art.read %}✓ Read{% else %}Read{% endif %}
+                        </button>
+                        <button class="action-btn px-2 py-1 rounded border border-slate-200 hover:border-flix-green {% if art.ignored %}bg-slate-100 text-slate-400{% endif %}"
+                                data-id="{{ art.id }}" data-action="ignore">
+                            Ignore
+                        </button>
+                        <div class="flex gap-1 mt-1" title="Golden set label (eval)">
+                            <button class="golden-btn flex-1 px-1 py-0.5 rounded border text-[11px] {% if art.golden_label == 'relevant' %}bg-emerald-500 text-white border-emerald-600{% else %}border-slate-200 text-emerald-700 hover:border-emerald-400{% endif %}"
+                                    data-id="{{ art.id }}" data-golden="relevant"
+                                    title="Mark as relevant (positive eval example)">R</button>
+                            <button class="golden-btn flex-1 px-1 py-0.5 rounded border text-[11px] {% if art.golden_label == 'noise' %}bg-rose-500 text-white border-rose-600{% else %}border-slate-200 text-rose-700 hover:border-rose-400{% endif %}"
+                                    data-id="{{ art.id }}" data-golden="noise"
+                                    title="Mark as noise (negative eval example)">N</button>
+                        </div>
+                        {% if art.source_type == 'newsletter' %}
+                            <button class="open-outlook-btn px-2 py-1 rounded border border-purple-200 bg-purple-50 text-purple-800 hover:border-purple-400 text-center"
+                                    data-id="{{ art.id }}"
+                                    title="Open the original email in Outlook">
+                                ✉ Open in Outlook
+                            </button>
+                        {% endif %}
+                        <a href="/article/{{ art.id }}" class="px-2 py-1 rounded border border-transparent text-slate-500 hover:text-slate-800 text-center">Detail</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.querySelectorAll(".action-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      const action = btn.dataset.action;
+      try {
+        await postJSON(`/article/${id}/${action}`);
+        location.reload();
+      } catch (err) {
+        showToast("Action failed: " + err.message, false);
+      }
+    });
+  });
+
+  // v0.3.2 — "Open in Outlook" button on newsletter cards. Calls the
+  // /outlook/open/{id} endpoint which rehydrates the mail from the stored
+  // EntryID and pops it open via COM. Failure returns HTTP 200 with
+  // {ok:false, error:"..."} — we show the message as a toast rather than
+  // silently swallowing it.
+  document.querySelectorAll(".open-outlook-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Opening…";
+      try {
+        const resp = await fetch(`/outlook/open/${id}`, { method: "POST" });
+        const data = await resp.json();
+        if (data.ok) {
+          showToast("Opened in Outlook");
+        } else {
+          showToast(data.error || "Could not open in Outlook", false);
+        }
+      } catch (err) {
+        showToast("Open failed: " + err.message, false);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
+    });
+  });
+
+  // Golden-set label buttons: clicking the already-active label clears it,
+  // otherwise sets the new label. Full reload keeps the state single-sourced.
+  document.querySelectorAll(".golden-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const id = btn.dataset.id;
+      const target = btn.dataset.golden;  // "relevant" | "noise"
+      const alreadyActive = btn.classList.contains("bg-emerald-500")
+        || btn.classList.contains("bg-rose-500");
+      const url = alreadyActive
+        ? `/article/${id}/golden/clear`
+        : `/article/${id}/golden/${target}`;
+      try {
+        await postJSON(url);
+        location.reload();
+      } catch (err) {
+        showToast("Golden label failed: " + err.message, false);
+      }
+    });
+  });
+
+  const copyBtn = document.getElementById("btn-copy-md");
+  if (copyBtn) {
+    const original = copyBtn.textContent;
+    copyBtn.addEventListener("click", async () => {
+      // navigator.clipboard is undefined in non-secure contexts
+      // (e.g. served over http:// on a LAN IP). Guard so the button
+      // fails loudly with an actionable message instead of throwing
+      // "Cannot read properties of undefined (reading 'writeText')".
+      if (!navigator.clipboard) {
+        showToast(
+          "Copy not available in this browser context. Use Download Markdown instead.",
+          false
+        );
+        return;
+      }
+      copyBtn.disabled = true;
+      try {
+        const resp = await fetch(copyBtn.dataset.copyUrl);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        await navigator.clipboard.writeText(await resp.text());
+        copyBtn.textContent = "Copied ✓";
+        // Success: keep the "Copied ✓" state visible for 2s, then restore.
+        setTimeout(() => { copyBtn.textContent = original; copyBtn.disabled = false; }, 2000);
+      } catch (err) {
+        // Failure: restore immediately so the user can retry without waiting.
+        showToast("Copy failed: " + err.message, false);
+        copyBtn.textContent = original;
+        copyBtn.disabled = false;
+      }
+    });
+  }
+</script>
+{% endblock %}

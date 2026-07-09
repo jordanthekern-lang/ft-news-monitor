@@ -1,0 +1,3378 @@
+{
+  "market": "pending-research",
+  "seed_version": 1,
+  "keywords": [
+    {
+      "suchbegriff": "IP autocarros frota",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "notizen": "Infraestruturas de Portugal, Infrastrukturbetreiber"
+    },
+    {
+      "suchbegriff": "transporte rodoviário passageiros descarbonização",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "notizen": "Politische Rahmenformel, fängt Strategiemeldungen"
+    },
+    {
+      "suchbegriff": "aviso autocarros elétricos",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Aviso ist PT-Standardbegriff für Förderaufruf, sehr trennscharf"
+    },
+    {
+      "suchbegriff": "posto de abastecimento hidrogénio autocarro",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "notizen": "H2-Tankstellen-Spezifik"
+    },
+    {
+      "suchbegriff": "infraestrutura de carregamento autocarro",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Ladeinfra-Spezifik"
+    },
+    {
+      "suchbegriff": "autocarro turismo elétrico apoio",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Apoio = Beihilfe, turismo markiert Reisebusbezug"
+    },
+    {
+      "suchbegriff": "Fundo Ambiental autocarro elétrico",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Fundo Ambiental ist zentrale PT-Förderlinie für Klimainvestitionen"
+    },
+    {
+      "suchbegriff": "financiamento autocarro hidrogénio",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "notizen": "Hidrogénio mit Akzent, PT-PT-Schreibweise"
+    },
+    {
+      "suchbegriff": "concurso autocarros zero emissões",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Concurso = Ausschreibung"
+    },
+    {
+      "suchbegriff": "AMT autocarro elétrico",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "notizen": "Autoridade da Mobilidade e dos Transportes, Regulierer"
+    },
+    {
+      "suchbegriff": "PRR mobilidade autocarros",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Plano de Recuperação e Resiliência, Hauptfinanzierungsquelle"
+    },
+    {
+      "suchbegriff": "ANTROP autocarros elétricos",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "PT",
+      "notizen": "ANTROP ist Reisebus-Branchenverband, fängt Stakeholder-Reaktionen"
+    },
+    {
+      "suchbegriff": "Traficom tuki sähköbussi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Traficom (Liikenne- ja viestintävirasto) verwaltet Verkehrsförderung, tuki = Förderung"
+    },
+    {
+      "suchbegriff": "pikalataus linja-auto",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Schnellladen-Spezifik"
+    },
+    {
+      "suchbegriff": "sähköbussi avustus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Avustus = Beihilfe, parallel zu tuki"
+    },
+    {
+      "suchbegriff": "vetybussi Suomi tuki",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Vety = Wasserstoff"
+    },
+    {
+      "suchbegriff": "linja-auto sähkö hankinta tuki",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Linja-auto = Bus, hankinta = Beschaffung"
+    },
+    {
+      "suchbegriff": "kaukoliikenne sähköbussi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Kaukoliikenne = Fernverkehr, sehr trennscharf für Reisebus"
+    },
+    {
+      "suchbegriff": "päästötön joukkoliikenne bussi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Päästötön = emissionsfrei, joukkoliikenne = ÖV"
+    },
+    {
+      "suchbegriff": "hakukierros sähköbussi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Hakukierros = Antragsrunde, klassischer FI-Behördensprech"
+    },
+    {
+      "suchbegriff": "Liikenne- ja viestintäministeriö sähkö",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Verkehrsministerium, policy-Owner"
+    },
+    {
+      "suchbegriff": "latausinfrastruktuuri linja-auto",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Ladeinfra-Spezifik"
+    },
+    {
+      "suchbegriff": "Business Finland sähköbussi rahoitus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Business Finland fördert Innovations- und Pilotprojekte"
+    },
+    {
+      "suchbegriff": "Energiavirasto tuki liikenne",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Energieversorgung",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Energiebehörde, deckt Lade- und Energieprogramme ab"
+    },
+    {
+      "suchbegriff": "Færdselsstyrelsen busser nul-emission",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Verkehrsbehörde, nul-emission ist DK-Standardbegriff"
+    },
+    {
+      "suchbegriff": "tilskud elbus Danmark",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "Tilskud ist DK-Standardbegriff für Zuschuss"
+    },
+    {
+      "suchbegriff": "Trafikstyrelsen elbus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "DA",
+      "notizen": "Frühere Behördenbezeichnung, taucht in älteren Dokumenten noch auf"
+    },
+    {
+      "suchbegriff": "brintbus Danmark støtte",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Brint = Wasserstoff, sehr DK-spezifisch"
+    },
+    {
+      "suchbegriff": "ladeinfrastruktur fjernbus Danmark",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Fjernbus = Fernbus, sehr trennscharf"
+    },
+    {
+      "suchbegriff": "klimaplan transport bus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "DK-Klimaplan triggert oft neue Förderlinien"
+    },
+    {
+      "suchbegriff": "MIM grøn transport pulje",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Ministeriet for Klima, Energi og Forsyning, hier liegen Verkehrs-Klimamittel"
+    },
+    {
+      "suchbegriff": "Region Hovedstaden elbus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "DA",
+      "notizen": "Größte DK-Region, Vergaben sind Förder-Trigger"
+    },
+    {
+      "suchbegriff": "pulje grøn omstilling bus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "Pulje = Fördertopf, grøn omstilling = grüne Transformation, sehr DK-typisch"
+    },
+    {
+      "suchbegriff": "Energistyrelsen ladestander bus",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Energiebehörde, Ladestander = Ladesäule"
+    },
+    {
+      "suchbegriff": "turistbus elektrisk tilskud",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "Turistbus entspricht Reisebus, trennscharf"
+    },
+    {
+      "suchbegriff": "udbud elbus regioner",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "Regionale Vergaben sind Hauptmechanismus, udbud = Ausschreibung"
+    },
+    {
+      "suchbegriff": "Samferdselsdepartementet elbuss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Verkehrsministerium"
+    },
+    {
+      "suchbegriff": "ladestasjon turbuss korridor",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Korridor-Lade-Spezifik für Fernbus"
+    },
+    {
+      "suchbegriff": "hydrogenbuss Norge støtte",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "H2-Spezifik, støtte = Unterstützung"
+    },
+    {
+      "suchbegriff": "utlysning elbuss Norge",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Utlysning = Förderaufruf, generischer NO-Begriff"
+    },
+    {
+      "suchbegriff": "Nullutslippsfond næringstransport buss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Spezifischer Fonds für emissionsfreien Wirtschaftsverkehr, hoch trennscharf"
+    },
+    {
+      "suchbegriff": "Statens vegvesen ladeinfrastruktur buss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Straßenverkehrsbehörde, plant Korridorlade-Programme"
+    },
+    {
+      "suchbegriff": "anbud elbuss fylkeskommune",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Provinzielle Vergabeverfahren (anbud) sind Förder-Trigger im NO-System"
+    },
+    {
+      "suchbegriff": "Enova tilskudd elbuss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Enova ist die zentrale NO-Förderstelle für Klima- und Energietechnik, tilskudd = Zuschuss"
+    },
+    {
+      "suchbegriff": "Klima- og miljødepartementet transport",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Klimaministerium, policy-Owner für Klima-Transportförderung"
+    },
+    {
+      "suchbegriff": "nullutslipp kollektivtrafikk buss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Nullutslipp ist im NO-Klimadiskurs dominanter Begriff"
+    },
+    {
+      "suchbegriff": "turbuss elektrisk støtte",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Turbuss entspricht Reisebus, sehr trennscharf"
+    },
+    {
+      "suchbegriff": "hurtiglading buss Norge",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Schnellladen-Spezifik"
+    },
+    {
+      "suchbegriff": "Trafikverket stöd kollektivtrafik buss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Trafikverket ist nationale Verkehrsbehörde, stöd = Förderung"
+    },
+    {
+      "suchbegriff": "utlysning eldrivna bussar",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Utlysning ist Standardbegriff für Förderaufruf"
+    },
+    {
+      "suchbegriff": "elbussbidrag",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Spezifische Beihilfe für Elektrobusse, sehr trennscharf"
+    },
+    {
+      "suchbegriff": "laddinfrastruktur buss bidrag",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Bidrag ist parallel zu stöd für Zuschuss"
+    },
+    {
+      "suchbegriff": "långfärdsbuss elektrisk",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Långfärdsbuss entspricht Reisebus, trennscharf gegen Stadtbus"
+    },
+    {
+      "suchbegriff": "Klimatklivet buss elektrisk",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Klimatklivet ist das zentrale schwedische Klima-Investitionsprogramm, exakter Name"
+    },
+    {
+      "suchbegriff": "Energimyndigheten elbuss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Energiagentur fördert Antriebs- und Infrastruktur-Innovation"
+    },
+    {
+      "suchbegriff": "snabbladdning buss korridor",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "SV",
+      "notizen": "Schnellladekorridor-Spezifik für Fernbus"
+    },
+    {
+      "suchbegriff": "vätgasbuss Sverige stöd",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Vätgas = Wasserstoff, SV-Spezifik"
+    },
+    {
+      "suchbegriff": "Naturvårdsverket transport stöd",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Naturvårdsverket verwaltet Klimatklivet operativ"
+    },
+    {
+      "suchbegriff": "upphandling elbuss Sverige",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Upphandling = Beschaffung, regionale Vertragsvergaben sind Förder-Trigger"
+    },
+    {
+      "suchbegriff": "fossilfri kollektivtrafik buss",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Fossilfri ist sehr verbreitet im SV-Politikdiskurs"
+    },
+    {
+      "suchbegriff": "Piano Nazionale Idrogeno trasporti",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "Strategiedokument, Politik-Drift"
+    },
+    {
+      "suchbegriff": "bando autobus elettrici",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Bando ist der zentrale IT-Begriff für Ausschreibung, höchste Trennschärfe"
+    },
+    {
+      "suchbegriff": "avviso pubblico bus elettrici",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Avviso pubblico steht parallel zu bando, oft auf Ministerial- oder Regionalebene"
+    },
+    {
+      "suchbegriff": "MIT decreto autobus elettrici",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Ministero delle Infrastrutture e dei Trasporti, Decreti sind Förder-Trigger"
+    },
+    {
+      "suchbegriff": "infrastruttura ricarica autobus",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Depot- und Korridorlade-Spezifik"
+    },
+    {
+      "suchbegriff": "stazione idrogeno autobus Italia",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "H2-Tankstellen-Spezifik"
+    },
+    {
+      "suchbegriff": "TPL elettrico decreto",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "TPL = Trasporto Pubblico Locale, fängt ÖPNV-bezogene Förderprogramme"
+    },
+    {
+      "suchbegriff": "pullman elettrico finanziamento",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "Pullman ist umgangssprachlich Reisebus, fängt Reisebus-Diskurs"
+    },
+    {
+      "suchbegriff": "contributo acquisto autobus elettrico",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Beschaffungsbeihilfe, sehr trennscharf"
+    },
+    {
+      "suchbegriff": "autobus idrogeno bando",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "H2-spezifischer Förderbegriff"
+    },
+    {
+      "suchbegriff": "PNRR autobus zero emissioni",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "PNRR-Mittel sind Hauptfinanzierungsquelle für Flottendekarbonisierung"
+    },
+    {
+      "suchbegriff": "MASE finanziamento mobilità sostenibile",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "Ministero dell'Ambiente und della Sicurezza Energetica, parallel zu MIT für Klimamittel"
+    },
+    {
+      "suchbegriff": "France 2030 mobilité autocar",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "France-2030-Programmrahmen, hohe Volumen, Investitionsprogramm"
+    },
+    {
+      "suchbegriff": "ADEME aide autobus zéro émission",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "ADEME ist Hauptträgerin der Verkehrs-Förderung, aide ist generischer Förder-Begriff"
+    },
+    {
+      "suchbegriff": "infrastructure de recharge autocar",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Spezifisch für Reisebus-Lade, kein Stadtbus"
+    },
+    {
+      "suchbegriff": "dispositif autocar électrique",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Dispositif ist FR-Behördensprech für konkrete Förderinstrumente"
+    },
+    {
+      "suchbegriff": "ZFE véhicules lourds bus",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "ZFE (Zone à Faibles Émissions) treibt Förderpolitik voran, Politik-Drift"
+    },
+    {
+      "suchbegriff": "appel à projets autocar électrique",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "AAP plus autocar trennt Reisebus sauber von Stadtbus, exakter ADEME- und France-2030-Sprech"
+    },
+    {
+      "suchbegriff": "aide à l'acquisition autocar électrique",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Beschaffungsförderung für Reisebusse, sehr trennscharf"
+    },
+    {
+      "suchbegriff": "AVERE plan recharge bus",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "FR",
+      "notizen": "AVERE-France ist Branchenverband E-Mobilität, Plan- und Strategie-Indikator"
+    },
+    {
+      "suchbegriff": "station hydrogène autobus France",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "H2-Tankstellen-Spezifik"
+    },
+    {
+      "suchbegriff": "AAC autobus hydrogène",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Appel à candidatures ist neben AAP die zweite gängige Förderform"
+    },
+    {
+      "suchbegriff": "transition énergétique autocar",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Antriebstechnologie",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Politische Rahmenformel, fängt Strategiemeldungen"
+    },
+    {
+      "suchbegriff": "Bpifrance financement bus électrique",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Bpifrance (öffentliche Investitionsbank) finanziert teils Flottentransformation"
+    },
+    {
+      "suchbegriff": "Plan national mobilité bus zéro émission",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Strategiedokument-Trigger"
+    },
+    {
+      "suchbegriff": "infrastructure recharge autobus Luxembourg",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Depot- und Korridorlade-Spezifik"
+    },
+    {
+      "suchbegriff": "Klimapakt Mobilität Luxemburg",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Nachhaltigkeit",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DE",
+      "notizen": "Klimapakt ist DE-/LU-übergreifender Eigenname, fängt Strategieupdates"
+    },
+    {
+      "suchbegriff": "RGTR électrification flotte",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "RGTR ist das nationale Buskonzessionssystem"
+    },
+    {
+      "suchbegriff": "aide bus électrique Luxembourg",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Generischer LU-Förderbegriff, hohe Trefferquote"
+    },
+    {
+      "suchbegriff": "autobus hydrogène Luxembourg projet",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "LU H2-Strategie, Projektrahmen"
+    },
+    {
+      "suchbegriff": "MMTP subvention autobus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Ministère de la Mobilité et des Travaux publics, exakter Behördenname"
+    },
+    {
+      "suchbegriff": "Klima-Agence subvention transport",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Klima-Agence wickelt Programme operativ ab"
+    },
+    {
+      "suchbegriff": "Klima-Bonus Luxembourg autobus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Klima-Bonus ist die zentrale LU-Förderlinie für saubere Mobilität, mehrsprachiger Eigenname"
+    },
+    {
+      "suchbegriff": "STIB-MIVB électrification flotte",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "FR",
+      "notizen": "Brüsseler ÖV-Betreiber, eher Strategiekontext"
+    },
+    {
+      "suchbegriff": "prime autocar électrique Wallonie",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Wallonische Förderlogik, prime ist der gängige Begriff"
+    },
+    {
+      "suchbegriff": "waterstofbus Vlaanderen pilot",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "Flämische H2-Cluster-Projekte, Pilotrahmen typisch"
+    },
+    {
+      "suchbegriff": "autobus hydrogène Wallonie aide",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Aide ist FR-Pendant zu Förderung"
+    },
+    {
+      "suchbegriff": "FPS Mobilité bus émissions zéro",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Englischer Förder-Begriff in BE-Kontext"
+    },
+    {
+      "suchbegriff": "TEC bus électrique appel à projets",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "TEC ist wallonischer ÖV-Betreiber, Ausschreibungen sind Förder-Trigger"
+    },
+    {
+      "suchbegriff": "laadinfrastructuur bussen Vlaanderen",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "Flämische Spezifik für Depotladen"
+    },
+    {
+      "suchbegriff": "De Lijn elektrische bus aanbesteding",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "De Lijn ist der flämische ÖV-Monopolist, Beschaffungsentscheidungen sind politische Trigger"
+    },
+    {
+      "suchbegriff": "premie zero-emissie autobus Vlaanderen",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Vlaams Klimaatfonds und VEB-Programme nutzen premie"
+    },
+    {
+      "suchbegriff": "Vlaams Klimaatplan transport bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "Politik-Drift, Klimaatplan triggert Förderlinien"
+    },
+    {
+      "suchbegriff": "infrastructure recharge autocar Belgique",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Trennscharf für Reisebus-Ladeinfrastruktur"
+    },
+    {
+      "suchbegriff": "SPF Mobilité subvention bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Föderale Ebene, SPF Mobilité et Transports steuert nationale Strategie"
+    },
+    {
+      "suchbegriff": "Vlaams Energie en Klimaatagentschap bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "VEKA wickelt Klimafonds-Mittel ab"
+    },
+    {
+      "suchbegriff": "MOW subsidie elektrische bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Departement Mobiliteit en Openbare Werken Flandern, exakter Behördenname"
+    },
+    {
+      "suchbegriff": "laadinfrastructuur OV-bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "OV-bus = Linienbus, abgrenzend zu touringcar"
+    },
+    {
+      "suchbegriff": "IenW subsidie bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Ministerie van Infrastructuur en Waterstaat ist policy owner"
+    },
+    {
+      "suchbegriff": "SPRILA regeling bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Subsidieregeling Private Laadinfrastructuur, exakter Programmname"
+    },
+    {
+      "suchbegriff": "touringcar elektrisch subsidie",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Touringcar = Reisebus, sehr trennscharf gegen lijnbus"
+    },
+    {
+      "suchbegriff": "concessie zero-emissie bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "NL-Konzessionssystem schreibt ZE-Quoten vor, Konzessionsentscheidungen sind Förder-Trigger"
+    },
+    {
+      "suchbegriff": "waterstofbus regeling",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "Regeling signalisiert konkretes Förderinstrument"
+    },
+    {
+      "suchbegriff": "Klimaatakkoord mobiliteit bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "Politik-Drift, Klimaatakkoord-Implementation triggert neue Programme"
+    },
+    {
+      "suchbegriff": "Brandstofvisie alternatieve aandrijving",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Antriebstechnologie",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Niedrig",
+      "sprache": "NL",
+      "notizen": "Strategiedokument-Update-Indikator"
+    },
+    {
+      "suchbegriff": "subsidie zero-emissie bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Zero-emissie ist im NL-Verkehrssprech der dominante Begriff, nicht elektrisch allein"
+    },
+    {
+      "suchbegriff": "RVO openstelling bus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "RVO ist die zentrale Durchführungsstelle, openstelling markiert neue Calls"
+    },
+    {
+      "suchbegriff": "AanZET regeling",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "Aanschafsubsidie Zero-Emissie Trucks, fängt teils auch Bus-relevante Updates"
+    },
+    {
+      "suchbegriff": "SSEB subsidie",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Subsidieregeling Schoon en Emissieloos Bouwmaterieel, deckt teilweise Bus-Anwendungen, Volumen hoch"
+    },
+    {
+      "suchbegriff": "incentivi infrastruttura ricarica",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "Italienischer Begriff für Ladeinfrastruktur-Anreize"
+    },
+    {
+      "suchbegriff": "laddinfrastruktur bidrag",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Schwedischer/Nordischer Begriff für Ladeinfrastruktur-Zuschüsse"
+    },
+    {
+      "suchbegriff": "apoio ônibus elétrico",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Portugiesischer Begriff für E-Bus-Förderungen"
+    },
+    {
+      "suchbegriff": "infrastructure hydrogène financement",
+      "markt": [
+        "France",
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Französischer Begriff für H2-Infrastruktur-Finanzierung"
+    },
+    {
+      "suchbegriff": "subsidie waterstofbus",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Niederländischer Begriff für H2-Bus-Subventionen"
+    },
+    {
+      "suchbegriff": "incentivi autobus idrogeno",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Italienischer Begriff für Wasserstoffbus-Förderungen"
+    },
+    {
+      "suchbegriff": "Subvention bus électrique",
+      "markt": [
+        "France",
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Französischer Suchbegriff für E-Bus-Förderungen"
+    }
+  ],
+  "feeds": [
+    {
+      "rss_feed": "https://www.amt-autoridade.pt/atualidade/comunicados/",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "notizen": "AMT-Kommuniqué-Newsroom"
+    },
+    {
+      "rss_feed": "PRR autocarros mobilidade",
+      "typ": "Google News Query",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "PRR-Programm-Anker"
+    },
+    {
+      "rss_feed": "https://www.fundoambiental.pt/avisos-2026.aspx",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Fundo Ambiental publiziert Avisos auf eigenen Jahresunterseiten"
+    },
+    {
+      "rss_feed": "\"aviso\" OR \"concurso\" autocarros elétricos OR hidrogénio",
+      "typ": "Google News Query",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "PT-Förderphrasen-Anker"
+    },
+    {
+      "rss_feed": "\"Fundo Ambiental\" autocarro",
+      "typ": "Google News Query",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "notizen": "Fonds-Anker"
+    },
+    {
+      "rss_feed": "latausasema linja-auto Suomi",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Ladeinfra-Spezifische Query"
+    },
+    {
+      "rss_feed": "\"hakukierros\" sähköbussi OR latausinfrastruktuuri",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Antragsrunden-Anker"
+    },
+    {
+      "rss_feed": "https://www.traficom.fi/fi/ajankohtaista",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "Traficom-Newsroom"
+    },
+    {
+      "rss_feed": "\"tuki\" OR \"avustus\" sähköbussi OR vetybussi Suomi",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "notizen": "FI-Förderphrasen-Anker"
+    },
+    {
+      "rss_feed": "https://www.businessfinland.fi/ajankohtaista",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "notizen": "Business-Finland-Newsroom"
+    },
+    {
+      "rss_feed": "\"tilskud\" OR \"pulje\" elbus OR brintbus Danmark",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "DK-Förderphrasen-Anker"
+    },
+    {
+      "rss_feed": "https://www.fstyr.dk/da/Nyheder",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "Færdselsstyrelsen-Newsroom"
+    },
+    {
+      "rss_feed": "\"grøn omstilling\" bus tilskud",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "notizen": "Politik-Drift-Query"
+    },
+    {
+      "rss_feed": "https://ens.dk/presse",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Energistyrelsen-Pressestelle"
+    },
+    {
+      "rss_feed": "ladestander bus udbud Danmark",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "notizen": "Ladeinfra-Query"
+    },
+    {
+      "rss_feed": "https://www.regjeringen.no/no/dep/sd/aktuelt/id442/",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "Samferdselsdepartementet-Pressestelle"
+    },
+    {
+      "rss_feed": "https://www.enova.no/om-enova/nyhetsarkiv/",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Enova-Newsroom"
+    },
+    {
+      "rss_feed": "\"Nullutslippsfond\" buss",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Fonds-Anker"
+    },
+    {
+      "rss_feed": "Enova tilskudd buss OR turbuss",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "notizen": "Programmträger-Anker"
+    },
+    {
+      "rss_feed": "hydrogenbuss Norge utlysning",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "notizen": "H2-Spezifische Query"
+    },
+    {
+      "rss_feed": "\"stöd\" OR \"bidrag\" elbuss OR vätgasbuss Sverige",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Generische SV-Förderphrasen"
+    },
+    {
+      "rss_feed": "laddinfrastruktur buss utlysning",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "notizen": "Ladeinfra-Spezifische Query"
+    },
+    {
+      "rss_feed": "https://www.energimyndigheten.se/nyhetsarkiv",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Energimyndigheten-Newsroom"
+    },
+    {
+      "rss_feed": "\"Klimatklivet\" buss OR elbuss",
+      "typ": "Google News Query",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Programm-Anker-Query"
+    },
+    {
+      "rss_feed": "https://www.naturvardsverket.se/aktuellt/nyheter",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "notizen": "Naturvårdsverket-Newsroom, hier landen Klimatklivet-Updates"
+    },
+    {
+      "rss_feed": "https://www.autobusweb.com/feed/",
+      "typ": "RSS-Feed",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "IT-Bus-Fachmedium mit RSS"
+    },
+    {
+      "rss_feed": "https://www.mase.gov.it/comunicati",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Nachhaltigkeit",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "MASE-Pressestelle"
+    },
+    {
+      "rss_feed": "\"bando\" OR \"avviso\" autobus elettrico OR idrogeno",
+      "typ": "Google News Query",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "Trennscharfe IT-Förderphrasen"
+    },
+    {
+      "rss_feed": "PNRR autobus OR pullman zero emissioni",
+      "typ": "Google News Query",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "PNRR-Programm-Anker"
+    },
+    {
+      "rss_feed": "infrastruttura ricarica autobus Italia bando",
+      "typ": "Google News Query",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "notizen": "Ladeinfra-Spezifische Query"
+    },
+    {
+      "rss_feed": "https://www.mit.gov.it/comunicazione/news",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "notizen": "MIT-Newsroom"
+    },
+    {
+      "rss_feed": "https://www.ecologie.gouv.fr/presse",
+      "typ": "Website-Scrape",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Ministère de la Transition écologique, policy-Owner"
+    },
+    {
+      "rss_feed": "https://www.sustainable-bus.com/news/category/electric-bus-news-2/feed/",
+      "typ": "RSS-Feed",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "EN",
+      "notizen": "Englisches Fachmedium, deckt FR-Markt regelmäßig ab"
+    },
+    {
+      "rss_feed": "autocar hydrogène France financement",
+      "typ": "Google News Query",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "H2-Spezifische Query"
+    },
+    {
+      "rss_feed": "https://presse.ademe.fr/category/communiques-de-presse/",
+      "typ": "Website-Scrape",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "ADEME-Presse, zentrale FR-Quelle"
+    },
+    {
+      "rss_feed": "\"appel à projets\" autocar OR autobus électrique",
+      "typ": "Google News Query",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Trennscharfe AAP-Phrase"
+    },
+    {
+      "rss_feed": "ADEME OR \"France 2030\" bus zéro émission",
+      "typ": "Google News Query",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Programm-Anker-Query"
+    },
+    {
+      "rss_feed": "\"aide\" OR \"subvention\" autobus Luxembourg",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Förder-Phrasen für LU-Kontext"
+    },
+    {
+      "rss_feed": "https://transports.public.lu/fr/actualites.html",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "MMTP-Newsroom"
+    },
+    {
+      "rss_feed": "Klima-Bonus autobus OR autocar",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Programmname als Anker"
+    },
+    {
+      "rss_feed": "https://www.klima-agence.lu/fr/actualites",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "Klima-Agence-Aktuelles, Programmdetails"
+    },
+    {
+      "rss_feed": "\"prime\" OR \"appel à projets\" autocar électrique Wallonie",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "Wallonische Förder-Phrasen"
+    },
+    {
+      "rss_feed": "autobus hydrogène Belgique financement",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "notizen": "H2-Spezifische Query, fängt beide Sprachregionen"
+    },
+    {
+      "rss_feed": "https://mobilit.belgium.be/fr/actualites",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "notizen": "SPF Mobilité-Newsroom"
+    },
+    {
+      "rss_feed": "https://www.vlaanderen.be/mobiliteit-en-openbare-werken/nieuws",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "MOW-Newsroom Flandern"
+    },
+    {
+      "rss_feed": "\"premie\" OR \"subsidie\" autobus elektrisch Vlaanderen",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Flämische Förder-Phrasen"
+    },
+    {
+      "rss_feed": "waterstofbus Nederland regeling",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Wasserstoffbusse",
+        "Wasserstoffinfrastruktur"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "notizen": "H2-Spezifische Query"
+    },
+    {
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "typ": "RSS-Feed",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "EN",
+      "notizen": "Englischsprachiges Fachmedium, deckt NL-Markt regelmäßig ab"
+    },
+    {
+      "rss_feed": "https://www.rvo.nl/actueel/nieuws",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "RVO-Newsroom, hier landen openstellingen"
+    },
+    {
+      "rss_feed": "\"subsidie\" touringcar OR \"zero-emissie bus\"",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Trennscharfe NL-Phrasen"
+    },
+    {
+      "rss_feed": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat/nieuws",
+      "typ": "Website-Scrape",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "IenW-Pressestelle"
+    },
+    {
+      "rss_feed": "SPRILA OR SSEB site:rvo.nl",
+      "typ": "Google News Query",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "notizen": "Direkt auf RVO-Programmportal gefiltert"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Fundo Ambiental",
+      "url": "https://www.fundoambiental.pt",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "outlet_typ": "Förderbank",
+      "hat_rss": false,
+      "notizen": "Zentrale PT-Klima-Förderlinie, untersteht dem Umweltministerium"
+    },
+    {
+      "outlet": "Transportes em Revista",
+      "url": "https://www.transportesemrevista.com",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "outlet_typ": "Fachpresse",
+      "hat_rss": false,
+      "notizen": "PT-Fachmedium für Verkehr, Logistik und Mobilität"
+    },
+    {
+      "outlet": "Autoridade da Mobilidade e dos Transportes (AMT)",
+      "url": "https://www.amt-autoridade.pt",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "PT",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "PT-Regulierungsbehörde für Mobilität und Verkehr"
+    },
+    {
+      "outlet": "ANTROP",
+      "url": "https://www.antrop.pt",
+      "markt": [
+        "Portugal"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "PT",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband Reisebusunternehmen"
+    },
+    {
+      "outlet": "Traficom",
+      "url": "https://www.traficom.fi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Liikenne- ja viestintävirasto, FI-Verkehrs- und Kommunikationsbehörde"
+    },
+    {
+      "outlet": "Liikenne- ja viestintäministeriö (LVM)",
+      "url": "https://www.lvm.fi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FI",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "FI-Verkehrsministerium"
+    },
+    {
+      "outlet": "Linja-autoliitto",
+      "url": "https://www.linja-autoliitto.fi",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FI",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband privater Busunternehmen"
+    },
+    {
+      "outlet": "Færdselsstyrelsen",
+      "url": "https://www.fstyr.dk",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "DK-Verkehrsbehörde, deckt Busmarkt und Konzessionen"
+    },
+    {
+      "outlet": "Transportministeriet",
+      "url": "https://www.trm.dk",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "Verkehrsministerium, policy owner"
+    },
+    {
+      "outlet": "Energistyrelsen",
+      "url": "https://ens.dk",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Antriebstechnologie",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "DA",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "DK-Energiebehörde, Ladeinfra und Antriebsförderung"
+    },
+    {
+      "outlet": "Dansk PersonTransport",
+      "url": "https://www.danskpersontransport.dk",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "DA",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband Bus- und Reisebusunternehmen"
+    },
+    {
+      "outlet": "Statens vegvesen",
+      "url": "https://www.vegvesen.no",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Ladeinfrastruktur",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Straßenverkehrsbehörde, Infrastruktur und Korridorthemen"
+    },
+    {
+      "outlet": "NHO Transport",
+      "url": "https://www.nhotransport.no",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NO",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband Transport, deckt Bus- und Reisebussektor"
+    },
+    {
+      "outlet": "Enova",
+      "url": "https://www.enova.no",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "outlet_typ": "Förderbank",
+      "hat_rss": false,
+      "notizen": "Zentrale NO-Förderstelle für Klima- und Energietechnik, staatlich"
+    },
+    {
+      "outlet": "Samferdselsdepartementet",
+      "url": "https://www.regjeringen.no/no/dep/sd",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NO",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "NO-Verkehrsministerium"
+    },
+    {
+      "outlet": "Sveriges Bussföretag",
+      "url": "https://www.transportforetagen.se/bussforetagen",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband privater Busunternehmen"
+    },
+    {
+      "outlet": "Energimyndigheten",
+      "url": "https://www.energimyndigheten.se",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Antriebstechnologie",
+        "Energieversorgung"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Energieagentur, Innovations- und Antriebsförderung"
+    },
+    {
+      "outlet": "Trafikverket",
+      "url": "https://www.trafikverket.se",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "SV",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Verkehrsbehörde, Infrastruktur und Korridorthemen"
+    },
+    {
+      "outlet": "Naturvårdsverket",
+      "url": "https://www.naturvardsverket.se",
+      "markt": [
+        "Nordics"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "SV",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Schwedische Umweltschutzbehörde, verwaltet Klimatklivet operativ"
+    },
+    {
+      "outlet": "Ministero dell'Ambiente e della Sicurezza Energetica (MASE)",
+      "url": "https://www.mase.gov.it",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "Klima- und Energieministerium, Co-Owner für Mobilitätsförderung"
+    },
+    {
+      "outlet": "ANAV (Associazione Nazionale Autotrasporto Viaggiatori)",
+      "url": "https://www.anav.it",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "IT",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband Reisebusunternehmer"
+    },
+    {
+      "outlet": "Ministero delle Infrastrutture e dei Trasporti (MIT)",
+      "url": "https://www.mit.gov.it",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "Policy-Owner für Verkehr und Infrastruktur"
+    },
+    {
+      "outlet": "Autobusweb",
+      "url": "https://www.autobusweb.com",
+      "markt": [
+        "Italy"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "IT",
+      "outlet_typ": "Fachpresse",
+      "hat_rss": true,
+      "notizen": "IT-Bus-Fachmedium, deckt Förderpolitik gut ab"
+    },
+    {
+      "outlet": "ADEME",
+      "url": "https://www.ademe.fr",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "outlet_typ": "Förderbank",
+      "hat_rss": false,
+      "notizen": "Agence de la transition écologique, zentrale Förderagentur"
+    },
+    {
+      "outlet": "FNTV (Fédération Nationale des Transports de Voyageurs)",
+      "url": "https://www.fntv.fr",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband Reisebusunternehmer, relevante Förderpositionen"
+    },
+    {
+      "outlet": "Mobilités Magazine",
+      "url": "https://www.mobilites-magazine.com",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "outlet_typ": "Fachpresse",
+      "hat_rss": false,
+      "notizen": "FR-Fachmedium für ÖV und Mobilität"
+    },
+    {
+      "outlet": "Ministère de la Transition écologique",
+      "url": "https://www.ecologie.gouv.fr",
+      "markt": [
+        "France"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "Policy-Owner für Verkehr und Klima"
+    },
+    {
+      "outlet": "Klima-Agence",
+      "url": "https://www.klima-agence.lu",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Nachhaltigkeit"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Wickelt Klima-Bonus und ähnliche Förderlinien ab"
+    },
+    {
+      "outlet": "Ministère de la Mobilité et des Travaux publics",
+      "url": "https://transports.public.lu",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "LU-Verkehrsministerium, policy owner"
+    },
+    {
+      "outlet": "Paperjam",
+      "url": "https://paperjam.lu",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "outlet_typ": "Tagespresse",
+      "hat_rss": true,
+      "notizen": "LU-Wirtschaftsmagazin mit Mobilitätsressort"
+    },
+    {
+      "outlet": "SPF Mobilité et Transports",
+      "url": "https://mobilit.belgium.be",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "FR",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "Föderales Mobilitätsministerium, zweisprachig"
+    },
+    {
+      "outlet": "Service Public de Wallonie Mobilité",
+      "url": "https://mobilite.wallonie.be",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Wallonische Verkehrsbehörde"
+    },
+    {
+      "outlet": "Bus & Car Connexion",
+      "url": "https://www.bus-car.be",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "FR",
+      "outlet_typ": "Fachpresse",
+      "hat_rss": false,
+      "notizen": "Belgisches FR-Fachmedium für Bus- und Reisebussektor"
+    },
+    {
+      "outlet": "Departement Mobiliteit en Openbare Werken (MOW)",
+      "url": "https://www.vlaanderen.be/mobiliteit-en-openbare-werken",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "outlet_typ": "Behörde",
+      "hat_rss": false,
+      "notizen": "Flämische Verkehrsbehörde"
+    },
+    {
+      "outlet": "Busmagazine",
+      "url": "https://www.busmagazine.nl",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Busflotten"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "outlet_typ": "Fachpresse",
+      "hat_rss": false,
+      "notizen": "Niederländisches Bus-Fachmagazin"
+    },
+    {
+      "outlet": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "url": "https://www.rvo.nl",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Wasserstoffbusse",
+        "Ladeinfrastruktur"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "outlet_typ": "Förderbank",
+      "hat_rss": false,
+      "notizen": "Zentrale NL-Durchführungsstelle für Wirtschafts- und Klimaförderung"
+    },
+    {
+      "outlet": "KNV (Koninklijk Nederlands Vervoer)",
+      "url": "https://www.knv.nl",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Busflotten",
+        "E-Busse"
+      ],
+      "prioritaet": "Mittel",
+      "sprache": "NL",
+      "outlet_typ": "Verband",
+      "hat_rss": false,
+      "notizen": "Branchenverband Personenverkehr, deckt Bus und Touringcar ab"
+    },
+    {
+      "outlet": "Ministerie van Infrastructuur en Waterstaat",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-Busse",
+        "Busflotten",
+        "Antriebstechnologie"
+      ],
+      "prioritaet": "Hoch",
+      "sprache": "NL",
+      "outlet_typ": "Ministerium",
+      "hat_rss": false,
+      "notizen": "Policy-Owner für Verkehr und Mobilität"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "CP comboios",
+      "markt": [
+        "Portugal"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Comboios de Portugal, hohe Frequenz im Verkehrskontext"
+    },
+    {
+      "begriff": "camião elétrico",
+      "markt": [
+        "Portugal"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "LKW-E-Mobilität"
+    },
+    {
+      "begriff": "ônibus",
+      "markt": [
+        "Portugal"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "BR-PT-Wort, fängt brasilianische Treffer, in PT-PT immer autocarro"
+    },
+    {
+      "begriff": "autocarro escolar",
+      "markt": [
+        "Portugal"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbusverkehr"
+    },
+    {
+      "begriff": "metro Lisboa",
+      "markt": [
+        "Portugal"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "U-Bahn, oft mit Bus zusammen genannt"
+    },
+    {
+      "begriff": "lautta",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Fähre, in FI oft mit Klimaförderung verknüpft, falscher Verkehrsträger"
+    },
+    {
+      "begriff": "VR juna",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "VR ist staatlicher Bahnbetreiber"
+    },
+    {
+      "begriff": "koulukuljetus",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbusbeförderung, andere Förderlogik"
+    },
+    {
+      "begriff": "raitiovaunu",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Straßenbahn"
+    },
+    {
+      "begriff": "skolebus",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbus"
+    },
+    {
+      "begriff": "letbane",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Stadtbahn, oft mit Bus zusammen genannt"
+    },
+    {
+      "begriff": "DSB tog",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "DK-Bahn, hohe Frequenz"
+    },
+    {
+      "begriff": "færge",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Fähre, Verkehrsträger-Verwechslung"
+    },
+    {
+      "begriff": "Vy tog",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Vy ist staatlicher Bahnbetreiber, hohe Frequenz"
+    },
+    {
+      "begriff": "ferge",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Fähren, in NO oft mit ZEV-Förderung verknüpft, falscher Verkehrsträger"
+    },
+    {
+      "begriff": "trikk",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "NO-Wort für Straßenbahn"
+    },
+    {
+      "begriff": "skolebuss",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbus"
+    },
+    {
+      "begriff": "skolbuss",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbusverkehr"
+    },
+    {
+      "begriff": "spårvagn",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Straßenbahn, kommt oft mit Bus zusammen vor"
+    },
+    {
+      "begriff": "Flygbussarna",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Markenname, fängt unrelevante Routen-News"
+    },
+    {
+      "begriff": "SJ tåg",
+      "markt": [
+        "Nordics"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "SJ ist staatliche Bahn, hohe Frequenz"
+    },
+    {
+      "begriff": "pullman gita",
+      "markt": [
+        "Italy"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Gita = Ausflug, Tourismus-False-Positive"
+    },
+    {
+      "begriff": "Frecciarossa",
+      "markt": [
+        "Italy"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Hochgeschwindigkeitszug, klassischer Bahnbias"
+    },
+    {
+      "begriff": "autobus incidente",
+      "markt": [
+        "Italy"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Unfallberichte ohne Förderbezug"
+    },
+    {
+      "begriff": "Trenitalia",
+      "markt": [
+        "Italy"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Bahnmeldungen, hohe Frequenz"
+    },
+    {
+      "begriff": "autobus scolastico",
+      "markt": [
+        "Italy"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbusverkehr"
+    },
+    {
+      "begriff": "TGV",
+      "markt": [
+        "France"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Hochgeschwindigkeitszüge, klassischer Bahnbias"
+    },
+    {
+      "begriff": "autocar tourisme",
+      "markt": [
+        "France"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Reise- und Tourismusberichte, klassischer FR-False-Positive"
+    },
+    {
+      "begriff": "SNCF",
+      "markt": [
+        "France"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Bahnmeldungen, hohe Frequenz, lenken vom Bus-Fokus ab"
+    },
+    {
+      "begriff": "autocar grève",
+      "markt": [
+        "France"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Streikberichte ohne Förderbezug"
+    },
+    {
+      "begriff": "autocar scolaire",
+      "markt": [
+        "France"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbusverkehr, andere Förderlogik"
+    },
+    {
+      "begriff": "frontalier",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Pendler-Berichterstattung ohne Förderbezug"
+    },
+    {
+      "begriff": "CFL train",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "LU-Bahn, hohe Frequenz im LU-Verkehrskontext"
+    },
+    {
+      "begriff": "voiture électrique Luxembourg",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Pkw-E-Mobilität, gleiche Förderlogik aber anderer Use-Case"
+    },
+    {
+      "begriff": "tramway Luxembourg",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Luxtram-Meldungen lenken vom Bus-Fokus ab"
+    },
+    {
+      "begriff": "autobus de tourisme excursion",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Reiseberichte ohne Förderbezug"
+    },
+    {
+      "begriff": "trein Brussel",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "NMBS/SNCB-Bahnmeldungen, hohe Frequenz"
+    },
+    {
+      "begriff": "metro",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "STIB-MIVB-U-Bahn, hohe Trefferdichte in BE-News"
+    },
+    {
+      "begriff": "tram",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "De Lijn betreibt auch Tramnetze, kommt in Bus-Kontexten oft mit"
+    },
+    {
+      "begriff": "autocar accident",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Reisebus-Unfall-Berichterstattung, klassischer FR-Müll"
+    },
+    {
+      "begriff": "schoolbus",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Schulbus, andere Förderlogik"
+    },
+    {
+      "begriff": "binnenvaart",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Binnenschifffahrt, ähnliche Förderlogik aber falscher Verkehrsträger"
+    },
+    {
+      "begriff": "vrachtwagen",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "LKW, AanZET produziert sonst zu viele Truck-only-Treffer"
+    },
+    {
+      "begriff": "campingbus",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "Wohnmobil-Treffer, klassischer SEO-Müll"
+    },
+    {
+      "begriff": "trein",
+      "markt": [
+        "Benelux"
+      ],
+      "kategorie": "Off-Topic",
+      "notizen": "NL-Wort für Zug, ProRail- und NS-Meldungen sind Hauptlärmquelle"
+    }
+  ]
+}

@@ -1,0 +1,848 @@
+{
+  "market": "Benelux",
+  "seed_version": 1,
+  "keywords": [
+    {
+      "suchbegriff": "touringcar subsidie",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Touringcar' is the unambiguous NL term for coach; 'subsidie' catches Dutch funding coverage"
+    },
+    {
+      "suchbegriff": "elektrische touringcar",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Direct electric-coach phrasing dominant in NL trade press"
+    },
+    {
+      "suchbegriff": "zero-emissie touringcar",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Zero-emissie' is the standard NL policy adjective (used in concession contracts)"
+    },
+    {
+      "suchbegriff": "waterstofbus Nederland",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "NL hydrogen-bus specific"
+    },
+    {
+      "suchbegriff": "zero-emissiebus concessie",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "notizen": "OV concessions with ZE clauses are the main funding trigger in NL"
+    },
+    {
+      "suchbegriff": "RVO openstelling bus",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "RVO is the NL funding agency; 'openstelling' announces new calls"
+    },
+    {
+      "suchbegriff": "laadinfrastructuur touringcar",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Depot/corridor charging phrasing for coach fleets"
+    },
+    {
+      "suchbegriff": "elektrische bus aanbesteding",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Aanbesteding' is the standard NL tender term"
+    },
+    {
+      "suchbegriff": "touringcar+subsidie",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "High",
+      "notizen": "Combo narrows tour-operator noise around 'touringcar'"
+    },
+    {
+      "suchbegriff": "touringcar+elektrisch",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Combo — filters booking/tourism results"
+    },
+    {
+      "suchbegriff": "touringcar+premie",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Vlaams/BE-NL funding term 'premie'"
+    },
+    {
+      "suchbegriff": "autobus+premie",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Flemish public-transport premie phrasing"
+    },
+    {
+      "suchbegriff": "Vlaams Klimaatfonds transport",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Sustainability",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Flemish climate fund is the main Vlaanderen funding vehicle"
+    },
+    {
+      "suchbegriff": "autocar électrique subvention",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Standard FR/BE electric-coach subsidy phrasing"
+    },
+    {
+      "suchbegriff": "prime autocar Wallonie",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "'Prime' is the Walloon funding term for coach purchase aid"
+    },
+    {
+      "suchbegriff": "autobus hydrogène Belgique",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "BE-FR H2 bus coverage"
+    },
+    {
+      "suchbegriff": "autocar+prime",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Combo hedges tourism noise around autocar"
+    },
+    {
+      "suchbegriff": "autocar+subvention",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Combo — funding-focus filter"
+    },
+    {
+      "suchbegriff": "autocar+électrique",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "High",
+      "notizen": "Combo — narrows to electrification stories"
+    },
+    {
+      "suchbegriff": "autobus+hydrogène",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Hydrogen buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "Combo — H2 refuelling and vehicle stories"
+    },
+    {
+      "suchbegriff": "infrastructure recharge autocar",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Charging infrastructure"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "FR-BE depot/corridor charging phrasing"
+    },
+    {
+      "suchbegriff": "TEC autobus électrique",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Tenders"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "TEC is the Walloon PT operator - tender/procurement trigger"
+    },
+    {
+      "suchbegriff": "RGTR bus électrique",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Bus fleets"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "RGTR is the Luxembourg national regional bus network — coach/bus electrification signal (replaces earlier Klimabonus Mobilität, which only covers passenger EVs/e-bikes)"
+    },
+    {
+      "suchbegriff": "Reisebus Luxemburg Förderung",
+      "sprache": "DE",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "prioritaet": "Low",
+      "notizen": "DE-LU coach funding phrasing — small but relevant slice"
+    },
+    {
+      "suchbegriff": "Netherlands electric bus funding",
+      "sprache": "EN",
+      "markt": [
+        "Benelux",
+        "EU"
+      ],
+      "themenbereich": [
+        "E-buses"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "EN trade press cross-market coverage of NL funding"
+    },
+    {
+      "suchbegriff": "Belgium coach electrification",
+      "sprache": "EN",
+      "markt": [
+        "Benelux"
+      ],
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "prioritaet": "Medium",
+      "notizen": "EN coverage on Sustainable Bus / Bus News"
+    }
+  ],
+  "feeds": [
+    {
+      "outlet": "Mobiliteit.nl",
+      "url": "https://www.mobiliteit.nl/",
+      "rss_feed": "https://www.mobiliteit.nl/feed/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "notizen": "Merged NL mobility trade press (former OVPro/Verkeersnet) — primary NL bus/OV beat"
+    },
+    {
+      "outlet": "TTM.nl",
+      "url": "https://www.ttm.nl/",
+      "rss_feed": "https://www.ttm.nl/feed/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Fleet strategy"
+      ],
+      "notizen": "NL transport and logistics trade press — covers coach fleet news"
+    },
+    {
+      "outlet": "Transportmedia (NL)",
+      "url": "https://www.transportmedia.be/",
+      "rss_feed": "https://www.transportmedia.be/feed/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "Fleet strategy"
+      ],
+      "notizen": "Belgian transport press NL edition — bilingual publisher"
+    },
+    {
+      "outlet": "Transportmedia (FR)",
+      "url": "https://www.transportmedia.be/fr/",
+      "rss_feed": "https://www.transportmedia.be/fr/feed/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "Fleet strategy"
+      ],
+      "notizen": "Belgian transport press FR edition"
+    },
+    {
+      "outlet": "Link2fleet (NL)",
+      "url": "https://www.link2fleet.com/",
+      "rss_feed": "https://www.link2fleet.com/rss",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Fleet strategy",
+        "E-buses"
+      ],
+      "notizen": "BE fleet management press NL — LEZ, charging infra, EV fleet stories"
+    },
+    {
+      "outlet": "Link2fleet (FR)",
+      "url": "https://www.link2fleet.com/fr",
+      "rss_feed": "https://www.link2fleet.com/fr/rss",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Fleet strategy",
+        "E-buses"
+      ],
+      "notizen": "BE fleet management press FR"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "rss_feed": "https://www.sustainable-bus.com/feed/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Benelux",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN trade press with strong Benelux OEM coverage (VDL, Van Hool, Ebusco)"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "rss_feed": "https://www.bus-news.com/feed/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Benelux",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "notizen": "EN global bus trade press — cross-market context"
+    },
+    {
+      "outlet": "SPW Mobilité Wallonie",
+      "url": "https://mobilite.wallonie.be/",
+      "rss_feed": "https://mobilite.wallonie.be/home/actus/zone-maincontent/actualites.rss",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Walloon mobility authority — funding calls and TEC contract news"
+    },
+    {
+      "outlet": "NOS Economie",
+      "url": "https://nos.nl/economie",
+      "rss_feed": "https://feeds.nos.nl/nosnieuwseconomie",
+      "prioritaet": "Medium",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Dutch public broadcaster economy feed — RVO / IenW announcements land here"
+    },
+    {
+      "outlet": "VRT NWS",
+      "url": "https://www.vrt.be/vrtnws/nl/",
+      "rss_feed": "https://www.vrt.be/vrtnws/nl.rss.articles.xml",
+      "prioritaet": "Medium",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Flemish public broadcaster — Vlaanderen policy signals"
+    },
+    {
+      "outlet": "Gemeente.nu",
+      "url": "https://www.gemeente.nu/",
+      "rss_feed": "https://www.gemeente.nu/feed/",
+      "prioritaet": "Low",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [],
+      "notizen": "NL municipal news — regional PTA tenders and provincial concessions"
+    }
+  ],
+  "outlets": [
+    {
+      "outlet": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "url": "https://www.rvo.nl/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "NL government agency running most transport subsidy schemes"
+    },
+    {
+      "outlet": "Ministerie van Infrastructuur en Waterstaat",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "NL policy owner for transport - decrees and concession rules"
+    },
+    {
+      "outlet": "SPF Mobilité et Transports (Belgium)",
+      "url": "https://mobilit.belgium.be/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "Belgian federal mobility ministry - homologation, road transport rules"
+    },
+    {
+      "outlet": "SPW Mobilité Wallonie",
+      "url": "https://mobilite.wallonie.be/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "Walloon regional mobility authority"
+    },
+    {
+      "outlet": "AWAC (Agence wallonne de l'Air et du Climat)",
+      "url": "https://www.awac.be/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Walloon air/climate agency - emissions rules affecting coach fleets"
+    },
+    {
+      "outlet": "Ministère de la Mobilité et des Travaux publics (Luxembourg)",
+      "url": "https://mmtp.gouvernement.lu/",
+      "prioritaet": "High",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Ministry",
+      "themenbereich": [],
+      "notizen": "LU mobility ministry - Klimabonus mobilité and infrastructure funding"
+    },
+    {
+      "outlet": "Klima-Agence Luxembourg",
+      "url": "https://klima-agence.lu/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Sustainability"
+      ],
+      "notizen": "Delivery agency for LU Klimabonus programme"
+    },
+    {
+      "outlet": "Gouvernement du Luxembourg",
+      "url": "https://gouvernement.lu/",
+      "prioritaet": "Medium",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [],
+      "notizen": "LU government portal - policy announcements and coalition mobility decisions"
+    },
+    {
+      "outlet": "De Lijn",
+      "url": "https://www.delijn.be/",
+      "prioritaet": "Medium",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Authority",
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "notizen": "Flemish public bus operator - e-bus procurement and depot electrification news"
+    },
+    {
+      "outlet": "FBAA (Federatie Belgische Autobus- en Autocarondernemers)",
+      "url": "https://www.fbaa.be/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Belgian bus/coach operator federation - lobbying positions on funding"
+    },
+    {
+      "outlet": "KNV (Koninklijk Nederlands Vervoer)",
+      "url": "https://www.knv.nl/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Association",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "NL passenger transport industry federation - covers bus and touringcar"
+    },
+    {
+      "outlet": "Mobiliteit.nl",
+      "url": "https://www.mobiliteit.nl/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets",
+        "E-buses"
+      ],
+      "notizen": "Merged NL mobility trade press (former OVPro/Verkeersnet)"
+    },
+    {
+      "outlet": "TTM.nl",
+      "url": "https://www.ttm.nl/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Fleet strategy"
+      ],
+      "notizen": "NL transport and logistics trade portal"
+    },
+    {
+      "outlet": "Transportmedia",
+      "url": "https://www.transportmedia.be/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Bus fleets"
+      ],
+      "notizen": "Bilingual BE transport publisher (NL/FR)"
+    },
+    {
+      "outlet": "Link2fleet",
+      "url": "https://www.link2fleet.com/",
+      "prioritaet": "High",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "Fleet strategy",
+        "E-buses"
+      ],
+      "notizen": "BE fleet management press (NL+FR editions)"
+    },
+    {
+      "outlet": "Sustainable Bus",
+      "url": "https://www.sustainable-bus.com/",
+      "prioritaet": "High",
+      "sprache": "EN",
+      "markt": [
+        "Benelux",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Hydrogen buses",
+        "Bus fleets"
+      ],
+      "notizen": "EN trade press with strong Benelux OEM coverage"
+    },
+    {
+      "outlet": "Bus News",
+      "url": "https://www.bus-news.com/",
+      "prioritaet": "Medium",
+      "sprache": "EN",
+      "markt": [
+        "Benelux",
+        "EU"
+      ],
+      "outlet_typ": "Trade press",
+      "themenbereich": [
+        "E-buses",
+        "Fleet strategy"
+      ],
+      "notizen": "EN global bus trade press"
+    },
+    {
+      "outlet": "NOS",
+      "url": "https://nos.nl/",
+      "prioritaet": "Medium",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "NL public broadcaster - main national news source"
+    },
+    {
+      "outlet": "VRT NWS",
+      "url": "https://www.vrt.be/vrtnws/nl/",
+      "prioritaet": "Medium",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "outlet_typ": "Daily press",
+      "themenbereich": [],
+      "notizen": "Flemish public broadcaster news"
+    }
+  ],
+  "negative_keywords": [
+    {
+      "begriff": "touringcar reis",
+      "kategorie": "Off-topic",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "Tour operator coach-holiday packages - biggest NL false-positive"
+    },
+    {
+      "begriff": "touringcar boeken",
+      "kategorie": "Advertisement",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "Coach booking sites"
+    },
+    {
+      "begriff": "schoolreis",
+      "kategorie": "Off-topic",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "School trip - not fleet-transformation relevant"
+    },
+    {
+      "begriff": "autocar tourisme",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "FR tour operator packages"
+    },
+    {
+      "begriff": "autocar accident",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "FR accident reporting - high frequency, no funding relevance"
+    },
+    {
+      "begriff": "colonie de vacances",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "FR youth-camp coach hire noise"
+    },
+    {
+      "begriff": "excursion autocar",
+      "kategorie": "Off-topic",
+      "sprache": "FR",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "Day-trip coach charter - not policy signal"
+    },
+    {
+      "begriff": "vacature buschauffeur",
+      "kategorie": "Job posting",
+      "sprache": "NL",
+      "markt": [
+        "Benelux"
+      ],
+      "notizen": "NL bus driver recruitment ads"
+    }
+  ]
+}

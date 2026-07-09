@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/" class="text-sm text-slate-500 hover:text-slate-800">&larr; back to list</a>
+
+<article class="mt-3 bg-white rounded-lg border border-slate-200 p-6">
+    <header class="mb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-2 text-xs">
+            {% if article.source_type == 'newsletter' %}
+                <span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-200"
+                      title="This article was ingested from an email in Outlook, not a web page.">
+                    ✉ Newsletter
+                </span>
+            {% endif %}
+            {% for theme in article.themes_parsed %}
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">{{ theme }}</span>
+            {% endfor %}
+            {% if article.category %}
+                <span class="px-2 py-0.5 rounded-full bg-slate-50 text-slate-600 border border-slate-200">{{ article.category }}</span>
+            {% endif %}
+        </div>
+        {% if article.is_translated and article.title_en %}
+            <h1 class="text-xl font-semibold text-slate-900 leading-snug">{{ article.title_en }}</h1>
+            <p class="mt-0.5 text-sm text-slate-500 italic">Original ({{ article.language|upper }}): {{ article.title }}</p>
+        {% else %}
+            <h1 class="text-xl font-semibold text-slate-900 leading-snug">{{ article.title }}</h1>
+        {% endif %}
+        <p class="mt-1 text-sm text-slate-500">
+            {{ article.source_name or 'unknown' }} · {{ article.published_at | local_dt or 'no date' }}
+            {% if article.language %} · {{ article.language|upper }}{% endif %}
+        </p>
+    </header>
+
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm mb-4">
+        <div>
+            <dt class="text-slate-500">Score (relevance)</dt>
+            <dd class="font-medium">{{ article.relevance_score or 0 }}</dd>
+        </div>
+        <div>
+            <dt class="text-slate-500">Trust bonus</dt>
+            <dd class="font-medium">+{{ article.trust_bonus or 0 }}</dd>
+        </div>
+        <div>
+            <dt class="text-slate-500">Learning bonus (star/ignore history)</dt>
+            <dd class="font-medium {% if article.feedback_bonus and article.feedback_bonus != 0 %}{% if article.feedback_bonus > 0 %}text-emerald-700{% else %}text-rose-600{% endif %}{% endif %}">
+                {{ '+' if (article.feedback_bonus or 0) > 0 }}{{ article.feedback_bonus or 0 }}
+            </dd>
+        </div>
+        <div>
+            <dt class="text-slate-500">Final score</dt>
+            <dd class="font-medium">{{ article.final_score }}</dd>
+        </div>
+        <div>
+            <dt class="text-slate-500">Source type</dt>
+            <dd class="font-medium">{{ article.source_type or '–' }}</dd>
+        </div>
+        <div>
+            <dt class="text-slate-500">Collected</dt>
+            <dd class="font-medium">{{ article.collected_at | local_dt }}</dd>
+        </div>
+    </dl>
+
+    {% if article.outlet_match %}
+        <div class="mb-4 p-3 rounded border border-slate-200 bg-slate-50 text-sm">
+            <strong>Outlet:</strong> {{ article.outlet_match.outlet_name }}
+            <span class="text-slate-500">({{ article.outlet_match.priority or 'priority n/a' }} · {{ article.outlet_match.outlet_type or 'type n/a' }})</span>
+        </div>
+    {% endif %}
+
+    {% if article.relevance_reasoning %}
+    <section class="mb-4">
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-1">Reasoning</h2>
+        <p class="text-sm text-slate-800">{{ article.relevance_reasoning }}</p>
+    </section>
+    {% endif %}
+
+    {% if article.snippet_en %}
+    <section class="mb-4">
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-1">Snippet (EN)</h2>
+        <p class="text-sm text-slate-800 whitespace-pre-line">{{ article.snippet_en }}</p>
+    </section>
+    {% endif %}
+
+    {% if article.snippet %}
+    <section class="mb-4">
+        <h2 class="text-xs uppercase tracking-wider text-slate-500 mb-1">
+            {% if article.snippet_en %}Snippet (original{% if article.language %} {{ article.language|upper }}{% endif %}){% else %}Snippet{% endif %}
+        </h2>
+        <p class="text-sm text-slate-800 whitespace-pre-line">{{ article.snippet }}</p>
+    </section>
+    {% endif %}
+
+    {% if article.source_type == 'newsletter' %}
+    <div class="mb-4 p-3 rounded border border-purple-200 bg-purple-50 text-sm text-purple-900">
+        <p>
+            <strong>✉ This is a newsletter email.</strong>
+            The <em>Open in Outlook</em> button below opens the original
+            message in your locally running Outlook desktop app. The
+            <em>Open source</em> link points to the first URL extracted from
+            the email body — often a landing page, not the mail itself.
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="flex flex-wrap items-center gap-2">
+        {% if article.source_type == 'newsletter' %}
+            <button id="btn-open-outlook"
+                    data-id="{{ article.id }}"
+                    class="px-3 py-1.5 rounded bg-purple-700 text-white text-sm hover:bg-purple-600">
+                ✉ Open in Outlook
+            </button>
+        {% endif %}
+        <a href="{{ article.url }}" target="_blank" rel="noopener"
+           class="px-3 py-1.5 rounded {% if article.source_type == 'newsletter' %}bg-slate-200 text-slate-700 hover:bg-slate-300{% else %}bg-slate-800 text-white hover:bg-slate-700{% endif %} text-sm">
+            {% if article.source_type == 'newsletter' %}Open first body link{% else %}Open source{% endif %}
+        </a>
+        <div class="ml-auto flex items-center gap-2 text-xs text-slate-500">
+            <span>Golden set:</span>
+            <button id="golden-relevant"
+                    class="px-3 py-1.5 rounded border {% if article.golden_label == 'relevant' %}bg-emerald-500 text-white border-emerald-600{% else %}border-emerald-300 text-emerald-700 hover:border-emerald-500{% endif %}"
+                    data-id="{{ article.id }}" data-golden="relevant">Relevant</button>
+            <button id="golden-noise"
+                    class="px-3 py-1.5 rounded border {% if article.golden_label == 'noise' %}bg-rose-500 text-white border-rose-600{% else %}border-rose-300 text-rose-700 hover:border-rose-500{% endif %}"
+                    data-id="{{ article.id }}" data-golden="noise">Noise</button>
+            {% if article.golden_label %}
+                <button id="golden-clear"
+                        class="px-3 py-1.5 rounded border border-slate-200 text-slate-600 hover:border-slate-400"
+                        data-id="{{ article.id }}">Clear</button>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  function postGolden(url) {
+    return postJSON(url).then(() => location.reload()).catch(err => {
+      showToast("Golden label failed: " + err.message, false);
+    });
+  }
+  const relBtn = document.getElementById("golden-relevant");
+  const noiseBtn = document.getElementById("golden-noise");
+  const clearBtn = document.getElementById("golden-clear");
+  if (relBtn) relBtn.addEventListener("click", () => postGolden(`/article/${relBtn.dataset.id}/golden/relevant`));
+  if (noiseBtn) noiseBtn.addEventListener("click", () => postGolden(`/article/${noiseBtn.dataset.id}/golden/noise`));
+  if (clearBtn) clearBtn.addEventListener("click", () => postGolden(`/article/${clearBtn.dataset.id}/golden/clear`));
+
+  // v0.3.2 — Open the source email in the running Outlook desktop app.
+  // The endpoint returns HTTP 200 with {ok:false, error:...} on controlled
+  // failures (missing EntryID, mail moved, Outlook not running) so we can
+  // surface a human-readable toast instead of a generic HTTP error.
+  const openOutlookBtn = document.getElementById("btn-open-outlook");
+  if (openOutlookBtn) {
+    openOutlookBtn.addEventListener("click", async () => {
+      const id = openOutlookBtn.dataset.id;
+      const original = openOutlookBtn.textContent;
+      openOutlookBtn.disabled = true;
+      openOutlookBtn.textContent = "Opening…";
+      try {
+        const resp = await fetch(`/outlook/open/${id}`, { method: "POST" });
+        const data = await resp.json();
+        if (data.ok) {
+          showToast("Opened in Outlook");
+        } else {
+          showToast(data.error || "Could not open in Outlook", false);
+        }
+      } catch (err) {
+        showToast("Open failed: " + err.message, false);
+      } finally {
+        openOutlookBtn.disabled = false;
+        openOutlookBtn.textContent = original;
+      }
+    });
+  }
+</script>
+{% endblock %}
