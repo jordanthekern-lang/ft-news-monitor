@@ -58,14 +58,21 @@ endlocal
 exit /b 1
 
 :after_launch
+REM launch.py returns here either after a clean shutdown OR because the
+REM single-instance guard aborted (another server is already running).
+REM Either way we want the terminal to stay open so the user sees WHY
+REM the window is closing — a silent flash-close is the #1 UX complaint.
+echo.
 if errorlevel 1 (
-  echo.
   echo FT News Monitor exited with an error.
-  if defined FM_DATA_DIR (
-    echo Log: %FM_DATA_DIR%\server.log
-  ) else (
-    echo Log: %~dp0data\server.log
-  )
-  pause
+) else (
+  echo FT News Monitor exited. See the last few lines above for the reason.
+  echo Common cause: another instance is already running — check the taskbar.
 )
+if defined FM_DATA_DIR (
+  echo Log: %FM_DATA_DIR%\server.log
+) else (
+  echo Log: %~dp0data\server.log
+)
+pause
 endlocal
