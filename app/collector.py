@@ -21,7 +21,7 @@ from urllib.parse import quote_plus, urljoin, urlparse
 import feedparser
 import httpx
 
-from . import database, domain_utils
+from . import database, domain_utils, url_canon
 from .config import LANG_TO_BING_NEWS, LANG_TO_GOOGLE_NEWS, MARKET_TO_LANGS
 from .models import FeedSource, Keyword, NotionConfig, Outlet
 
@@ -366,6 +366,15 @@ def _store_entries(
         title = entry.get("title") if isinstance(entry, dict) else getattr(entry, "title", "")
         if not link or not title:
             continue
+        # v0.7.1: Unwrap Bing-News apiclick wrappers (pure string, no HTTP)
+        # and strip aggregator-injected tracking params before dedup-INSERT.
+        # ``follow_redirects=False`` keeps this synchronous — we skip the
+        # HEAD-based Google-News unwrap here because Google emits ~1000
+        # wrapped links per run and a per-item HEAD would push run time
+        # from seconds to tens of minutes. Google-News dedup happens in
+        # v0.7.2 via a batched async unwrap; until then those articles
+        # will still occasionally appear multiple times.
+        link = url_canon.canonicalise_url(link, follow_redirects=False)
         published = _entry_published(entry)
         snippet = _entry_summary(entry)
         rid = database.insert_article(

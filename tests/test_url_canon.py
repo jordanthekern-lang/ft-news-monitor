@@ -111,3 +111,98 @@ def test_canonicalise_returns_input_when_not_a_redirector():
     url = "https://sustainable-bus.com/coach?utm_source=x"
     result = url_canon.canonicalise_url(url, follow_redirects=True)
     assert result == "https://sustainable-bus.com/coach"
+
+
+# ---------------------------------------------------------------------------
+# v0.7.1: _unwrap_bing_news — pure-string aggregator unwrap
+# ---------------------------------------------------------------------------
+
+
+def test_bing_unwrap_extracts_url_param():
+    """The real target URL sits in the ``url=`` query param, URL-encoded."""
+    wrapped = (
+        "http://www.bing.com/news/apiclick.aspx"
+        "?ref=FexRss&aid=&tid=6a4d3ece36524b32b50fc801ca0509bc"
+        "&url=https%3A%2F%2Fexample.com%2Farticle"
+        "&c=8095247579605366018&mkt=en-gb"
+    )
+    assert url_canon._unwrap_bing_news(wrapped) == "https://example.com/article"
+
+
+def test_bing_unwrap_none_for_non_bing_host():
+    assert url_canon._unwrap_bing_news("https://autoflotte.de/article") is None
+
+
+def test_bing_unwrap_none_for_bing_non_apiclick_path():
+    """Only /apiclick.aspx is a click-through wrapper — other Bing pages
+    (e.g. /search) are left as-is."""
+    assert url_canon._unwrap_bing_news("http://www.bing.com/search?q=foo") is None
+
+
+def test_bing_unwrap_none_when_url_param_missing():
+    """A malformed wrapper (no url= param) returns None, not a crash."""
+    wrapped = "http://www.bing.com/news/apiclick.aspx?tid=abc&mkt=en-us"
+    assert url_canon._unwrap_bing_news(wrapped) is None
+
+
+def test_bing_unwrap_refuses_nested_bing_target():
+    """Defensive: if the ``url=`` param itself points back into Bing, we
+    do not unwrap into a loop."""
+    wrapped = (
+        "http://www.bing.com/news/apiclick.aspx"
+        "?url=https%3A%2F%2Fwww.bing.com%2Fnews%2Fapiclick.aspx%3Ftid%3Dfoo"
+    )
+    assert url_canon._unwrap_bing_news(wrapped) is None
+
+
+def test_bing_unwrap_case_insensitive_host():
+    """Match Bing regardless of URL case."""
+    wrapped = (
+        "http://WWW.BING.COM/news/apiclick.aspx"
+        "?url=https%3A%2F%2Fexample.com%2Fa"
+    )
+    assert url_canon._unwrap_bing_news(wrapped) == "https://example.com/a"
+
+
+def test_canonicalise_bing_wrappers_collapse_across_tid_values():
+    """The core dedup guarantee: same target, different tid= values must
+    canonicalise to the same output URL so the DB's ``UNIQUE(url)``
+    constraint fires."""
+    a = "http://www.bing.com/news/apiclick.aspx?tid=AAA&url=https%3A%2F%2Fex.com%2Fa"
+    b = "http://www.bing.com/news/apiclick.aspx?tid=BBB&url=https%3A%2F%2Fex.com%2Fa"
+    assert url_canon.canonicalise_url(a, follow_redirects=False) == \
+           url_canon.canonicalise_url(b, follow_redirects=False)
+
+
+def test_canonicalise_publisher_url_with_cid_not_stripped():
+    """``cid=`` on a real publisher URL is NOT stripped (some sites use it
+    as a cache-buster or category filter). Only the aggregator wrapper's
+    own tracker params get killed via the unwrap step; the publisher URL
+    goes through the standard ALLOWLIST-only strip."""
+    url = "https://bbc.co.uk/news?cid=uk"
+    result = url_canon.canonicalise_url(url, follow_redirects=False)
+    assert result == "https://bbc.co.uk/news?cid=uk"
+
+
+# ---------------------------------------------------------------------------
+# v0.7.1: _unwrap_google_news — HEAD-based unwrap detection
+# ---------------------------------------------------------------------------
+
+
+def test_google_news_unwrap_none_for_non_gnews_host():
+    """Guard: no HEAD probe unless the URL is on news.google.com."""
+    assert url_canon._unwrap_google_news("https://autoflotte.de/x") is None
+
+
+def test_google_news_unwrap_none_for_gnews_but_non_rss_path():
+    """news.google.com/foo (not /rss/articles/) is left alone."""
+    assert url_canon._unwrap_google_news("https://news.google.com/search?q=foo") is None
+
+
+def test_canonicalise_skips_google_news_when_follow_redirects_false():
+    """The collector calls canonicalise_url(follow_redirects=False) for
+    speed; Google-News wrappers pass through as-is in that mode. The
+    behaviour is expected until v0.7.2 adds batched async unwrap."""
+    gnews = "https://news.google.com/rss/articles/CBMi-AFAcbdefX"
+    result = url_canon.canonicalise_url(gnews, follow_redirects=False)
+    assert result == gnews  # unchanged in fast path

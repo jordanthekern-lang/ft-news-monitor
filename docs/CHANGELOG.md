@@ -3,6 +3,50 @@
 All notable changes to this project are documented here.
 Format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.7.1] — 2026-07-09
+
+Duplicate-hunt release. On Jordan's first live install v0.7.0 the DB
+had grown to 3157 rows, of which 1308 (41%) were the same article
+under different aggregator wrapper URLs. Dashboard search results
+showed the Windrose story 32 times, one Fahrverbot piece 20 times,
+etc. All rooted in Bing News' ``apiclick.aspx?url=<real>&tid=<rand>``
+wrappers minting a fresh ``tid=`` per keyword query, so the DB's
+``UNIQUE(url)`` constraint never fired.
+
+### Fixed
+
+- **`app/url_canon.py`** — new `_unwrap_bing_news()` extracts the real
+  target URL from Bing's ``url=`` query parameter (pure string, no
+  network). New `_unwrap_google_news()` is present but currently
+  network-only (`follow_redirects=True`); the collector calls it with
+  `follow_redirects=False` for speed, so Google News wrappers still
+  duplicate today. v0.7.2 will add batched async unwrap for those.
+- **`app/collector.py`** — every RSS/Bing/GNews entry now runs through
+  `url_canon.canonicalise_url(link, follow_redirects=False)` before
+  `insert_article`. The dedup guarantee: same target URL with different
+  `tid=`/`oc=` values collapses to one canonical form; the existing
+  `UNIQUE(url)` constraint fires and the second insert is skipped.
+- **`scripts/dedupe_existing.py`** (new) — one-shot cleanup of
+  historical wrapper duplicates. Marks dupes as
+  `is_filtered_out=1, filter_reason='v0.7.1 dedup'` (reversible via
+  `--undo`; no physical DELETE). Canonicalises the survivor row's URL
+  so dashboard "Open" links point to the publisher, not the wrapper.
+  Run: `python scripts/dedupe_existing.py --dry-run`, then `--apply`.
+- **`tests/test_url_canon.py`** — 11 new tests: Bing URL parse, edge
+  cases (non-Bing host, wrong path, missing param, nested loop,
+  case-insensitivity), GNews guards, and the core dedup-collapse
+  assertion.
+
+### Not fixed yet (deferred to v0.7.2)
+
+- Google News RSS wrappers still create duplicates. The unwrap function
+  is written but running it synchronously (per-article HEAD, 3s
+  timeout) would add ~50 min to a typical run. Needs a batched async
+  variant with a concurrency cap.
+- Title-based cross-publisher dedup (same story on autoflotte.de +
+  prreach.com + businesswire.com). Would catch ~10% additional cases
+  but requires a fuzzy-match strategy and manual-override handling.
+
 ## [0.7.0] — 2026-07-09
 
 Distribution-model shift: colleagues bootstrap the tool from a single
