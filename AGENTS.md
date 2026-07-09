@@ -1,13 +1,25 @@
 # FT News Monitor — AI Bootstrap Runbook
 
 > **You are an AI coding assistant** (Claude Code, Claude Cowork, or
-> similar). A non-technical colleague at FlixBus has placed this file
-> in an empty folder and asked you to *"read AGENTS.md and set
-> everything up."* Follow this runbook end-to-end. You have full
-> permission to run shell commands, download files, and edit files
-> under `%USERPROFILE%\FTNewsMonitor\` and `%USERPROFILE%\FTNewsMonitor-tools\`.
-> You do NOT have permission to run `start.bat` yourself — that is
-> the colleague's job after you finish.
+> similar). A non-technical colleague at FlixBus is asking you to
+> install and configure the FT News Monitor on this Windows laptop.
+> This document is **self-contained**: it can be pasted into any
+> Claude Code / Cowork chat regardless of the current working
+> directory. You will create and use your own working folders under
+> `%USERPROFILE%\` — do not touch anything the colleague already
+> has open.
+>
+> You have full permission to run shell commands, download files
+> from the pinned URLs below, install user-scope apps via `winget`,
+> and create/edit files ONLY under these three folders:
+>
+> - `%USERPROFILE%\FTNewsMonitor-bootstrap\` (your scratch workspace)
+> - `%USERPROFILE%\FTNewsMonitor\`           (the installed app)
+> - `%USERPROFILE%\FTNewsMonitor-tools\`     (portable Git/Python fallbacks)
+>
+> You do NOT have permission to modify anything outside those three
+> folders. You do NOT have permission to run `start.bat` yourself —
+> that is the colleague's job after you finish.
 
 ## A. Goal
 
@@ -31,34 +43,76 @@ The install has three moving parts you must handle:
 
 ---
 
-## B. Preflight — check before doing anything
+## B. Preflight — set up your own workspace, then check environment
 
-Run these checks in order. Each check either passes (continue) or
-triggers a **HARD STOP** (tell the colleague, do not proceed).
+**B.0 Create your bootstrap workspace and `cd` into it.**
 
-**B.1 Current directory must be empty (or contain only this file).**
+You must NOT use whatever directory this chat happens to be in as
+your working directory — the colleague may have unrelated project
+files open. Create your own scratch folder and switch into it:
 
 ```
-dir /b
+if not exist "%USERPROFILE%\FTNewsMonitor-bootstrap" mkdir "%USERPROFILE%\FTNewsMonitor-bootstrap"
+cd /d "%USERPROFILE%\FTNewsMonitor-bootstrap"
 ```
 
-If the output shows anything besides `AGENTS.md`, HARD STOP. Message:
-*"This folder is not empty. Please move AGENTS.md to a fresh empty
-folder and start over."*
+Verify with `cd` that you are now at exactly
+`C:\Users\<username>\FTNewsMonitor-bootstrap`. If the `cd` command
+fails (permission denied, path-traversal block in a sandboxed
+environment), HARD STOP. Message to colleague: *"I cannot create a
+working folder under `%USERPROFILE%\FTNewsMonitor-bootstrap\`. Please
+create that folder manually in Explorer, then re-run this prompt."*
 
-**B.2 Current directory must not be inside OneDrive, SharePoint, or Program Files.**
+Everything from this point onward uses absolute paths. Your CWD from
+here is `%USERPROFILE%\FTNewsMonitor-bootstrap\`, but you never write
+into this folder — it's just a stable base for `cd`.
 
-Check `%CD%`. If it contains `OneDrive`, `SharePoint`, `Program Files`,
-or `Program Files (x86)` (case-insensitive), HARD STOP. Message:
-*"This folder is inside a sync'd or protected location. SQLite will
-break here. Please move AGENTS.md to somewhere under `%USERPROFILE%\Documents\`
-and start over."*
+**B.1 Verify no unexpected files in your workspace.**
 
-**B.3 Detect legacy ZIP install.**
+```
+dir /b "%USERPROFILE%\FTNewsMonitor-bootstrap"
+```
 
-If the *parent* folder or current folder contains both `python\python.exe`
-and `app\` as siblings of a `start.bat`, this is a v0.6.x ZIP extract.
-**Skip C, D, E and jump to Section I (Legacy ZIP fallback).**
+Empty output is expected on a fresh install. Any content here from a
+prior aborted install is fine (idempotency — you may re-download over
+prior scratch files). Do NOT clean out this folder yourself.
+
+**B.2 Reject sync'd / protected install target.**
+
+Check that `%USERPROFILE%\FTNewsMonitor` does not resolve into
+`OneDrive`, `SharePoint`, or `Program Files`. On a standard Windows
+profile this is fine — but corporate laptops sometimes redirect
+`%USERPROFILE%\Documents` under OneDrive. Verify `%USERPROFILE%`
+itself is clean:
+
+```
+echo %USERPROFILE%
+```
+
+If the path contains `OneDrive`, `SharePoint`, `Program Files`, or
+`Program Files (x86)` (case-insensitive), HARD STOP. Message to
+colleague: *"Your Windows profile is inside a sync'd or protected
+location. SQLite will corrupt there. Please contact IT / Jordan
+before we continue."*
+
+**B.3 Detect existing v0.6.x ZIP install.**
+
+Check if `%LOCALAPPDATA%\FTNewsMonitor\monitor.db` already exists AND
+there's a sibling `python\python.exe` next to any `start.bat` on the
+laptop. If both true, the colleague has an old ZIP install running.
+Do NOT clobber it — jump to Section I (Legacy ZIP fallback).
+
+Fast check:
+
+```
+if exist "%LOCALAPPDATA%\FTNewsMonitor\monitor.db" echo LEGACY_ZIP_PRESENT
+```
+
+If output is `LEGACY_ZIP_PRESENT`, ask the colleague: *"You already
+have an older FT News Monitor install. Should I upgrade it (Legacy
+Path — Section I) or install fresh alongside (v0.7.0 Path — proceed
+with C/D/E)?"* Default to Legacy Path unless the colleague explicitly
+says fresh install.
 
 **B.4 Git present?**
 
@@ -384,27 +438,35 @@ server and will hang your terminal.
 
 ## H. HARD RULES — read carefully
 
-1. **Never print, echo, or paste AWS Access-Keys, Secret-Keys, or
+1. **Never touch anything outside the three allowed folders.** You
+   may create, download into, and edit files ONLY under:
+   `%USERPROFILE%\FTNewsMonitor-bootstrap\`,
+   `%USERPROFILE%\FTNewsMonitor\`, and
+   `%USERPROFILE%\FTNewsMonitor-tools\`.
+   Whatever folder or project the colleague had open when they
+   pasted this prompt into their chat — leave it untouched. Do not
+   `dir` it, do not read files from it, do not `git init` in it.
+2. **Never print, echo, or paste AWS Access-Keys, Secret-Keys, or
    Session-Tokens into your chat responses.** Write them ONLY to the
    `.env` file, and only via the on-laptop discovery flow in F.3.
-2. **Never write `.env` outside `%USERPROFILE%\FTNewsMonitor\`** in a
+3. **Never write `.env` outside `%USERPROFILE%\FTNewsMonitor\`** in a
    git-clone install. The layout check in F.1 is not optional. If
    the check says `%LOCALAPPDATA%\FTNewsMonitor\.env`, that means
    Section I (legacy ZIP) — you should have detected that in B.3.
-3. **Never run `start.bat` yourself.** Tell the colleague to
+4. **Never run `start.bat` yourself.** Tell the colleague to
    double-click it. It launches a blocking web server.
-4. **Never install to `Program Files\`, `OneDrive\`, or `SharePoint\`.**
+5. **Never install to `Program Files\`, `OneDrive\`, or `SharePoint\`.**
    SQLite fails silently under sync. Use `%USERPROFILE%\FTNewsMonitor\`
    or (for tools) `%USERPROFILE%\FTNewsMonitor-tools\`.
-5. **Never `pip install` outside the venv.** Every pip command in
+6. **Never `pip install` outside the venv.** Every pip command in
    this runbook uses `"%USERPROFILE%\FTNewsMonitor\venv\Scripts\pip.exe"`
    explicitly. Do not use system `pip` or `py -m pip`.
-6. **Never bypass a HARD STOP.** If a check fails, tell the
+7. **Never bypass a HARD STOP.** If a check fails, tell the
    colleague, and stop. Don't work around it.
-7. **Never modify AGENTS.md, `.gitignore`, or files inside
+8. **Never modify AGENTS.md, `.gitignore`, or files inside
    `%USERPROFILE%\FTNewsMonitor\` other than `.env`.** Everything
    else is under Jordan's control via the repo.
-8. **Never commit `.env` — verify it's in `.gitignore` first (F.2).**
+9. **Never commit `.env` — verify it's in `.gitignore` first (F.2).**
    If for some reason it isn't, HARD STOP.
 
 ---
