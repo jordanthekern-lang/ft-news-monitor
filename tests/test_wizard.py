@@ -44,7 +44,7 @@ def wizard_mocks(monkeypatch, tmp_path):
     imports: list = []
     test_result: dict = {
         "ok": True,
-        "model": "eu.anthropic.claude-haiku-4-5",
+        "model": "eu.anthropic.claude-opus-4-7",
         "latency_ms": 42,
         "error": None,
     }
@@ -165,7 +165,7 @@ def test_full_wizard_flow(client, wizard_mocks):
             "aws_access_key_id": "AKIA_TEST",
             "aws_secret_access_key": "sekret",
             "aws_region": "eu-central-1",
-            "anthropic_model": "eu.anthropic.claude-haiku-4-5",
+            "anthropic_model": "eu.anthropic.claude-opus-4-7",
         },
         follow_redirects=False,
     )
@@ -179,7 +179,7 @@ def test_full_wizard_flow(client, wizard_mocks):
         "AWS_ACCESS_KEY_ID": "AKIA_TEST",
         "AWS_SECRET_ACCESS_KEY": "sekret",
         "AWS_REGION": "eu-central-1",
-        "ANTHROPIC_MODEL": "eu.anthropic.claude-haiku-4-5",
+        "ANTHROPIC_MODEL": "eu.anthropic.claude-opus-4-7",
     }
     # reloads: 1 for the markets-step TIMEZONE-autofill, 1 for AWS. If the
     # markets step accidentally skipped its reload, this would flag it.
@@ -193,7 +193,7 @@ def test_full_wizard_flow(client, wizard_mocks):
     assert resp.status_code == 200
     payload = resp.json()
     assert payload["ok"] is True
-    assert payload["model"] == "eu.anthropic.claude-haiku-4-5"
+    assert payload["model"] == "eu.anthropic.claude-opus-4-7"
     assert payload["latency_ms"] == 42
 
     # Step 4 — import seeds. Only italy.json exists in the fake seeds dir;
@@ -413,7 +413,7 @@ def test_aws_response_never_echoes_submitted_secret(client, wizard_mocks):
             "aws_access_key_id": secret_key,
             "aws_secret_access_key": secret_secret,
             "aws_region": "eu-west-1",
-            "anthropic_model": "eu.anthropic.claude-haiku-4-5",
+            "anthropic_model": "eu.anthropic.claude-opus-4-7",
         },
         follow_redirects=True,
     )
@@ -439,7 +439,7 @@ def test_aws_error_response_never_echoes_secret(client, wizard_mocks):
             "aws_access_key_id": "AKIAIOSFODNN7EXAMPLE",
             "aws_secret_access_key": secret_secret,
             "aws_region": "not-a-valid-region-xyz",
-            "anthropic_model": "eu.anthropic.claude-haiku-4-5",
+            "anthropic_model": "eu.anthropic.claude-opus-4-7",
         },
     )
     # Handler raises HTTPException(400) for an invalid region.
@@ -466,7 +466,7 @@ def test_aws_blank_secret_leaves_env_untouched(client, wizard_mocks):
             "aws_access_key_id": "",       # blank
             "aws_secret_access_key": "",   # blank
             "aws_region": "eu-west-1",
-            "anthropic_model": "eu.anthropic.claude-haiku-4-5",
+            "anthropic_model": "eu.anthropic.claude-opus-4-7",
             "anthropic_api_key": "",       # blank
         },
         follow_redirects=False,

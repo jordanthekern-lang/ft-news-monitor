@@ -40,14 +40,24 @@ code changes; only distribution + bootstrap tooling touched.
 - **`docs/ROLLOUT_RUNBOOK.md`** — new §4.5 "Distributing v0.7.0+ via
   AGENTS.md" with a Teams-message template for the six-market rollout.
 - **`VERSION`** — 0.6.1 → 0.7.0.
+- **Default `ANTHROPIC_MODEL`** — `eu.anthropic.claude-haiku-4-5`
+  → `eu.anthropic.claude-opus-4-7`. The prior alias (`claude-haiku-4-5`
+  without version suffix) returned `400: The provided model
+  identifier is invalid` on Jordan's Bedrock tenancy — the Opus 4.7
+  cross-region inference profile ID is exactly `eu.anthropic.claude-opus-4-7`
+  (verified via `list-inference-profiles`) so it works without a
+  versioned suffix. Updated in `app/config.py`, `.env.example`,
+  `README.md`, `docs/QUICKSTART.md`, `docs/ROLLOUT_RUNBOOK.md`
+  (IAM policy ARN template), and test fixtures.
 
 ### Not changed
 
-- Zero touches to `app/*.py`, `scripts/launch.py`,
-  `build/build_release.py`, DB schema, wizard flow, tests. The
-  git-clone install works because `app/config.py::_resolve_data_dir()`
-  falls back to the dev layout when `python\python.exe` is missing —
-  no code change needed to support it.
+- Zero touches to `scripts/launch.py`, `build/build_release.py`,
+  DB schema, wizard flow. The git-clone install works because
+  `app/config.py::_resolve_data_dir()` falls back to the dev layout
+  when `python\python.exe` is missing — no code change needed to
+  support that. The only `app/*.py` touch is the one-line default-
+  model swap above.
 
 ### Pinned URLs (Jordan: check quarterly)
 

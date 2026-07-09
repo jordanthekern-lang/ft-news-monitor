@@ -62,7 +62,7 @@ Key `.env` variables (also settable via the first-run wizard):
 | `AWS_ACCESS_KEY_ID`     | Bedrock auth (or use `AWS_PROFILE`)                    |
 | `AWS_SECRET_ACCESS_KEY` | Bedrock auth                                           |
 | `AWS_REGION`            | Default `eu-west-1`                                    |
-| `ANTHROPIC_MODEL`       | Default `eu.anthropic.claude-haiku-4-5`                |
+| `ANTHROPIC_MODEL`       | Default `eu.anthropic.claude-opus-4-7`                 |
 | `ANTHROPIC_API_KEY`     | Only when `AI_PROVIDER=anthropic`                      |
 | `DASHBOARD_PORT`        | Default `8766`                                         |
 | `FM_DATA_DIR`           | Override the DB/log/env location (default: `data/`)    |

@@ -237,7 +237,7 @@ def get_settings() -> Settings:
         aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY", ""),
         aws_session_token=os.getenv("AWS_SESSION_TOKEN", ""),
         aws_region=os.getenv("AWS_REGION", "eu-west-1"),
-        anthropic_model=os.getenv("ANTHROPIC_MODEL", "eu.anthropic.claude-haiku-4-5"),
+        anthropic_model=os.getenv("ANTHROPIC_MODEL", "eu.anthropic.claude-opus-4-7"),
         anthropic_api_key=os.getenv("ANTHROPIC_API_KEY", ""),
         ai_max_tokens=_int("AI_MAX_TOKENS", 512),
         dashboard_port=_int("DASHBOARD_PORT", 8766),

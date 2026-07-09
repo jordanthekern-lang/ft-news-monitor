@@ -28,7 +28,7 @@ def _make_settings(provider: str = "bedrock", api_key: str = ""):
         aws_secret_access_key="",
         aws_session_token="",
         aws_region="eu-west-1",
-        anthropic_model="eu.anthropic.claude-haiku-4-5",
+        anthropic_model="eu.anthropic.claude-opus-4-7",
         ai_max_tokens=512,
         dashboard_port=8766,
         timezone="Europe/Berlin",
@@ -119,7 +119,7 @@ def test_connection_returns_ok_true_on_success(monkeypatch):
     fake_content.text = "pong"
 
     fake_response = MagicMock()
-    fake_response.model = "eu.anthropic.claude-haiku-4-5"
+    fake_response.model = "eu.anthropic.claude-opus-4-7"
     fake_response.content = [fake_content]
 
     fake_client = MagicMock()
@@ -132,7 +132,7 @@ def test_connection_returns_ok_true_on_success(monkeypatch):
     assert result["ok"] is True
     assert result["error"] is None
     assert result["latency_ms"] >= 0
-    assert result["model"] == "eu.anthropic.claude-haiku-4-5"
+    assert result["model"] == "eu.anthropic.claude-opus-4-7"
 
 
 def test_connection_result_shape(monkeypatch):
