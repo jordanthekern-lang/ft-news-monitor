@@ -305,7 +305,7 @@ def test_run_passes_override_to_process_keywords(monkeypatch):
 
     seen_windows: List[str] = []
 
-    async def fake_process_keywords(client, keywords, stats, *, time_window=None):
+    async def fake_process_keywords(client, keywords, stats, *, time_window=None, **kwargs):
         seen_windows.append(time_window)
 
     async def fake_process_feed(client, feed, stats, *, time_window=None):

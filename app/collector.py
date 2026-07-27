@@ -21,7 +21,7 @@ from urllib.parse import quote_plus, urljoin, urlparse
 import feedparser
 import httpx
 
-from . import database, domain_utils, url_canon
+from . import database, domain_utils, progress, url_canon
 from .config import LANG_TO_BING_NEWS, LANG_TO_GOOGLE_NEWS, MARKET_TO_LANGS
 from .models import FeedSource, Keyword, NotionConfig, Outlet
 
@@ -721,6 +721,8 @@ async def _process_keywords(
     stats: CollectionStats,
     *,
     time_window: Optional[str] = None,
+    _progress_done: int = 0,
+    _progress_total: int = 0,
 ) -> None:
     """Fire one query per keyword (v0.5.0: un-batched).
 
@@ -730,10 +732,21 @@ async def _process_keywords(
     ceiling since each RSS response caps at ~100 anyway. Un-batching costs
     us N-times the requests but scales recall roughly linearly, which is
     the whole point of v0.5.0.
+
+    ``_progress_done`` / ``_progress_total`` (v0.7.4) let the caller pass
+    in the run-wide offset so the dashboard bar shows ``Keywords 47/199``
+    instead of restarting the count.
     """
     grouped = _build_keyword_queries(keywords)
+    kw_index = 0
     for (sprache, market), kws in grouped.items():
         for kw in kws:
+            kw_index += 1
+            progress.set_step(
+                f"Keywords {kw_index}/{len(keywords)}: {kw.suchbegriff[:40]}",
+                current=_progress_done + kw_index,
+                total=_progress_total,
+            )
             query = f'"{kw.suchbegriff}"'
             source_name = f"KW[{sprache}/{market or '-'}]: {kw.suchbegriff}"
             # Slug the source_id from the keyword so per-keyword source_health
@@ -937,29 +950,59 @@ async def run(
         "X-Contact": "FlixBus PA foerder-monitor",
     }
 
+    # v0.7.4: overall progress = feeds + keywords + rss-outlets + site-outlets.
+    rss_outlets = [o for o in config.outlets if o.hat_rss]
+    site_outlets_preview = [
+        o
+        for o in config.outlets
+        if not o.hat_rss and _enums.is_high_priority(o.prioritaet) and o.url
+    ]
+    total_items = (
+        len(config.feeds) + len(config.keywords) + len(rss_outlets) + len(site_outlets_preview)
+    )
+    done_items = 0
+
     async with httpx.AsyncClient(headers=headers, timeout=20.0) as client:
         # 1) Curated RSS / Google News feeds
         for feed in config.feeds:
+            progress.set_step(
+                f"Feeds {done_items + 1}/{total_items}",
+                current=done_items,
+                total=total_items,
+            )
             await _process_feed(client, feed, stats, time_window=tw)
+            done_items += 1
 
         # 2) Keyword sweeps via Google News / Bing / GDELT
-        await _process_keywords(client, config.keywords, stats, time_window=tw)
+        #    _process_keywords updates progress per keyword internally so
+        #    the user sees the counter tick during the longest phase.
+        await _process_keywords(
+            client, config.keywords, stats, time_window=tw,
+            _progress_done=done_items, _progress_total=total_items,
+        )
+        done_items += len(config.keywords)
 
         # 3) Outlets with RSS
-        rss_outlets = [o for o in config.outlets if o.hat_rss]
         for outlet in rss_outlets:
+            progress.set_step(
+                f"Outlets {done_items + 1}/{total_items}",
+                current=done_items,
+                total=total_items,
+            )
             await _try_outlet_rss(client, outlet, stats)
+            done_items += 1
 
         # 4) High-priority outlets without RSS — site:domain search
-        site_outlets = [
-            o
-            for o in config.outlets
-            if not o.hat_rss and _enums.is_high_priority(o.prioritaet) and o.url
-        ]
-        for outlet in site_outlets:
+        for outlet in site_outlets_preview:
+            progress.set_step(
+                f"Site search {done_items + 1}/{total_items}",
+                current=done_items,
+                total=total_items,
+            )
             await _outlet_site_search(
                 client, outlet, high_priority_keywords, stats, time_window=tw
             )
+            done_items += 1
 
     # 5) Newsletter Outlook-COM poller (v0.3.0). Reads a single named
     #    folder from the user's locally running Outlook desktop app.

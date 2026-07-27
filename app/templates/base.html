@@ -82,6 +82,20 @@
         </div>
     </header>
 
+    <!-- v0.7.4: live progress strip shown only while a run is active. -->
+    <div id="progress-strip" class="hidden bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-6 py-2">
+        <div class="flex items-center gap-3 text-xs text-slate-700">
+          <span id="progress-phase" class="font-medium text-slate-800 min-w-[6rem]">Starting…</span>
+          <span id="progress-step" class="text-slate-600 truncate flex-1">&nbsp;</span>
+          <span id="progress-elapsed" class="text-slate-500 tabular-nums">0s</span>
+        </div>
+        <div class="mt-1 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+          <div id="progress-bar" class="h-full bg-flix-green transition-all duration-500" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
     <main class="max-w-7xl mx-auto px-6 py-6">
         {% block content %}{% endblock %}
     </main>
@@ -126,13 +140,111 @@
         });
       }
 
+      // v0.7.4: progress-strip helpers. The strip is a shared HTML fragment
+      // in base.html; the poller writes into it whenever the "Run collection"
+      // button is clicked OR a run is already active when the page loads
+      // (page reload during a run, opening a second tab, scheduler-triggered
+      // run in the background).
+      const PHASE_LABELS = {
+        idle: "Idle",
+        collecting: "Collecting",
+        prefiltering: "Prefilter",
+        translating: "Translating",
+        ai_scoring: "AI scoring",
+        done: "Done",
+      };
+      // Phase weights = rough share of wall-clock time on a typical DACH+EU
+      // run. Only used to make the bar advance smoothly through the pipeline;
+      // sub-step counters within a phase produce the fine-grained motion.
+      const PHASE_WEIGHTS = {
+        idle: 0,
+        collecting: 0.55,
+        prefiltering: 0.05,
+        translating: 0.15,
+        ai_scoring: 0.25,
+        done: 1.0,
+      };
+      const PHASE_ORDER = ["collecting", "prefiltering", "translating", "ai_scoring", "done"];
+
+      function computeBarWidth(snap) {
+        if (snap.phase === "idle") return 0;
+        if (snap.phase === "done") return 100;
+        // Sum weights of completed phases + fractional progress in current.
+        let base = 0;
+        for (const p of PHASE_ORDER) {
+          if (p === snap.phase) break;
+          base += PHASE_WEIGHTS[p] || 0;
+        }
+        const phaseWeight = PHASE_WEIGHTS[snap.phase] || 0;
+        let frac = 0;
+        if (snap.total > 0) frac = Math.min(1, snap.current / snap.total);
+        return Math.round((base + phaseWeight * frac) * 100);
+      }
+
+      function renderProgress(snap) {
+        const strip = document.getElementById("progress-strip");
+        const phase = document.getElementById("progress-phase");
+        const step = document.getElementById("progress-step");
+        const bar = document.getElementById("progress-bar");
+        const elapsed = document.getElementById("progress-elapsed");
+        if (!strip) return;
+        phase.textContent = PHASE_LABELS[snap.phase] || snap.phase;
+        step.textContent = snap.step || "";
+        bar.style.width = computeBarWidth(snap) + "%";
+        elapsed.textContent = Math.round(snap.elapsed_seconds || 0) + "s";
+        strip.classList.remove("hidden");
+      }
+
+      function hideProgress() {
+        const strip = document.getElementById("progress-strip");
+        if (strip) strip.classList.add("hidden");
+      }
+
+      let progressTimer = null;
+      async function pollProgressUntilDone(onDone) {
+        try {
+          const resp = await fetch("/pipeline-status");
+          if (!resp.ok) return;
+          const snap = await resp.json();
+          renderProgress(snap);
+          if (snap.running) {
+            progressTimer = setTimeout(() => pollProgressUntilDone(onDone), 2000);
+          } else if (onDone) {
+            onDone(snap);
+          }
+        } catch (_) {
+          // Network hiccup — try again shortly.
+          progressTimer = setTimeout(() => pollProgressUntilDone(onDone), 4000);
+        }
+      }
+
+      // On page load: if a run is already active (e.g. scheduler triggered
+      // it, another tab started it), show the strip and start polling.
+      fetch("/pipeline-status")
+        .then((r) => (r.ok ? r.json() : null))
+        .then((snap) => {
+          if (snap && snap.running) {
+            renderProgress(snap);
+            pollProgressUntilDone(null);
+          }
+        })
+        .catch(() => {});
+
       const rerunBtn = document.getElementById("btn-rerun");
       if (rerunBtn) {
         rerunBtn.addEventListener("click", async () => {
           rerunBtn.disabled = true;
           rerunBtn.textContent = "Running…";
+          // Kick the strip open immediately so the user sees feedback
+          // before the poller's first tick lands.
+          renderProgress({ phase: "collecting", step: "Starting…", current: 0, total: 0, elapsed_seconds: 0 });
+          // Fire the run and the poller in parallel — the run's own
+          // response only lands when the pipeline is done, but the
+          // poller shows progress meanwhile.
+          const runPromise = postJSON("/run-collection");
+          pollProgressUntilDone(null);
           try {
-            const data = await postJSON("/run-collection");
+            const data = await runPromise;
             const c = data.collector;
             showToast(`Run complete: ${c.total_new} new · ${data.ai_filter?.scored ?? 0} scored`);
             setTimeout(() => location.reload(), 1500);
@@ -142,6 +254,7 @@
             } else {
               showToast("Run failed: " + err.message, false);
             }
+            hideProgress();
           } finally {
             rerunBtn.disabled = false;
             rerunBtn.textContent = "Run collection";

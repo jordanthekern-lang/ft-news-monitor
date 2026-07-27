@@ -3,6 +3,49 @@
 All notable changes to this project are documented here.
 Format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.7.4] — 2026-07-27
+
+Live progress bar in the dashboard. Runs used to disappear behind a
+"Running…" button for 5–10 min with no visible state; users couldn't
+tell whether the collector was working, stuck on GDELT retries, or
+had actually crashed. The bar now shows the current phase
+(Collecting / Prefilter / Translating / AI scoring), the sub-step
+inside that phase ("Keywords 47/134: Wasserstoffbus"), and elapsed
+seconds.
+
+### Added
+
+- **`app/progress.py`** — module-level singleton state, best-effort
+  telemetry (never raises, never blocks the pipeline). Reset on every
+  `start_run`; snapshot() reads a JSON-serialisable dict.
+- **`GET /pipeline-status`** — 200 always (also when idle), returns
+  the snapshot so the dashboard poller doesn't need to special-case
+  HTTP status codes.
+- **Progress strip under the header** (`app/templates/base.html`) —
+  hidden by default; opens on "Run collection" click and also
+  auto-detects an in-flight run on page load (scheduler-triggered,
+  second tab). Polls every 2 s.
+- **10 new tests** covering the reporter's phase/step/error paths and
+  the `/pipeline-status` endpoint (idle and running snapshots).
+
+### Wired in
+
+- `app/pipeline.py::run_pipeline` calls `start_run`, `set_phase` for
+  each of the four stages, and `finish_run` (also on the exception
+  path).
+- `app/collector.py::run` reports per-feed/keyword/outlet sub-steps.
+  Keywords carry a `_progress_done` / `_progress_total` offset so the
+  bar shows run-wide progress ("47/199") not just per-phase.
+
+### Not changed
+
+- The pipeline lock, cross-process lock, and `/run-collection`
+  contract stay identical.
+- The bar uses phase weights (Collect 55 % / Prefilter 5 % /
+  Translate 15 % / AI scoring 25 %) — not a real ETA, just smooth
+  motion. When actual timing on a colleague's install proves the mix
+  is off, tweak `PHASE_WEIGHTS` in `base.html`.
+
 ## [0.7.3] — 2026-07-27
 
 GDELT default flipped to off. Measurement on Jordan's live DB (30-day

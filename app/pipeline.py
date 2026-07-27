@@ -23,6 +23,7 @@ from . import (
     database,
     local_config,
     prefilter,
+    progress,
     runtime_settings,
     translator,
 )
@@ -248,30 +249,47 @@ async def run_pipeline(
                 effective_time_window or "env-default",
             )
 
-            cfg = local_config.load_config(markets=markets)
-            coll_stats = await collector.run(cfg, time_window_override=effective_time_window)
-
-            summary: dict = {
-                "status": "completed",
-                "markets": markets,
-                "dry_run": dry_run,
-                "started_at": started.isoformat(),
-                "collector": coll_stats.as_dict(),
-                "time_window": effective_time_window,
-                "time_window_reason": time_window_reason,
-                "prefilter": None,
-                "translator": None,
-                "ai_filter": None,
-            }
-
-            if not dry_run:
-                summary["prefilter"] = prefilter.run(cfg)
-                summary["translator"] = translator.run()
-                summary["ai_filter"] = await ai_filter.run(
-                    cfg, skip_prescreen_days=_prescreen_days_override()
+            # v0.7.4: expose live progress to the dashboard poller.
+            progress.start_run(markets=markets)
+            try:
+                cfg = local_config.load_config(markets=markets)
+                progress.set_phase(
+                    "collecting",
+                    step="Loading sources",
+                    total=len(cfg.feeds) + len(cfg.keywords) + len(cfg.outlets),
+                )
+                coll_stats = await collector.run(
+                    cfg, time_window_override=effective_time_window
                 )
 
-            summary["duration_seconds"] = round(time.monotonic() - t0, 2)
+                summary: dict = {
+                    "status": "completed",
+                    "markets": markets,
+                    "dry_run": dry_run,
+                    "started_at": started.isoformat(),
+                    "collector": coll_stats.as_dict(),
+                    "time_window": effective_time_window,
+                    "time_window_reason": time_window_reason,
+                    "prefilter": None,
+                    "translator": None,
+                    "ai_filter": None,
+                }
+
+                if not dry_run:
+                    progress.set_phase("prefiltering", step="Filtering old + excluded articles")
+                    summary["prefilter"] = prefilter.run(cfg)
+                    progress.set_phase("translating", step="Translating non-English articles")
+                    summary["translator"] = translator.run()
+                    progress.set_phase("ai_scoring", step="AI relevance scoring")
+                    summary["ai_filter"] = await ai_filter.run(
+                        cfg, skip_prescreen_days=_prescreen_days_override()
+                    )
+
+                summary["duration_seconds"] = round(time.monotonic() - t0, 2)
+                progress.finish_run()
+            except Exception as exc:
+                progress.finish_run(error=str(exc)[:200])
+                raise
 
             iso_now = datetime.now(timezone.utc).isoformat()
             runtime_settings.set(runtime_settings.LAST_RUN_AT, iso_now)

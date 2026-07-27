@@ -27,6 +27,7 @@ from . import (
     local_config,
     outlook_poller,
     pipeline,
+    progress as pipeline_progress,
     runtime_settings,
     scheduler,
     seed_import,
@@ -787,6 +788,19 @@ async def run_collection_endpoint():
     if result.get("status") == "already_running":
         return JSONResponse(result, status_code=409)
     return result
+
+
+@app.get("/pipeline-status")
+def pipeline_status_endpoint():
+    """Poll target for the dashboard progress bar (v0.7.4).
+
+    Returns the live phase + sub-step of the currently running pipeline.
+    When nothing is running the response still returns 200 with
+    ``phase='idle'`` (or 'done' after the most recent run finished) so
+    the UI can decide whether to hide the bar without special-casing
+    HTTP status codes.
+    """
+    return JSONResponse(pipeline_progress.snapshot())
 
 
 @app.get("/settings", response_class=HTMLResponse)
