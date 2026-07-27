@@ -94,7 +94,15 @@ def _bing_news_enabled() -> bool:
 
 
 def _gdelt_enabled() -> bool:
-    raw = os.environ.get("GDELT_ENABLED", "true").strip().lower()
+    # v0.7.3: default flipped to false. Measurement on Jordan's live DB
+    # (30 days): GDELT contributed 280 URLs not seen by any other source,
+    # 0 of them scored >=6 in the AI filter. All 280 were noise the AI
+    # filter would have thrown away anyway. Combined with the ~30 min
+    # per run that GDELT's 429 backoff spends on retries, the trade is
+    # not worth it. Kept behind the flag for markets where local
+    # Google/Bing coverage turns out to be thin — flip GDELT_ENABLED=true
+    # in .env to re-enable.
+    raw = os.environ.get("GDELT_ENABLED", "false").strip().lower()
     return raw in {"1", "true", "yes", "on"}
 
 

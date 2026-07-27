@@ -345,6 +345,10 @@ def test_unmapped_language_no_longer_raises(monkeypatch):
 
     monkeypatch.setattr(collector, "_fetch_feed_entries", fake_fetch_feed)
     monkeypatch.setattr(collector, "_fetch_gdelt_entries", fake_fetch_gdelt)
+    # v0.7.3: GDELT is now default-off; force it on for this test since
+    # the whole point is to verify GDELT still runs when Google's URL
+    # comes back None.
+    monkeypatch.setenv("GDELT_ENABLED", "true")
 
     # Force _build_google_news_url to return None (unmapped language path).
     monkeypatch.setattr(

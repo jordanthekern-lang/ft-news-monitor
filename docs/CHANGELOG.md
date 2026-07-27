@@ -3,6 +3,40 @@
 All notable changes to this project are documented here.
 Format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.7.3] — 2026-07-27
+
+GDELT default flipped to off. Measurement on Jordan's live DB (30-day
+window): GDELT contributed 280 URLs no other source saw — but 0 of
+them scored ≥6 in the AI filter. All 280 were noise the pipeline
+throws away anyway. Meanwhile GDELT's 429 backoff was eating ~30
+minutes per run (v0.7.2's throttle helped but didn't rescue the ratio).
+
+With the v0.7.0 distribution model where each colleague installs
+locally, Google News + Bing already run from the right country and
+return local-language content directly. GDELT's original v0.5.0
+rationale (fill in Italy/Portugal coverage when the crawler runs from
+a DE laptop) doesn't apply anymore.
+
+### Changed
+
+- `app/collector.py::_gdelt_enabled` default flipped from `true` to
+  `false`. Existing installs pick this up automatically on the next
+  `update.bat` — no `.env` edit needed.
+
+### Kept
+
+- The `GDELT_ENABLED=true` env flag still works. If a specific market
+  turns out to have thin Google/Bing coverage (e.g. Nordics small-town
+  press), re-enable per install.
+- The v0.7.2 throttle + backoff logic stays in place — if you flip
+  the flag back on, the collector still won't burn Bedrock budget on
+  429 storms.
+
+### Expected impact
+
+- Runs drop from ~35–40 min to ~5–10 min for a DACH+EU install.
+- Zero loss of relevant articles based on the 30-day measurement.
+
 ## [0.7.2] — 2026-07-27
 
 Collector fixes on top of v0.7.1. Live run on 2026-07-27 showed 100 %
