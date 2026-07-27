@@ -200,9 +200,118 @@ def test_google_news_unwrap_none_for_gnews_but_non_rss_path():
 
 
 def test_canonicalise_skips_google_news_when_follow_redirects_false():
-    """The collector calls canonicalise_url(follow_redirects=False) for
-    speed; Google-News wrappers pass through as-is in that mode. The
-    behaviour is expected until v0.7.2 adds batched async unwrap."""
+    """The sync canonicalise_url path with follow_redirects=False leaves
+    Google-News wrappers alone — the collector unwraps them via the
+    async ``batch_unwrap_google_news`` pass before calling this."""
     gnews = "https://news.google.com/rss/articles/CBMi-AFAcbdefX"
     result = url_canon.canonicalise_url(gnews, follow_redirects=False)
     assert result == gnews  # unchanged in fast path
+
+
+# ---------------------------------------------------------------------------
+# v0.7.2: batch_unwrap_google_news — async batched HEAD-unwrap
+# ---------------------------------------------------------------------------
+
+import asyncio
+from unittest.mock import AsyncMock, MagicMock
+
+
+def _make_head_resp(status: int, location: str | None = None):
+    r = MagicMock()
+    r.status_code = status
+    r.headers = {"location": location} if location else {}
+    return r
+
+
+def test_batch_unwrap_maps_wrapper_to_publisher():
+    """Each wrapper URL that HEADs to a 302 with a Location: pointing at
+    a real publisher ends up in the returned map."""
+    client = AsyncMock()
+    responses = {
+        "https://news.google.com/rss/articles/CBM_A": _make_head_resp(
+            302, "https://publisher.example/a"
+        ),
+        "https://news.google.com/rss/articles/CBM_B": _make_head_resp(
+            302, "https://publisher.example/b"
+        ),
+    }
+
+    async def _head(url, timeout=None, follow_redirects=None, headers=None):
+        return responses[url]
+
+    client.head = _head
+
+    urls = list(responses.keys())
+    result = asyncio.run(url_canon.batch_unwrap_google_news(client, urls))
+    assert result == {
+        "https://news.google.com/rss/articles/CBM_A": "https://publisher.example/a",
+        "https://news.google.com/rss/articles/CBM_B": "https://publisher.example/b",
+    }
+
+
+def test_batch_unwrap_skips_non_gnews_urls():
+    """Non-Google-News URLs are omitted from the result (falls back to
+    original in the caller)."""
+    client = AsyncMock()
+
+    async def _head(url, timeout=None, follow_redirects=None, headers=None):
+        raise AssertionError("HEAD must not be called on non-gnews URL")
+
+    client.head = _head
+
+    urls = ["https://autoflotte.de/article", "https://example.com/x"]
+    result = asyncio.run(url_canon.batch_unwrap_google_news(client, urls))
+    assert result == {}
+
+
+def test_batch_unwrap_omits_failed_head():
+    """If the HEAD errors or returns a non-3xx, that URL is left out —
+    caller retains the wrapper URL."""
+    client = AsyncMock()
+
+    async def _head(url, timeout=None, follow_redirects=None, headers=None):
+        return _make_head_resp(200)  # not a redirect → skip
+
+    client.head = _head
+
+    urls = ["https://news.google.com/rss/articles/CBM_no_redirect"]
+    result = asyncio.run(url_canon.batch_unwrap_google_news(client, urls))
+    assert result == {}
+
+
+def test_batch_unwrap_deduplicates_input():
+    """Identical wrapper URLs share one HEAD call — mostly to keep runs
+    cheap when several keyword queries return the same story."""
+    client = AsyncMock()
+    calls = []
+
+    async def _head(url, timeout=None, follow_redirects=None, headers=None):
+        calls.append(url)
+        return _make_head_resp(302, "https://publisher.example/x")
+
+    client.head = _head
+
+    url = "https://news.google.com/rss/articles/CBM_same"
+    result = asyncio.run(
+        url_canon.batch_unwrap_google_news(client, [url, url, url])
+    )
+    assert result == {url: "https://publisher.example/x"}
+    assert len(calls) == 1
+
+
+def test_batch_unwrap_refuses_gnews_to_gnews_redirect():
+    """Defensive: if the Location: points BACK into Google News, we
+    treat it as a failure and omit."""
+    client = AsyncMock()
+
+    async def _head(url, timeout=None, follow_redirects=None, headers=None):
+        return _make_head_resp(302, "https://news.google.com/rss/loop")
+
+    client.head = _head
+
+    result = asyncio.run(
+        url_canon.batch_unwrap_google_news(
+            client, ["https://news.google.com/rss/articles/CBM_loop"]
+        )
+    )
+    assert result == {}

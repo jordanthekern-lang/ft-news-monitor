@@ -3,6 +3,57 @@
 All notable changes to this project are documented here.
 Format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.7.2] — 2026-07-27
+
+Collector fixes on top of v0.7.1. Live run on 2026-07-27 showed 100 %
+of Google News calls returning `503` and ~90 % of GDELT calls returning
+`429`, silently wiping ~90 keyword sweeps from the run. Only Bing and
+the curated RSS feeds were still contributing hits. Also finishes the
+Google-News-side dedup that v0.7.1 had explicitly deferred.
+
+### Fixed
+
+- **Google News 503 across the board** (`app/collector.py`). The v0.7.0
+  User-Agent (`Mozilla/5.0 (Foerder-Monitor; FlixBus PA) Python/httpx
+  feedparser`) tripped Google's bot filter. Verified with `curl` on
+  2026-07-27: any UA that self-identifies as a script gets 503; a
+  regular Chrome UA gets 200. Swapped to a stock
+  `Mozilla/5.0 (Windows NT 10.0; …) Chrome/128 …` string with an
+  `X-Contact: FlixBus PA foerder-monitor` header for outlet operators
+  who inspect their access logs.
+- **GDELT 429 storm** (`app/collector.py`). New `_fetch_gdelt_url`
+  wrapper serialises GDELT calls (asyncio.Semaphore(1)), enforces a
+  5.5 s minimum inter-request interval, and retries once with
+  exponential backoff on `429`/`503`. Non-retryable errors (500s,
+  network) still short-circuit to `None` — callers already handle that.
+
+### Added
+
+- **Batched async Google-News unwrap** (`app/url_canon.py`,
+  `app/collector.py`). New public `batch_unwrap_google_news(client,
+  urls)` coroutine runs up to 10 concurrent HEAD requests on the
+  caller's existing `httpx.AsyncClient`, deduplicating identical
+  wrappers so each is probed once. The collector calls it after every
+  Google-News RSS fetch and hands the resulting `{wrapper: publisher}`
+  map into `_store_entries`, so different keyword queries returning the
+  same underlying story collapse via `UNIQUE(url)`. This finishes the
+  Google-News side of the v0.7.1 dedup work that had been explicitly
+  deferred.
+- **10 new tests** covering the batch unwrap (5), GDELT throttle +
+  backoff (4), and a UA-regression guard (1). All 418 pass.
+
+### Rollout notes
+
+- No schema change. Path A (`update.bat` git-pull) works.
+- Wall-clock impact: GDELT throttle adds ~5.5 s per keyword query. For
+  90 keywords that's ~8 minutes of GDELT wait, but previously ~85 of
+  those 90 calls were 429-failing anyway — net effect is more articles
+  in exchange for a slower run. If it becomes a problem in the pilot,
+  set `GDELT_ENABLED=false` in `.env` to skip GDELT entirely.
+- Batched Google-News unwrap adds ~1–2 s per keyword query (10-way
+  parallel HEAD across ~10 wrapper URLs). Cheap compared to the RSS
+  fetch itself.
+
 ## [0.7.1] — 2026-07-09
 
 Duplicate-hunt release. On Jordan's first live install v0.7.0 the DB

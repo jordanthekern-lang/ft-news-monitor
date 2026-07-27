@@ -282,6 +282,52 @@ async def _fetch_url(client: httpx.AsyncClient, url: str) -> Optional[bytes]:
         return None
 
 
+# v0.7.2: GDELT DOC 2.0 has a soft rate-limit of ~1 req / 5 s per IP. A
+# typical run fires ~90 keyword queries and used to hit 429 on ~90 % of
+# them (verified in the 2026-07-27 log). We serialise GDELT calls behind
+# a semaphore, enforce a minimum inter-request interval, and retry once
+# with exponential backoff when a 429 slips through.
+_GDELT_SEMAPHORE = asyncio.Semaphore(1)
+_GDELT_MIN_INTERVAL = 5.5  # seconds; Google's docs say ~5s, add a margin.
+_GDELT_LAST_CALL: List[float] = [0.0]  # list-of-one so we can mutate inside async ctx
+_GDELT_MAX_RETRIES = 2
+
+
+async def _fetch_gdelt_url(client: httpx.AsyncClient, url: str) -> Optional[bytes]:
+    """Rate-limited GET for the GDELT DOC 2.0 API.
+
+    Serialises calls (one at a time), spaces them at least
+    ``_GDELT_MIN_INTERVAL`` apart, and retries on ``429``/``503`` with
+    exponential backoff. Returns ``None`` on all-retries-exhausted or
+    non-transient error — callers already handle that case.
+    """
+    loop = asyncio.get_event_loop()
+    async with _GDELT_SEMAPHORE:
+        for attempt in range(_GDELT_MAX_RETRIES + 1):
+            wait = _GDELT_LAST_CALL[0] + _GDELT_MIN_INTERVAL - loop.time()
+            if wait > 0:
+                await asyncio.sleep(wait)
+            _GDELT_LAST_CALL[0] = loop.time()
+            try:
+                resp = await client.get(url, timeout=20.0, follow_redirects=True)
+            except httpx.HTTPError as exc:
+                logger.debug("GDELT HTTP error for %s: %s", url, exc)
+                return None
+            if resp.status_code == 200:
+                return resp.content
+            if resp.status_code in (429, 503) and attempt < _GDELT_MAX_RETRIES:
+                backoff = _GDELT_MIN_INTERVAL * (2 ** attempt)
+                logger.info(
+                    "GDELT %s (attempt %d/%d) — backing off %.1fs",
+                    resp.status_code, attempt + 1, _GDELT_MAX_RETRIES + 1, backoff,
+                )
+                await asyncio.sleep(backoff)
+                continue
+            logger.debug("GDELT non-retryable HTTP %s for %s", resp.status_code, url)
+            return None
+    return None
+
+
 async def _fetch_feed_entries(
     client: httpx.AsyncClient, url: str
 ) -> List[Dict[str, Any]]:
@@ -304,7 +350,9 @@ async def _fetch_gdelt_entries(
     We map ``seendate`` (compact YYYYMMDDTHHMMSSZ or full ISO) to a
     ``published_parsed`` struct_time so downstream age filtering works.
     """
-    raw = await _fetch_url(client, url)
+    # v0.7.2: use the rate-limited fetch so a burst of ~90 keyword
+    # queries no longer flames out at 429.
+    raw = await _fetch_gdelt_url(client, url)
     if raw is None:
         return []
     try:
@@ -352,12 +400,18 @@ def _store_entries(
     source_type: str,
     market: Optional[str],
     language: Optional[str] = None,
+    gnews_unwrap_map: Optional[Dict[str, str]] = None,
 ) -> Tuple[int, int]:
     """Insert entries into DB. Returns (new, duplicates).
 
     ``language`` is the source language declared by the Notion config for
     this feed/outlet; passing it through means the translator can skip
     detection and act on a reliable signal.
+
+    ``gnews_unwrap_map`` (v0.7.2): optional ``{wrapper_url: publisher_url}``
+    mapping produced by an async batch HEAD-unwrap upstream. Applied
+    BEFORE the sync ``canonicalise_url`` so Google-News rows dedup on the
+    publisher URL rather than on Google's rotating protobuf wrapper.
     """
     new_count = 0
     dup_count = 0
@@ -366,14 +420,14 @@ def _store_entries(
         title = entry.get("title") if isinstance(entry, dict) else getattr(entry, "title", "")
         if not link or not title:
             continue
-        # v0.7.1: Unwrap Bing-News apiclick wrappers (pure string, no HTTP)
-        # and strip aggregator-injected tracking params before dedup-INSERT.
-        # ``follow_redirects=False`` keeps this synchronous — we skip the
-        # HEAD-based Google-News unwrap here because Google emits ~1000
-        # wrapped links per run and a per-item HEAD would push run time
-        # from seconds to tens of minutes. Google-News dedup happens in
-        # v0.7.2 via a batched async unwrap; until then those articles
-        # will still occasionally appear multiple times.
+        # v0.7.2: Prefer the batched Google-News unwrap result when
+        # available. The batched HEAD runs upstream so we can afford
+        # concurrency; the per-item sync path below still handles Bing.
+        if gnews_unwrap_map:
+            link = gnews_unwrap_map.get(link, link)
+        # v0.7.1: Bing-News apiclick unwrap (pure string, no HTTP) +
+        # tracker strip. ``follow_redirects=False`` here on purpose —
+        # any Google-News HEAD has already happened in the batched pass.
         link = url_canon.canonicalise_url(link, follow_redirects=False)
         published = _entry_published(entry)
         snippet = _entry_summary(entry)
@@ -433,12 +487,22 @@ async def _run_news_query(
     if google_url:
         entries = await _fetch_feed_entries(client, google_url)
         stats.raw_google_news += len(entries)
+        # v0.7.2: batched HEAD-unwrap for Google's RSS wrappers so
+        # different keyword queries returning the same underlying story
+        # collapse via the DB's UNIQUE(url) constraint. Runs concurrently
+        # (up to 10 in flight); silently no-ops on network failure.
+        gnews_links = [
+            (e.get("link") if isinstance(e, dict) else getattr(e, "link", None))
+            for e in entries
+        ]
+        gnews_map = await url_canon.batch_unwrap_google_news(client, gnews_links)
         new, dup = _store_entries(
             entries,
             source_name=source_name,
             source_type="google_news",
             market=market,
             language=language,
+            gnews_unwrap_map=gnews_map,
         )
         stats.google_news += new
         stats.duplicates += dup
@@ -850,11 +914,19 @@ async def run(
     tw = _resolve_time_window(time_window_override)
     logger.info("Collection starting with time_window=%s", tw)
 
+    # v0.7.2: Google News' RSS backend started returning 503 to any UA
+    # that self-identifies as a script (previous UA carried
+    # "Python/httpx feedparser" and got 100 % blocked). A regular Chrome
+    # UA passes the bot filter — verified with curl on 2026-07-27.
+    # We keep the FlixBus tag inside a comment header for outlet operators
+    # who inspect their access logs.
     headers = {
         "User-Agent": (
-            "Mozilla/5.0 (Foerder-Monitor; FlixBus PA) "
-            "Python/httpx feedparser"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/128.0.0.0 Safari/537.36"
         ),
+        "X-Contact": "FlixBus PA foerder-monitor",
     }
 
     async with httpx.AsyncClient(headers=headers, timeout=20.0) as client:

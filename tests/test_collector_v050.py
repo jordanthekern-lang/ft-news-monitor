@@ -401,3 +401,158 @@ def test_non_ascii_keyword_gets_hash_slug(monkeypatch):
     # And both should carry a kw-hash prefix (not an empty slug).
     for sid in source_ids:
         assert sid.rsplit(":", 1)[-1].startswith("kw-")
+
+
+# ---------------------------------------------------------------------------
+# v0.7.2: GDELT rate-limit throttle + retry backoff
+# ---------------------------------------------------------------------------
+
+
+def _reset_gdelt_state():
+    """Reset the module-level counter so tests don't stall each other."""
+    collector._GDELT_LAST_CALL[0] = 0.0
+
+
+def test_fetch_gdelt_url_returns_body_on_200(monkeypatch):
+    _reset_gdelt_state()
+
+    class _Resp:
+        content = b'{"articles": []}'
+        status_code = 200
+
+    client = AsyncMock()
+
+    async def _get(url, timeout=None, follow_redirects=None):
+        return _Resp()
+
+    client.get = _get
+
+    body = asyncio.run(
+        collector._fetch_gdelt_url(client, "https://api.gdeltproject.org/x")
+    )
+    assert body == b'{"articles": []}'
+
+
+def test_fetch_gdelt_url_retries_on_429_then_succeeds(monkeypatch):
+    _reset_gdelt_state()
+    # Shorten the throttle so the test doesn't wait 11 s.
+    monkeypatch.setattr(collector, "_GDELT_MIN_INTERVAL", 0.01)
+
+    class _Resp429:
+        content = b""
+        status_code = 429
+
+    class _Resp200:
+        content = b'{"articles": []}'
+        status_code = 200
+
+    responses = [_Resp429(), _Resp200()]
+    client = AsyncMock()
+
+    async def _get(url, timeout=None, follow_redirects=None):
+        return responses.pop(0)
+
+    client.get = _get
+
+    body = asyncio.run(
+        collector._fetch_gdelt_url(client, "https://api.gdeltproject.org/x")
+    )
+    assert body == b'{"articles": []}'
+    assert responses == []  # both consumed
+
+
+def test_fetch_gdelt_url_gives_up_after_max_retries(monkeypatch):
+    _reset_gdelt_state()
+    monkeypatch.setattr(collector, "_GDELT_MIN_INTERVAL", 0.01)
+
+    class _Resp429:
+        content = b""
+        status_code = 429
+
+    call_count = {"n": 0}
+    client = AsyncMock()
+
+    async def _get(url, timeout=None, follow_redirects=None):
+        call_count["n"] += 1
+        return _Resp429()
+
+    client.get = _get
+
+    body = asyncio.run(
+        collector._fetch_gdelt_url(client, "https://api.gdeltproject.org/x")
+    )
+    assert body is None
+    # _GDELT_MAX_RETRIES=2 → 3 total attempts (initial + 2 retries).
+    assert call_count["n"] == collector._GDELT_MAX_RETRIES + 1
+
+
+def test_fetch_gdelt_url_returns_none_on_non_retryable_error(monkeypatch):
+    _reset_gdelt_state()
+    monkeypatch.setattr(collector, "_GDELT_MIN_INTERVAL", 0.01)
+
+    class _Resp500:
+        content = b""
+        status_code = 500  # non-retryable in our whitelist
+
+    call_count = {"n": 0}
+    client = AsyncMock()
+
+    async def _get(url, timeout=None, follow_redirects=None):
+        call_count["n"] += 1
+        return _Resp500()
+
+    client.get = _get
+
+    body = asyncio.run(
+        collector._fetch_gdelt_url(client, "https://api.gdeltproject.org/x")
+    )
+    assert body is None
+    # No retry on 500 — we only retry 429/503 by design.
+    assert call_count["n"] == 1
+
+
+# ---------------------------------------------------------------------------
+# v0.7.2: browser User-Agent used for outbound HTTP fetches
+# ---------------------------------------------------------------------------
+
+
+def test_collector_run_uses_browser_user_agent(monkeypatch):
+    """Google News started 503-ing on any UA that self-identifies as a
+    script. Regression guard: intercept the httpx.AsyncClient constructor
+    and assert the ``User-Agent`` header does NOT self-identify as a
+    Python script."""
+    from unittest.mock import patch
+
+    captured: Dict[str, Any] = {}
+
+    class _StubClient:
+        def __init__(self, *args, headers=None, timeout=None, **kwargs):
+            captured["headers"] = headers or {}
+
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *args):
+            return False
+
+    # Also short-circuit the rest of the run so we don't actually go
+    # over the network — we only care about the client construction.
+    async def _noop(*args, **kwargs):
+        return
+
+    monkeypatch.setattr(collector.httpx, "AsyncClient", _StubClient)
+    monkeypatch.setattr(collector, "_process_feed", _noop)
+    monkeypatch.setattr(collector, "_process_keywords", _noop)
+    monkeypatch.setattr(collector, "_try_outlet_rss", _noop)
+    monkeypatch.setattr(collector, "_outlet_site_search", _noop)
+
+    from app.models import NotionConfig
+    cfg = NotionConfig(keywords=[], feeds=[], outlets=[], negative_keywords=[])
+
+    asyncio.run(collector.run(cfg))
+
+    ua = captured["headers"].get("User-Agent", "")
+    assert "Mozilla/5.0" in ua
+    assert "Chrome/" in ua
+    assert "Python" not in ua
+    assert "httpx" not in ua

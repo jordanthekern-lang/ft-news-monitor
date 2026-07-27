@@ -28,9 +28,10 @@ URL as "guaranteed valid" — only "at worst equal to the input".
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import re
-from typing import Optional
+from typing import Dict, Iterable, List, Optional, Tuple
 from urllib.parse import parse_qsl, unquote, urlencode, urlparse, urlunparse
 
 import httpx
@@ -191,6 +192,94 @@ def _unwrap_google_news(url: str, *, timeout: float = 3.0) -> Optional[str]:
     except Exception as exc:  # pragma: no cover - network path
         logger.debug("Google News unwrap failed for %s: %s", url, exc)
         return None
+
+
+# v0.7.2: batched async Google-News unwrap
+# ----------------------------------------
+# The sync ``_unwrap_google_news`` opens a fresh httpx.Client per call.
+# The collector emits ~1000 Google-News links per run — a per-item HEAD
+# on a fresh connection would push run time from seconds to tens of
+# minutes. This async version:
+#
+# * reuses the caller's existing ``httpx.AsyncClient`` (connection pool),
+# * runs up to ``max_concurrent`` HEADs in parallel,
+# * caches results so the same wrapper URL isn't probed twice in a run,
+# * silently returns the input on any failure (never raises).
+#
+# The cache is intentionally per-call: we don't want it to persist
+# across collection runs (Google can rotate its wrapper URLs) and it
+# would grow unbounded otherwise.
+
+
+async def _unwrap_google_news_async(
+    client: httpx.AsyncClient, url: str, *, timeout: float = 3.0
+) -> Optional[str]:
+    """Async twin of ``_unwrap_google_news`` — reuses the caller's client."""
+    try:
+        parsed = urlparse(url)
+    except ValueError:
+        return None
+    if not _is_google_news(parsed.hostname or ""):
+        return None
+    if "/rss/articles/" not in parsed.path:
+        return None
+    try:
+        resp = await client.head(
+            url,
+            timeout=timeout,
+            follow_redirects=False,
+            headers={"User-Agent": "FTNewsMonitor/1 (link-canonicaliser)"},
+        )
+    except httpx.HTTPError as exc:
+        logger.debug("Google News async unwrap failed for %s: %s", url, exc)
+        return None
+    if resp.status_code not in (301, 302, 303, 307, 308):
+        return None
+    location = resp.headers.get("location")
+    if not location:
+        return None
+    target = unquote(location)
+    try:
+        target_host = (urlparse(target).hostname or "").lower()
+    except ValueError:
+        return None
+    if _is_google_news(target_host):
+        return None
+    return target
+
+
+async def batch_unwrap_google_news(
+    client: httpx.AsyncClient,
+    urls: Iterable[str],
+    *,
+    max_concurrent: int = 10,
+    timeout: float = 3.0,
+) -> Dict[str, str]:
+    """Unwrap a batch of Google-News URLs concurrently.
+
+    Returns a ``{wrapper_url: publisher_url}`` map — only successful
+    unwraps are included; failures/non-Google URLs are omitted so the
+    caller can fall back to the wrapper URL without extra checks.
+
+    ``max_concurrent`` caps parallel HEAD requests to avoid tripping
+    Google's per-IP throttle. 10 was picked empirically — the RSS
+    endpoint (which is heavier) already tolerates 90+ sequential
+    fetches at ~10 s spacing without 503.
+    """
+    urls = [u for u in urls if u]  # tolerate None/empty
+    if not urls:
+        return {}
+    # De-duplicate first so identical wrapper URLs share one HEAD.
+    unique_urls = list({u for u in urls})
+
+    sem = asyncio.Semaphore(max_concurrent)
+
+    async def _one(u: str) -> Tuple[str, Optional[str]]:
+        async with sem:
+            return u, await _unwrap_google_news_async(client, u, timeout=timeout)
+
+    results = await asyncio.gather(*(_one(u) for u in unique_urls))
+    return {src: dst for src, dst in results if dst is not None}
 
 
 def _unwrap_news_aggregator(url: str, *, follow_redirects: bool = True) -> str:
