@@ -19,6 +19,30 @@ REM Suppress the credential prompt window that pops up when git can't
 REM auth (public repo doesn't need it; setting this avoids a scary popup).
 set GIT_TERMINAL_PROMPT=0
 
+REM v0.7.6.1: warn if the tool is still running. On Windows a running
+REM Python process holds file locks on .py files it has imported. git
+REM pull can then either fail with EPERM or half-apply the update, and
+REM the running server will keep serving stale code until restart.
+REM The scan port range matches start.bat (8766-8775).
+set "SERVER_RUNNING="
+for %%P in (8766 8767 8768 8769 8770 8771 8772 8773 8774 8775) do (
+  netstat -ano | findstr /r /c:"127.0.0.1:%%P .* LISTENING" >nul 2>&1
+  if not errorlevel 1 set "SERVER_RUNNING=1"
+)
+if defined SERVER_RUNNING (
+  echo.
+  echo The FT News Monitor is still running.
+  echo.
+  echo Please close the black start.bat terminal window first, then
+  echo run update.bat again. If you cannot find the window, restart
+  echo your laptop, then double-click update.bat before double-clicking
+  echo start.bat.
+  echo.
+  pause
+  endlocal
+  exit /b 1
+)
+
 where git >nul 2>&1
 if errorlevel 1 (
   echo Git is not installed on this laptop.
