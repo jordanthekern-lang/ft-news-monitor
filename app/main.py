@@ -19,6 +19,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from . import (
     admin,
     ai_filter,
+    cowork_bridge,
     database,
     domain_utils,
     enums,
@@ -36,6 +37,7 @@ from . import (
 )
 from .config import (
     TEMPLATES_DIR,
+    VALID_CATEGORIES,
     VALID_MARKETS,
     VALID_THEMES,
     get_settings,
@@ -77,9 +79,17 @@ async def lifespan(app: FastAPI):
         logger.exception("Auto-reseed failed; continuing without it.")
     if runtime_settings.get(runtime_settings.SCHEDULER_ENABLED, False):
         scheduler.start()
+
+    # v0.7.6 — Cowork file-bridge watcher. Only started when the tool is
+    # configured to delegate scoring to a Cowork session; otherwise the
+    # inbox/outbox directories are never touched.
+    if get_settings().ai_provider == "cowork":
+        cowork_bridge.start()
+
     try:
         yield
     finally:
+        await cowork_bridge.stop()
         scheduler.stop()
 
 
@@ -524,6 +534,10 @@ def dashboard(
         item["golden_label"] = golden_map.get(item["id"])
         enriched.append(item)
 
+    pending_for_cowork = 0
+    if settings.ai_provider == "cowork":
+        pending_for_cowork = len(database.fetch_articles_for_ai())
+
     return templates.TemplateResponse(
         request,
         "dashboard.html",
@@ -536,6 +550,8 @@ def dashboard(
             "all_themes": VALID_THEMES,
             "all_markets": VALID_MARKETS,
             "highlight_days": settings.highlight_days,
+            "ai_provider": settings.ai_provider,
+            "pending_for_cowork": pending_for_cowork,
         },
     )
 
@@ -996,3 +1012,164 @@ def api_stats():
             "source_health": database.source_health_summary(),
         }
     )
+
+
+# ---------------------------------------------------------------------------
+# Cowork ranking API (v0.7.6)
+# ---------------------------------------------------------------------------
+#
+# Three endpoints let an external Cowork session score articles instead of
+# the built-in Bedrock/Anthropic scorer. Only relevant when AI_PROVIDER=cowork,
+# but the endpoints exist unconditionally so the Cowork skill can probe
+# /api/health before deciding whether to run.
+#
+# Auth: COWORK_API_TOKEN in .env. Any non-empty token gates all three
+# endpoints. Empty token allows anonymous access (dev/tests only).
+
+
+def _require_cowork_token(request: Request) -> None:
+    """Reject the request when the shared token is set but doesn't match.
+
+    The header name is X-Cowork-Token. When COWORK_API_TOKEN is empty
+    (dev default), the check is a no-op — otherwise a missing / wrong
+    header returns 401.
+    """
+    expected = get_settings().cowork_api_token
+    if not expected:
+        return
+    provided = request.headers.get("x-cowork-token", "")
+    if provided != expected:
+        raise HTTPException(status_code=401, detail="Invalid or missing X-Cowork-Token")
+
+
+@app.get("/api/health")
+def api_health():
+    """Liveness probe for the Cowork skill.
+
+    Returns the app version and pending-articles count so the skill can
+    detect "nothing to rank" without a second call.
+    """
+    settings = get_settings()
+    pending_count = len(database.fetch_articles_for_ai())
+    return JSONResponse(
+        {
+            "status": "ok",
+            "version": APP_VERSION,
+            "ai_provider": settings.ai_provider,
+            "pending_count": pending_count,
+        }
+    )
+
+
+_PENDING_FIELDS = (
+    "id",
+    "title",
+    "source_name",
+    "url",
+    "published_at",
+    "snippet",
+    "country",
+    "language",
+)
+
+
+@app.get("/api/articles/pending")
+def api_articles_pending(request: Request, limit: int = Query(200, ge=1, le=1000)):
+    """Return unscored articles for external ranking.
+
+    Fields match what ``ai_filter.USER_TEMPLATE`` (app/ai_filter.py:117-132)
+    renders for the in-process Bedrock scorer, so Cowork has the same
+    inputs.
+    """
+    _require_cowork_token(request)
+    rows = database.fetch_articles_for_ai()[:limit]
+    articles = []
+    for row in rows:
+        item = {}
+        keys = row.keys()
+        for field in _PENDING_FIELDS:
+            item[field] = row[field] if field in keys else None
+        articles.append(item)
+    return JSONResponse(
+        {
+            "articles": articles,
+            "total": len(articles),
+            "categories": VALID_CATEGORIES,
+            "themes": VALID_THEMES,
+        }
+    )
+
+
+_SCORE_REQUIRED = ("id", "relevance_score", "category", "themes", "reasoning")
+
+
+@app.post("/api/articles/scores")
+async def api_articles_scores(request: Request):
+    """Accept a batch of scores from the external ranker.
+
+    Body: ``{"scores": [{"id": int, "relevance_score": int, "category": str,
+    "themes": list, "reasoning": str, "trust_bonus"?: int}, ...]}``.
+
+    Idempotent: re-posting the same score is a no-op UPDATE. Unknown IDs
+    are silently skipped (Cowork may have a stale pending list).
+    """
+    _require_cowork_token(request)
+    try:
+        body = await request.json()
+    except (ValueError, json.JSONDecodeError):
+        raise HTTPException(status_code=400, detail="Request body must be JSON")
+
+    scores = body.get("scores")
+    if not isinstance(scores, list):
+        raise HTTPException(
+            status_code=422, detail="Body must contain a 'scores' list"
+        )
+
+    updated = 0
+    skipped = 0
+    errors = []
+    for idx, entry in enumerate(scores):
+        if not isinstance(entry, dict):
+            errors.append({"index": idx, "error": "Entry must be an object"})
+            continue
+        missing = [k for k in _SCORE_REQUIRED if k not in entry]
+        if missing:
+            errors.append(
+                {"index": idx, "error": f"Missing fields: {', '.join(missing)}"}
+            )
+            continue
+        try:
+            article_id = int(entry["id"])
+            relevance_score = int(entry["relevance_score"])
+            if not 0 <= relevance_score <= 10:
+                raise ValueError("relevance_score out of range 0..10")
+        except (TypeError, ValueError) as exc:
+            errors.append({"index": idx, "error": str(exc)})
+            continue
+
+        themes = entry.get("themes") or []
+        if not isinstance(themes, list):
+            errors.append({"index": idx, "error": "themes must be a list"})
+            continue
+
+        if database.article_by_id(article_id) is None:
+            skipped += 1
+            continue
+
+        database.update_ai_score(
+            article_id,
+            relevance_score=relevance_score,
+            trust_bonus=int(entry.get("trust_bonus") or 0),
+            feedback_bonus=int(entry.get("feedback_bonus") or 0),
+            category=normalise_category(str(entry["category"])),
+            themes=[normalise_theme(str(t)) for t in themes],
+            reasoning=str(entry["reasoning"]),
+        )
+        updated += 1
+
+    if errors:
+        return JSONResponse(
+            {"updated": updated, "skipped": skipped, "errors": errors},
+            status_code=422,
+        )
+    return JSONResponse({"updated": updated, "skipped": skipped, "errors": []})

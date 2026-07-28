@@ -1,6 +1,16 @@
 # Environment
 .env
 .env.local
+.env.*.backup
+
+# Cowork bridge runtime state
+data/cowork_inbox/
+data/cowork_outbox/
+data/cowork_archive/
+data/cowork_token.txt
+data/port.txt
+data/.fuse_hidden*
+data/ftnews-session-log-*.md
 
 # Python
 __pycache__/

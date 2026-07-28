@@ -203,7 +203,10 @@ def _bool(name: str, default: bool) -> bool:
 
 @dataclass(frozen=True)
 class Settings:
-    # AI provider: "bedrock" (default) or "anthropic" (direct API key)
+    # AI provider: "bedrock" (default), "anthropic" (direct API key), or
+    # "cowork" (scoring is delegated to a Claude Cowork session via the
+    # /api/articles/{pending,scores} endpoints — the tool itself never
+    # opens an Anthropic client in this mode).
     ai_provider: str
 
     # Auth: either set static keys (legacy) OR rely on a named profile from
@@ -217,6 +220,11 @@ class Settings:
 
     # Direct Anthropic API key (used when ai_provider="anthropic")
     anthropic_api_key: str
+
+    # Shared token that gates the cowork ranking endpoints. Empty string
+    # disables the gate — only sensible in dev/tests. install.bat generates
+    # a random hex string on first cowork-mode install.
+    cowork_api_token: str
 
     # AI generation settings
     ai_max_tokens: int
@@ -239,6 +247,7 @@ def get_settings() -> Settings:
         aws_region=os.getenv("AWS_REGION", "eu-west-1"),
         anthropic_model=os.getenv("ANTHROPIC_MODEL", "eu.anthropic.claude-opus-4-7"),
         anthropic_api_key=os.getenv("ANTHROPIC_API_KEY", ""),
+        cowork_api_token=os.getenv("COWORK_API_TOKEN", ""),
         ai_max_tokens=_int("AI_MAX_TOKENS", 512),
         dashboard_port=_int("DASHBOARD_PORT", 8766),
         timezone=os.getenv("TIMEZONE", "Europe/Berlin"),

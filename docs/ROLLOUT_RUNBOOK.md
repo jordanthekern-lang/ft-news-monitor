@@ -305,6 +305,120 @@ until V1 is clean.
   a specific step (typically an `.exe` download). AGENTS.md's HARD
   STOP messages tell the colleague what to do in that case.
 
+### §4.5c Distribution via `install.bat` (no AI assistant, v0.7.5+)
+
+For colleagues who only have **Claude Cowork** — which runs in an
+isolated Linux sandbox and cannot access the Windows shell — send
+`install.bat` from the repo root instead of `AGENTS.md`. It is
+mechanically equivalent (same preflight, winget bootstrap, portable
+fallbacks, `git clone`, `venv`, `pip`, AWS discovery, `.env` write)
+but runs without an LLM.
+
+Distribution message template:
+
+```
+Hey <Name>,
+
+kurze Anleitung fuer den News-Monitor:
+
+1. Speicher die angehaengte install.bat in einem leeren Ordner unter
+   Documents\FTNewsMonitor-install\
+   (NICHT in OneDrive oder SharePoint).
+
+2. Doppelklick auf install.bat. Fenster oeffnet sich, laeuft 3-15 Min.
+
+3. Wenn "Installation complete" steht: Doppelklick auf
+   %USERPROFILE%\FTNewsMonitor\start.bat.
+
+4. Browser oeffnet auf dem Setup-Wizard, AWS-Step ist gruen.
+   Home-Maerkte / Seed-Packs / Scheduler klickst Du selbst
+   (5 Minuten).
+
+WICHTIG: Kleb niemals AWS-Keys in irgendeinen Chat. install.bat
+findet sie selbst auf Deinem Laptop; falls nicht, meldet er sich.
+
+Melde Dich falls was hakt.
+Gruesse
+Jordan
+```
+
+The installer's AWS discovery walks (in order):
+1. `AWS_PROFILE` environment variable
+2. `~/.aws/config` SSO profiles (only when SSO cache < 8h old)
+3. `~/.aws/config` non-SSO profiles
+4. `~/.aws/credentials` static-key profiles
+5. `AWS_ACCESS_KEY_ID` environment variables
+
+Every candidate is verified via `sts:GetCallerIdentity` before being
+written — a stale SSO profile or a bad key never lands in `.env`.
+
+Cowork users always hit path 2: Cowork itself signs in with AWS SSO,
+so the SSO cache is guaranteed to be fresh.
+
+Push the same release-tag flow as §4.5 (bump VERSION, tag, push,
+notify). Colleagues on `install.bat` use `update.bat` for subsequent
+updates — same as AGENTS.md users.
+
+### §4.5d Cowork-only distribution (no AWS on the laptop, v0.7.6+)
+
+For colleagues who have **Claude Cowork 3P** but **no AWS access at
+all**, `install.bat` now offers a `[C]` mode. The tool still runs
+locally, but the AI scoring is delegated to their Cowork session via
+the shipped `ftnews` skill. No AWS creds, no Anthropic API keys.
+
+Distribution message template:
+
+```
+Hey <Name>,
+
+Anleitung fuer den News-Monitor (Cowork-Variante):
+
+1. Speicher die angehaengte install.bat in einem leeren Ordner unter
+   Documents\FTNewsMonitor-install\
+   (NICHT in OneDrive oder SharePoint).
+
+2. Doppelklick auf install.bat. Wenn sie fragt B/C, tippe C und Enter.
+   Laeuft 3-15 Min.
+
+3. Wenn "Installation complete (Cowork mode)" steht, mach das:
+   - Oeffne Cowork
+   - Settings -> Trusted Folders -> Add:
+     %USERPROFILE%\FTNewsMonitor\data\
+   - Settings -> Skills -> Import:
+     %USERPROFILE%\FTNewsMonitor\skills\ftnews\
+
+4. Doppelklick auf %USERPROFILE%\FTNewsMonitor\start.bat.
+   Browser oeffnet sich, Setup-Wizard durchklicken (Home-Maerkte,
+   Seed-Packs, Scheduler). AWS-Step ist gruen (nichts eintragen).
+
+5. Sag Cowork: "News-Ranking laufen lassen".
+   Cowork startet den Rest von selbst und meldet sich, wenn fertig.
+
+Volle Anleitung: docs/QUICKSTART_COWORK.md
+Melde Dich falls was hakt.
+Gruesse
+Jordan
+```
+
+Verification checklist for Jordan before rollout:
+
+1. Run `install.bat`, pick `C`. Confirm `.env` gets
+   `AI_PROVIDER=cowork` + `COWORK_API_TOKEN=<hex>`.
+2. Confirm `data/cowork_token.txt` exists and matches the .env token.
+3. Start `start.bat`. Dashboard shows the "N articles waiting for
+   Cowork ranking" badge (initially 0).
+4. Trigger a scrape via `POST /run-collection` (or the dashboard
+   button). Confirm articles land with `ai_filtered=0`.
+5. In Cowork, import the skill folder, ask *"News-Ranking laufen
+   lassen"*. Confirm articles appear scored in the dashboard.
+6. If the HTTP path fails (Cowork can't reach `127.0.0.1:8766`), the
+   skill falls back to file-bridge — confirm the badge still clears
+   after Cowork completes.
+
+Trade-off: unlike Bedrock mode, ranking is not automatic. Colleague
+must trigger it (or set up a weekly scheduled task inside Cowork —
+see `docs/SKILL_INSTALL.md`).
+
 ---
 
 ## 5. Release cadence and seed refresh

@@ -55,6 +55,15 @@
 
     <!-- Main -->
     <section class="col-span-12 lg:col-span-9 space-y-4">
+        {% if ai_provider == 'cowork' and pending_for_cowork > 0 %}
+        <div class="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-900">
+            <span class="font-medium">{{ pending_for_cowork }}</span>
+            {% if pending_for_cowork == 1 %}article is{% else %}articles are{% endif %}
+            waiting for Cowork ranking.
+            Ask Cowork to run the <code>ftnews</code> skill,
+            or wait for the next scheduled run in Cowork.
+        </div>
+        {% endif %}
         <!-- Filter bar -->
         <form method="get" class="bg-white rounded-lg border border-slate-200 p-4">
             <div class="grid grid-cols-12 gap-3 text-sm">

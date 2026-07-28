@@ -36,6 +36,26 @@ installed. Claude will tell you what it's doing at each step.
 Claude. It will find them on your laptop; if it can't, it will tell
 you to contact Jordan for a secure delivery.
 
+## 1b. Alternative install path — `install.bat` (for Cowork users)
+
+If you use **Claude Cowork** (not Claude Code), the AGENTS.md flow
+above won't work — Cowork runs in a Linux sandbox that can't reach your
+Windows shell. Jordan sends you a single file `install.bat` instead.
+
+Save it in a fresh empty folder under `%USERPROFILE%\Documents\`, double-click,
+and wait 3-15 minutes. It handles Git + Python bootstrapping, clones the
+repo, installs dependencies, and configures the AI provider.
+
+`install.bat` asks you upfront which AI provider this laptop uses:
+
+- **B (Bedrock)** — if you have AWS SSO on this laptop. The installer
+  discovers your credentials automatically. Full details:
+  [QUICKSTART_INSTALLER.md](QUICKSTART_INSTALLER.md).
+- **C (Cowork)** — if you have Claude Cowork 3P but no AWS. The tool
+  runs locally but the AI ranking is delegated to your Cowork session
+  via the shipped `ftnews` skill. Full details:
+  [QUICKSTART_COWORK.md](QUICKSTART_COWORK.md).
+
 ## 2. Alternative install path (ZIP, for laptops without Claude Code)
 
 If you don't have Claude Code or Cowork, Jordan can send you the

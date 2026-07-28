@@ -35,6 +35,7 @@ def test_filters_out_old_articles(monkeypatch):
             ai_provider="bedrock",
             anthropic_api_key="",
             anthropic_model="x",
+            cowork_api_token="",
             ai_max_tokens=512,
             aws_profile="",
             aws_access_key_id="",

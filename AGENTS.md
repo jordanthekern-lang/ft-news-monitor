@@ -1,5 +1,7 @@
 # FT News Monitor — AI Bootstrap Runbook
 
+<!-- Runbook target: FT News Monitor v0.7.6 (git-clone default layout; Cowork variant supported via install.bat mode C). -->
+
 > **You are an AI coding assistant** (Claude Code, Claude Cowork, or
 > similar). A non-technical colleague at FlixBus is asking you to
 > install and configure the FT News Monitor on this Windows laptop.
@@ -300,6 +302,15 @@ colleague, do not proceed to F.
 
 ## F. Write `.env` with AWS Bedrock credentials
 
+> **Cowork variant note (v0.7.6+):** If the colleague does not have
+> AWS access at all and only uses Claude Cowork, this whole section
+> can be skipped. Instead, write `AI_PROVIDER=cowork` plus a fresh
+> `COWORK_API_TOKEN` (32 hex bytes) into `.env`, drop the same token
+> into `data/cowork_token.txt`, and copy the `skills/ftnews/`
+> folder path into the hand-off message. `install.bat` mode "C" and
+> `scripts/configure_cowork.py` automate this exactly — this section
+> is only relevant for colleagues with AWS SSO or static keys.
+
 **F.1 Layout HARD CHECK — determine the correct `.env` target.**
 
 ```
@@ -390,7 +401,8 @@ and will need to be refreshed via SSO login.
 Read `.env` first (if it exists). Modify ONLY these keys:
 `AI_PROVIDER`, `AWS_REGION`, `AWS_PROFILE`, `AWS_ACCESS_KEY_ID`,
 `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`. Leave every other line
-untouched (e.g. `OUTLOOK_*`, comments, prior manual edits).
+untouched (e.g. `OUTLOOK_*`, `GDELT_ENABLED`, `COLLECTOR_TIME_WINDOW`,
+`DASHBOARD_PORT`, `FM_DATA_DIR`, comments, prior manual edits).
 
 **F.6 When you cannot find credentials.**
 

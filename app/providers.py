@@ -103,15 +103,21 @@ def create_ai_client(settings):
     Returns:
         AsyncAnthropicBedrock when settings.ai_provider == "bedrock"
         AsyncAnthropic when settings.ai_provider == "anthropic"
+        None when settings.ai_provider == "cowork" — scoring is done externally
+        by a Claude Cowork session that hits ``/api/articles/pending`` and
+        ``/api/articles/scores``. Callers must handle the ``None`` return.
 
     Raises:
         ValueError: if ai_provider is invalid or if bedrock is selected but AWS credentials cannot be resolved.
         CredentialResolutionError: profile-mode credential resolution failed.
     """
-    if settings.ai_provider not in ("bedrock", "anthropic"):
+    if settings.ai_provider not in ("bedrock", "anthropic", "cowork"):
         raise ValueError(
-            f"Invalid AI_PROVIDER {settings.ai_provider!r} — must be 'bedrock' or 'anthropic'"
+            f"Invalid AI_PROVIDER {settings.ai_provider!r} — must be 'bedrock', 'anthropic', or 'cowork'"
         )
+
+    if settings.ai_provider == "cowork":
+        return None
 
     if settings.ai_provider == "anthropic":
         from anthropic import AsyncAnthropic
@@ -190,6 +196,17 @@ async def test_connection(settings) -> Dict[str, Any]:
     model = settings.anthropic_model
     t0 = time.monotonic()
     error: Optional[str] = None
+
+    # Cowork mode: scoring happens externally, so the wizard's Test-AI
+    # button reports OK without an API round-trip.
+    if settings.ai_provider == "cowork":
+        return {
+            "ok": True,
+            "model": "external (Cowork)",
+            "latency_ms": 0,
+            "error": None,
+        }
+
     try:
         client = create_ai_client(settings)
         response = await client.messages.create(

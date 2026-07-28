@@ -3,6 +3,171 @@
 All notable changes to this project are documented here.
 Format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.7.6.1] — 2026-07-28
+
+Cowork skill hardening after a real-world failure: the skill was
+called while the tool's server was down, could not detect that
+condition, and instead misread stale outbox files from an earlier
+session as answers to the current run — reporting "5 articles
+scored" when in fact zero work had happened.
+
+### Fixed
+
+- **`skills/ftnews/SKILL.md`** — explicit contract: only ever read the
+  exact outbox filename matching an id written in the same call. Never
+  interpret older outbox files. Never infer server state from
+  filesystem contents. On 30-second timeout, treat as "server down"
+  and surface the fallback message; do not try to fabricate a result.
+- **`scripts/configure_cowork.py`** — installs a Windows Startup
+  shortcut (`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\FT News Monitor.lnk`)
+  that launches `start.bat` minimised on login. Without it the Cowork
+  skill has no way to bring the server up — Cowork's Linux VM cannot
+  spawn Windows processes on the host. Idempotent; skipped via
+  `--skip-autostart` in tests. Non-fatal on failure.
+- **`install.bat` (Cowork mode)** — mentions the autostart shortcut in
+  the completion banner and points colleagues at
+  `skills/ftnews/ftnews.zip` (the file Cowork actually accepts for
+  skill import — folder imports were rejected as "missing YAML
+  frontmatter").
+- **`docs/QUICKSTART_COWORK.md`** — new autostart paragraph, updated
+  troubleshooting entry for the *"Der FT News Monitor läuft gerade
+  nicht"* fallback path.
+
+### Rationale
+
+Two independent failure modes stacked on top of each other:
+1. The server had been closed manually. Cowork's VM cannot start
+   Windows processes, so the previous "fallback to file-bridge" text
+   in the skill was silently useless — there was nothing on the other
+   end of the bridge.
+2. Faced with no response, the skill went hunting through older
+   outbox files and interpreted one as its answer. This is unsafe
+   behaviour that must never occur — a completed but unrelated
+   response is worse than a clear failure.
+
+The autostart shortcut removes failure mode (1) for future logins.
+The skill contract change makes failure mode (2) impossible.
+
+## [0.7.6] — 2026-07-27
+
+Cowork-based ranking as a third AI provider. Colleagues without AWS
+access can now run the tool: scraping stays local, but the AI scoring
+is delegated to a Claude Cowork session on the same laptop via a
+shipped skill (`ftnews`). The tool exposes three new HTTP endpoints
+so the skill can drive the whole loop end-to-end; a JSON file bridge
+in `data/cowork_inbox/` and `data/cowork_outbox/` acts as a fallback
+when Cowork's Linux VM can't reach the Windows-host loopback. Jordan's
+Bedrock setup is unchanged — the new mode is opt-in via
+`AI_PROVIDER=cowork`.
+
+### Added
+
+- **`AI_PROVIDER=cowork`** — third provider value in
+  [app/providers.py](../app/providers.py) and
+  [app/config.py](../app/config.py). Short-circuits
+  [app/ai_filter.py](../app/ai_filter.py) `run()` so no Anthropic
+  client is opened; articles stay pending in the DB until an external
+  scorer picks them up.
+- **Three new API endpoints** in [app/main.py](../app/main.py):
+  `GET /api/health`, `GET /api/articles/pending`,
+  `POST /api/articles/scores`. All three accept an `X-Cowork-Token`
+  header validated against `COWORK_API_TOKEN` in `.env`. Idempotent
+  score submission (re-posting the same score is a no-op UPDATE).
+- **`app/cowork_bridge.py`** — asyncio task that polls
+  `data/cowork_inbox/*.json` for request envelopes and drops responses
+  into `data/cowork_outbox/`. Only starts in cowork mode. Malformed
+  files move to `data/cowork_archive/malformed/`; successful requests
+  move to a daily archive folder.
+- **`skills/ftnews/SKILL.md` + `README.md`** — Cowork skill that
+  orchestrates the full loop: probe `/api/health`, launch `start.bat`
+  if needed, trigger `/run-collection`, poll `/pipeline-status`, fetch
+  `/api/articles/pending`, score against the inlined FlixBus PA
+  criteria (copied verbatim from `ai_filter.SYSTEM_PROMPT`), and post
+  results back via `/api/articles/scores`. Falls back to the file
+  bridge on `ConnectionRefused`.
+- **`scripts/configure_cowork.py`** — one-shot configurator invoked
+  from `install.bat` in Cowork mode. Writes `AI_PROVIDER=cowork` and a
+  fresh `COWORK_API_TOKEN` (32 hex bytes) into `.env`, and drops the
+  same token into `data/cowork_token.txt` so the skill can read it
+  without parsing `.env`.
+- **`install.bat` mode prompt** — installer now asks "B (Bedrock) /
+  C (Cowork)?" at the start and branches accordingly. Cowork mode
+  skips AWS discovery entirely.
+- **Setup wizard support** — [app/setup_wizard.py](../app/setup_wizard.py)
+  `_current_state` treats Cowork mode as always-ready (no AWS keys
+  needed); [app/templates/setup.html](../app/templates/setup.html)
+  shows an emerald info panel and offers Cowork in the provider
+  dropdown.
+- **Dashboard pending badge** — [app/templates/dashboard.html](../app/templates/dashboard.html)
+  shows *"N articles waiting for Cowork ranking"* when
+  `AI_PROVIDER=cowork` and there are unranked articles.
+- **New docs** — `docs/QUICKSTART_COWORK.md` (colleague setup guide),
+  `docs/SKILL_INSTALL.md` (Cowork skill import + weekly scheduling).
+- **Tests** — `tests/test_cowork_api.py` (11 tests covering shape,
+  auth, idempotency, validation) and `tests/test_cowork_bridge.py`
+  (8 tests covering roundtrip, archival, malformed handling,
+  lifecycle).
+
+### Changed
+
+- `scripts/discover_aws.py` — early-returns 0 (success, no-op) when
+  `AI_PROVIDER=cowork` is already set in env or `.env`, so a re-run
+  of `install.bat` in Cowork mode doesn't hunt for AWS creds.
+- `Settings` dataclass gains a `cowork_api_token: str` field. Existing
+  tests that construct Settings directly (`tests/test_providers.py`,
+  `tests/test_prefilter.py`) updated.
+- `providers.test_connection` short-circuits with
+  `{"ok": True, "model": "external (Cowork)"}` in Cowork mode so the
+  wizard's Test-AI button doesn't try to open a client.
+
+### Not changed
+
+- The SQLite schema. Cowork writes to the same `articles` columns as
+  the Bedrock scorer (`relevance_score`, `trust_bonus`, `themes`,
+  `category`, `relevance_reasoning`, `ai_filtered`) via the existing
+  `database.update_ai_score()`.
+- The Bedrock code path. Jordan's own laptop keeps
+  `AI_PROVIDER=bedrock` and behaves exactly as before.
+- `AGENTS.md` and the Claude-Code install flow.
+
+## [0.7.5] — 2026-07-27
+
+Non-AI installer for Cowork users. Claude Cowork runs in an isolated
+Linux sandbox with no Windows-shell access, no `%USERPROFILE%` mapping,
+and blocked `github.com` egress — so the AGENTS.md flow (which
+depends on those) fails. `install.bat` is the fallback: mechanically
+equivalent to AGENTS.md but no LLM required. Colleagues on Cowork
+now have a single-file install path just like Claude Code users.
+
+### Added
+
+- **`install.bat`** — root-level batch installer. Six phases: preflight
+  (reject OneDrive/SharePoint), Git bootstrap (`winget` → portable),
+  Python 3.13 bootstrap (`winget`), `git clone`, `venv` + `pip install`,
+  AWS discovery. Logs to `%TEMP%\ftnm-install.log`. Runtime 3–15 min.
+- **`scripts/discover_aws.py`** — AWS credential discovery + `.env`
+  write. Walks env vars → `~/.aws/config` SSO profiles (only when
+  `~/.aws/sso/cache/` is fresh) → non-SSO profiles → `~/.aws/credentials`
+  → env static keys, verifying each candidate via
+  `sts:GetCallerIdentity` before persisting. Never echoes secret
+  values to stdout. Reuses `app.config.write_env_values` so existing
+  `.env` keys (`GDELT_ENABLED`, `OUTLOOK_*`, comments) are preserved.
+- **`docs/QUICKSTART_INSTALLER.md`** — 1-page install guide for the
+  colleague.
+- **`docs/ROLLOUT_RUNBOOK.md §4.5c`** — Jordan-side distribution
+  instructions (Teams message template).
+
+### Notes
+
+- No changes to `AGENTS.md`, `start.bat`, `update.bat` — the existing
+  install paths keep working unchanged.
+- Cowork users always land on the SSO-profile branch of discovery,
+  because Cowork itself requires an AWS SSO login (guaranteed fresh
+  session).
+- 20 new tests in `tests/test_discover_aws.py` cover each discovery
+  source, the STS verify short-circuit, the SSO-cache freshness gate,
+  and the `.env` merge.
+
 ## [0.7.4] — 2026-07-27
 
 Live progress bar in the dashboard. Runs used to disappear behind a

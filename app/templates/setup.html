@@ -70,6 +70,23 @@
                 unless you overwrite them. Secret fields never echo back — the state shows only whether a value is set.
             </p>
 
+            {% if state.ai_provider == 'cowork' %}
+            <div class="border border-emerald-200 bg-emerald-50 rounded p-3 text-sm text-emerald-900">
+                <p class="font-medium">Cowork ranking mode is active.</p>
+                <p class="mt-1">
+                    Scoring is delegated to your Claude Cowork session &mdash; this laptop
+                    does not need AWS or Anthropic credentials. Ask Cowork to run the
+                    <code>ftnews</code> skill (or set up a scheduled task in Cowork) and
+                    it will fetch pending articles, rank them, and push scores back to
+                    the tool. Setup details: <code>docs/QUICKSTART_COWORK.md</code>.
+                </p>
+                <p class="mt-2 text-xs text-emerald-800">
+                    To switch back to Bedrock or the direct Anthropic API, open the Advanced
+                    section below and pick a different provider.
+                </p>
+            </div>
+            {% endif %}
+
             <div>
                 <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Auth mode</label>
                 <div class="flex flex-wrap gap-4 text-sm">
@@ -146,6 +163,7 @@
                                 class="w-full border border-slate-300 rounded px-3 py-2 text-sm bg-white focus:border-flix-green focus:outline-none">
                             <option value="bedrock" {% if state.ai_provider == 'bedrock' %}selected{% endif %}>bedrock (default)</option>
                             <option value="anthropic" {% if state.ai_provider == 'anthropic' %}selected{% endif %}>anthropic (direct API key)</option>
+                            <option value="cowork" {% if state.ai_provider == 'cowork' %}selected{% endif %}>cowork (external ranking via Claude Cowork)</option>
                         </select>
                     </div>
                     <div>

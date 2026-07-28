@@ -671,6 +671,26 @@ async def run(
     back to the ``AI_SKIP_PRESCREEN_DAYS`` env default.
     """
     settings = get_settings()
+
+    # Cowork mode: the tool doesn't score. Articles stay with
+    # ai_filtered=0 in the DB so a subsequent /api/articles/pending call
+    # from the Cowork session can pick them up. We log the count and
+    # return early — no Anthropic client is opened.
+    if settings.ai_provider == "cowork":
+        pending = database.fetch_articles_for_ai()
+        logger.info(
+            "AI provider is 'cowork'; skipping in-process scoring. "
+            "%d article(s) left pending for external ranking.",
+            len(pending),
+        )
+        return {
+            "sent_to_ai": 0,
+            "skipped_pre_screen": 0,
+            "scored": 0,
+            "external_scoring": True,
+            "pending_for_cowork": len(pending),
+        }
+
     try:
         client = create_ai_client(settings)
     except ValueError as exc:

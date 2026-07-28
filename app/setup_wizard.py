@@ -137,8 +137,12 @@ def _current_state() -> dict:
 
     # An AWS auth path is "ready" when either a profile is set OR both keys
     # are set. Anthropic direct mode needs ANTHROPIC_API_KEY instead.
+    # Cowork mode delegates scoring to an external Cowork session — no
+    # local credentials are needed, so the step is always ready.
     ai_ready = False
-    if settings.ai_provider == "anthropic":
+    if settings.ai_provider == "cowork":
+        ai_ready = True
+    elif settings.ai_provider == "anthropic":
         ai_ready = bool(settings.anthropic_api_key)
     else:  # bedrock (default)
         ai_ready = bool(settings.aws_profile) or (
@@ -258,7 +262,7 @@ async def post_aws(request: Request):
     form = await request.form()
     auth_mode = str(form.get("auth_mode") or "keys").strip().lower()
     provider = str(form.get("ai_provider") or "bedrock").strip().lower()
-    if provider not in ("bedrock", "anthropic"):
+    if provider not in ("bedrock", "anthropic", "cowork"):
         raise HTTPException(status_code=400, detail="Invalid AI provider.")
 
     region = str(form.get("aws_region") or "").strip()

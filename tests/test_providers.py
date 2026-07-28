@@ -29,6 +29,7 @@ def _make_settings(provider: str = "bedrock", api_key: str = ""):
         aws_session_token="",
         aws_region="eu-west-1",
         anthropic_model="eu.anthropic.claude-opus-4-7",
+        cowork_api_token="",
         ai_max_tokens=512,
         dashboard_port=8766,
         timezone="Europe/Berlin",
@@ -82,8 +83,36 @@ def test_create_ai_client_raises_on_invalid_provider():
     from app import providers
 
     settings = _make_settings(provider="aws")
-    with pytest.raises(ValueError, match="Invalid AI_PROVIDER.*aws.*bedrock.*anthropic"):
+    with pytest.raises(ValueError, match="Invalid AI_PROVIDER.*aws.*bedrock.*anthropic.*cowork"):
         providers.create_ai_client(settings)
+
+
+def test_create_ai_client_returns_none_for_cowork():
+    """Cowork provider: no local client — scoring happens externally."""
+    from app import providers
+
+    settings = _make_settings(provider="cowork")
+    client = providers.create_ai_client(settings)
+    assert client is None
+
+
+def test_test_connection_cowork_returns_ok_without_api_call(monkeypatch):
+    """Cowork mode's Test-AI must succeed without opening any client."""
+    from app import providers
+
+    # Sabotage create_ai_client so the test fails if we accidentally call it.
+    def _boom(_settings):
+        raise AssertionError("create_ai_client should not be called in cowork mode")
+
+    monkeypatch.setattr(providers, "create_ai_client", _boom)
+
+    settings = _make_settings(provider="cowork")
+    import asyncio as _asyncio
+
+    result = _asyncio.run(providers.test_connection(settings))
+    assert result["ok"] is True
+    assert result["error"] is None
+    assert "Cowork" in result["model"]
 
 
 # ---------------------------------------------------------------------------
