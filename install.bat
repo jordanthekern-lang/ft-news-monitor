@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM  FT News Monitor - install.bat  (v0.7.6.3)
+REM  FT News Monitor - install.bat  (v0.7.6.4)
 REM
 REM  Non-AI installer for colleagues who don't have Claude Code available.
 REM  Two modes:
@@ -33,7 +33,7 @@ REM Fresh log file each run so the colleague can screenshot just the latest.
 echo === FT News Monitor install %DATE% %TIME% === > "%INSTALL_LOG%"
 
 echo.
-echo FT News Monitor - Installer v0.7.6.3
+echo FT News Monitor - Installer v0.7.6.4
 echo -----------------------------------
 echo.
 echo Log:    %INSTALL_LOG%
@@ -142,40 +142,50 @@ echo   ok (portable install at %TOOLS_DIR%\PortableGit)
 :PHASE_PYTHON
 
 REM ============================================================================
-REM  Phase 3: Python 3.13 (AGENTS.md D)
+REM  Phase 3: Python 3.11+ (AGENTS.md D)
+REM
+REM  Accepts any Python 3.11, 3.12, 3.13, or 3.14. Preference order:
+REM    1. Known Windows install paths for each supported version
+REM    2. py launcher with -3.13, -3.12, -3.14, -3.11 (in that order)
+REM    3. winget install of Python 3.13
+REM  Any hit sets PY_EXE and jumps to Phase 4. Failure exits with a
+REM  clear message telling the user to install Python 3.13 manually.
 REM ============================================================================
 
-echo [3/6] Checking Python 3.13...
+echo [3/6] Checking Python 3.11+...
 echo === Phase 3: python === >> "%INSTALL_LOG%"
 
 set "PY_EXE="
 
-REM  Check common install locations first, then fall back to the py
-REM  launcher. Windows sometimes routes bare "py -3.13" through the
-REM  Microsoft Store which opens an interactive dialog and returns 0
-REM  without actually installing anything — checking known paths first
-REM  makes the detection deterministic.
-if exist "%LOCALAPPDATA%\Programs\Python\Python313\python.exe" (
-  set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python313\python.exe"
-  echo   ok (already installed)
-  "%LOCALAPPDATA%\Programs\Python\Python313\python.exe" --version >> "%INSTALL_LOG%" 2>&1
-  goto :PHASE_CLONE
-)
-if exist "%ProgramFiles%\Python313\python.exe" (
-  set "PY_EXE=%ProgramFiles%\Python313\python.exe"
-  echo   ok (already installed, system-wide)
-  "%ProgramFiles%\Python313\python.exe" --version >> "%INSTALL_LOG%" 2>&1
-  goto :PHASE_CLONE
-)
-py -3.13 --version >nul 2>&1
-if not errorlevel 1 (
-  set "PY_EXE=py -3.13"
-  echo   ok (already installed via py launcher)
-  py -3.13 --version >> "%INSTALL_LOG%" 2>&1
+REM  Check well-known install paths first. Order: 3.13 (our reference
+REM  version, wins if present), then 3.14, 3.12, 3.11.
+if exist "%LOCALAPPDATA%\Programs\Python\Python313\python.exe" set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python313\python.exe"
+if "%PY_EXE%"=="" if exist "%LOCALAPPDATA%\Programs\Python\Python314\python.exe" set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python314\python.exe"
+if "%PY_EXE%"=="" if exist "%LOCALAPPDATA%\Programs\Python\Python312\python.exe" set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python312\python.exe"
+if "%PY_EXE%"=="" if exist "%LOCALAPPDATA%\Programs\Python\Python311\python.exe" set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python311\python.exe"
+if "%PY_EXE%"=="" if exist "%ProgramFiles%\Python313\python.exe" set "PY_EXE=%ProgramFiles%\Python313\python.exe"
+if "%PY_EXE%"=="" if exist "%ProgramFiles%\Python314\python.exe" set "PY_EXE=%ProgramFiles%\Python314\python.exe"
+if "%PY_EXE%"=="" if exist "%ProgramFiles%\Python312\python.exe" set "PY_EXE=%ProgramFiles%\Python312\python.exe"
+if "%PY_EXE%"=="" if exist "%ProgramFiles%\Python311\python.exe" set "PY_EXE=%ProgramFiles%\Python311\python.exe"
+
+if not "%PY_EXE%"=="" (
+  echo   ok - using %PY_EXE%
+  "%PY_EXE%" --version >> "%INSTALL_LOG%" 2>&1
   goto :PHASE_CLONE
 )
 
-echo   not found - attempting winget install...
+REM  Fall back to the py launcher.
+for %%V in (3.13 3.14 3.12 3.11) do (
+  py -%%V --version >nul 2>&1
+  if not errorlevel 1 (
+    set "PY_EXE=py -%%V"
+    echo   ok - using py launcher %%V
+    py -%%V --version >> "%INSTALL_LOG%" 2>&1
+    goto :PHASE_CLONE
+  )
+)
+
+echo   not found - attempting winget install of Python 3.13...
 powershell -NoProfile -Command "winget install --id Python.Python.3.13 -e --scope user --accept-package-agreements --accept-source-agreements" >> "%INSTALL_LOG%" 2>&1
 set "WINGET_RC=%ERRORLEVEL%"
 
@@ -189,7 +199,6 @@ if exist "%ProgramFiles%\Python313\python.exe" (
   echo   ok (winget install detected, system-wide)
   goto :PHASE_CLONE
 )
-
 py -3.13 --version >nul 2>&1
 if not errorlevel 1 (
   set "PY_EXE=py -3.13"
@@ -197,11 +206,19 @@ if not errorlevel 1 (
   goto :PHASE_CLONE
 )
 
-echo   winget failed (exit %WINGET_RC%) - IT install is required.
-echo   The embeddable Python 3.13 does NOT support venv creation, which
-echo   this installer needs. Please forward this to IT:
-echo     "Please install Python 3.13 for the FlixBus News Monitor tool.
-echo      Download: https://www.python.org/downloads/release/python-3135/"
+echo   Python 3.11+ is required but was not found. winget install
+echo   returned exit code %WINGET_RC%.
+echo.
+echo   Please install Python 3.13 manually:
+echo     1. Open your browser at
+echo        https://www.python.org/downloads/release/python-3135/
+echo     2. Download "Windows installer (64-bit)".
+echo     3. Run it. Tick "Add python.exe to PATH" at the bottom.
+echo     4. Click "Install Now". Wait until finished.
+echo     5. Double-click install.bat again.
+echo.
+echo   If python.org is blocked on this laptop, ask Jordan to send
+echo   the installer via Teams.
 goto :FAIL
 
 :PHASE_CLONE
