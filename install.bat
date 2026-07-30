@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM  FT News Monitor - install.bat  (v0.7.6)
+REM  FT News Monitor - install.bat  (v0.7.6.2)
 REM
 REM  Non-AI installer for colleagues who don't have Claude Code available.
 REM  Two modes:
@@ -33,7 +33,7 @@ REM Fresh log file each run so the colleague can screenshot just the latest.
 echo === FT News Monitor install %DATE% %TIME% === > "%INSTALL_LOG%"
 
 echo.
-echo FT News Monitor - Installer v0.7.6
+echo FT News Monitor - Installer v0.7.6.2
 echo -----------------------------------
 echo.
 echo Log:    %INSTALL_LOG%
@@ -192,20 +192,31 @@ REM ============================================================================
 echo [4/6] Cloning repository...
 echo === Phase 4: clone === >> "%INSTALL_LOG%"
 
+if exist "%TARGET_DIR%\.git" (
+  echo   existing clone detected - running git pull --ff-only
+  cd /d "%TARGET_DIR%"
+  "%GIT_EXE%" pull --ff-only >> "%INSTALL_LOG%" 2>&1
+  if errorlevel 1 (
+    echo   git pull failed - see %INSTALL_LOG%
+    goto :FAIL
+  )
+  echo   ok (updated)
+  goto :PHASE_VENV
+)
+
+REM Target directory may exist but be empty (Explorer sometimes leaves
+REM a phantom folder behind after a rename, or a previous install.bat
+REM run bailed out mid-way). Check whether it has any files; if not,
+REM remove it silently so git clone can proceed. Only refuse when there
+REM is real content that isn't a git clone.
 if exist "%TARGET_DIR%" (
-  if exist "%TARGET_DIR%\.git" (
-    echo   existing clone detected - running git pull --ff-only
-    cd /d "%TARGET_DIR%"
-    "%GIT_EXE%" pull --ff-only >> "%INSTALL_LOG%" 2>&1
-    if errorlevel 1 (
-      echo   git pull failed - see %INSTALL_LOG%
-      goto :FAIL
-    )
-    echo   ok (updated)
-    goto :PHASE_VENV
+  dir /a /b "%TARGET_DIR%" 2>nul | findstr /r "." >nul
+  if errorlevel 1 (
+    echo   removing empty %TARGET_DIR% left over from a previous run
+    rmdir /q "%TARGET_DIR%" >> "%INSTALL_LOG%" 2>&1
   ) else (
-    echo   ERROR: %TARGET_DIR% exists but is not a git clone.
-    echo   Please rename it to FTNewsMonitor-old and re-run install.bat.
+    echo   ERROR: %TARGET_DIR% exists and has content but is not a git clone.
+    echo   Rename it in Explorer to FTNewsMonitor-old and re-run install.bat.
     goto :FAIL
   )
 )
