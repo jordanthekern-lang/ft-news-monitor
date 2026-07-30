@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM  FT News Monitor - install.bat  (v0.7.6.2)
+REM  FT News Monitor - install.bat  (v0.7.6.3)
 REM
 REM  Non-AI installer for colleagues who don't have Claude Code available.
 REM  Two modes:
@@ -33,7 +33,7 @@ REM Fresh log file each run so the colleague can screenshot just the latest.
 echo === FT News Monitor install %DATE% %TIME% === > "%INSTALL_LOG%"
 
 echo.
-echo FT News Monitor - Installer v0.7.6.2
+echo FT News Monitor - Installer v0.7.6.3
 echo -----------------------------------
 echo.
 echo Log:    %INSTALL_LOG%
@@ -149,10 +149,28 @@ echo [3/6] Checking Python 3.13...
 echo === Phase 3: python === >> "%INSTALL_LOG%"
 
 set "PY_EXE="
+
+REM  Check common install locations first, then fall back to the py
+REM  launcher. Windows sometimes routes bare "py -3.13" through the
+REM  Microsoft Store which opens an interactive dialog and returns 0
+REM  without actually installing anything — checking known paths first
+REM  makes the detection deterministic.
+if exist "%LOCALAPPDATA%\Programs\Python\Python313\python.exe" (
+  set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python313\python.exe"
+  echo   ok (already installed)
+  "%LOCALAPPDATA%\Programs\Python\Python313\python.exe" --version >> "%INSTALL_LOG%" 2>&1
+  goto :PHASE_CLONE
+)
+if exist "%ProgramFiles%\Python313\python.exe" (
+  set "PY_EXE=%ProgramFiles%\Python313\python.exe"
+  echo   ok (already installed, system-wide)
+  "%ProgramFiles%\Python313\python.exe" --version >> "%INSTALL_LOG%" 2>&1
+  goto :PHASE_CLONE
+)
 py -3.13 --version >nul 2>&1
 if not errorlevel 1 (
   set "PY_EXE=py -3.13"
-  echo   ok (already installed)
+  echo   ok (already installed via py launcher)
   py -3.13 --version >> "%INSTALL_LOG%" 2>&1
   goto :PHASE_CLONE
 )
@@ -161,11 +179,14 @@ echo   not found - attempting winget install...
 powershell -NoProfile -Command "winget install --id Python.Python.3.13 -e --scope user --accept-package-agreements --accept-source-agreements" >> "%INSTALL_LOG%" 2>&1
 set "WINGET_RC=%ERRORLEVEL%"
 
-REM  Try to detect the winget install directly (Python often lands under
-REM  %LOCALAPPDATA%\Programs\Python\Python313 for --scope user).
 if exist "%LOCALAPPDATA%\Programs\Python\Python313\python.exe" (
   set "PY_EXE=%LOCALAPPDATA%\Programs\Python\Python313\python.exe"
   echo   ok (winget install detected)
+  goto :PHASE_CLONE
+)
+if exist "%ProgramFiles%\Python313\python.exe" (
+  set "PY_EXE=%ProgramFiles%\Python313\python.exe"
+  echo   ok (winget install detected, system-wide)
   goto :PHASE_CLONE
 )
 
@@ -246,6 +267,13 @@ echo === Phase 5: venv === >> "%INSTALL_LOG%"
 echo   (this takes 2-5 minutes, please wait)
 
 cd /d "%TARGET_DIR%"
+
+if "%PY_EXE%"=="" (
+  echo   ERROR: Phase 3 did not resolve a Python 3.13 interpreter.
+  echo   The Microsoft Store Python placeholder may have returned success
+  echo   without actually installing anything. Please contact Jordan.
+  goto :FAIL
+)
 
 if not exist "venv\Scripts\python.exe" (
   %PY_EXE% -m venv venv >> "%INSTALL_LOG%" 2>&1
