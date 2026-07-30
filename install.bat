@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM  FT News Monitor - install.bat  (v0.7.6.4)
+REM  FT News Monitor - install.bat  (v0.7.6.5)
 REM
 REM  Non-AI installer for colleagues who don't have Claude Code available.
 REM  Two modes:
@@ -33,7 +33,7 @@ REM Fresh log file each run so the colleague can screenshot just the latest.
 echo === FT News Monitor install %DATE% %TIME% === > "%INSTALL_LOG%"
 
 echo.
-echo FT News Monitor - Installer v0.7.6.4
+echo FT News Monitor - Installer v0.7.6.5
 echo -----------------------------------
 echo.
 echo Log:    %INSTALL_LOG%
@@ -174,9 +174,13 @@ if not "%PY_EXE%"=="" (
   goto :PHASE_CLONE
 )
 
-REM  Fall back to the py launcher.
+REM  Fall back to the py launcher. Bug on Windows: "py -3.13 --version"
+REM  can return exit code 0 even when 3.13 is not installed, printing
+REM  the version of a fallback interpreter. Verify with an actual
+REM  module import ("py -X -c pass") so we only accept a runtime that
+REM  really runs.
 for %%V in (3.13 3.14 3.12 3.11) do (
-  py -%%V --version >nul 2>&1
+  py -%%V -c "import sys" >nul 2>&1
   if not errorlevel 1 (
     set "PY_EXE=py -%%V"
     echo   ok - using py launcher %%V
@@ -199,7 +203,7 @@ if exist "%ProgramFiles%\Python313\python.exe" (
   echo   ok (winget install detected, system-wide)
   goto :PHASE_CLONE
 )
-py -3.13 --version >nul 2>&1
+py -3.13 -c "import sys" >nul 2>&1
 if not errorlevel 1 (
   set "PY_EXE=py -3.13"
   echo   ok (winget install visible via py launcher)
