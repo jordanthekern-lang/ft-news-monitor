@@ -29,7 +29,7 @@ collect → prefilter → translate → AI score → dashboard
    and those matching excluded terms
 3. **translate** — non-EN articles are auto-translated to English via
    the unofficial Google Translate endpoint (no API key)
-4. **AI score** — Claude Haiku 4.5 rates each article 0–10 for
+4. **AI score** — Claude on Amazon Bedrock rates each article 0–10 for
    fleet-transformation relevance, assigns a category and themes
 5. **dashboard** — FastAPI + Tailwind; articles sorted by final score
    (relevance + outlet trust bonus + learning bonus)

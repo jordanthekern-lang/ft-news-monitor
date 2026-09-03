@@ -710,7 +710,7 @@ async def run(
     for row in rows:
         # Articles published within the bypass window go straight to Claude —
         # the pre-screen only exists for cost control on large backlogs, and
-        # Haiku is cheap enough to evaluate the last few days unconditionally.
+        # recent articles are worth scoring unconditionally, so they skip it.
         if _is_recent(row, max_age_days=skip_prescreen_days):
             pre_pass.append(row)
             bypassed_recent += 1

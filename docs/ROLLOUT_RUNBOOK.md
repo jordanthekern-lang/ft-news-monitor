@@ -135,10 +135,11 @@ Notion doc.
 ### Budget alarm
 
 Once the pilot user has been active for a few days, set a **CloudWatch
-billing alarm** at `$10/month` scoped to the user's usage tag (or
-account, if you provisioned dedicated). Haiku 4.5 is inexpensive — the
-alarm exists so a runaway loop or a stuck test-connection button is
-caught fast. If the alarm fires, first check whether the scheduler is
+billing alarm** at `$50/month` scoped to the user's usage tag (or
+account, if you provisioned dedicated). Opus 4.7 costs roughly 5x per
+token what Haiku 4.5 does (input $5 / output $25 per 1M tokens vs
+Haiku's $1 / $5), so the threshold sits above expected steady-state and
+a trip flags a runaway loop or a stuck test-connection button. If the alarm fires, first check whether the scheduler is
 enabled and misfiring; then check for a runaway manual run via the
 header **Run collection** button.
 

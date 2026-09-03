@@ -161,7 +161,7 @@ def _friendlier_bedrock_error(raw: str) -> str:
         hint = (
             "Your AWS account is missing Bedrock InvokeModel permission "
             "on the configured model in eu-west-1. Ask FlixBus IT to grant "
-            "`bedrock:InvokeModel` on the Haiku inference profile ARN."
+            "`bedrock:InvokeModel` on the configured Claude inference profile ARN."
         )
     elif "could not connect" in lowered or "endpoint" in lowered and "connection" in lowered:
         hint = (

@@ -1,6 +1,6 @@
 # FT News Monitor — AI Bootstrap Runbook
 
-<!-- Runbook target: FT News Monitor v0.7.6 (git-clone default layout; Cowork variant supported via install.bat mode C). -->
+<!-- Runbook target: FT News Monitor v0.7.6.5 (git-clone default layout; Cowork variant supported via install.bat mode C). -->
 
 > **You are an AI coding assistant** (Claude Code, Claude Cowork, or
 > similar). A non-technical colleague at FlixBus is asking you to
