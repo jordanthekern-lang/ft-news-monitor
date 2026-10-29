@@ -130,6 +130,21 @@ def _detect_language(
     return None
 
 
+class TranslatorBlocked(Exception):
+    """Google answered with its rate-limit / CAPTCHA block.
+
+    The block applies to the whole IP, not to one article, so every further
+    request in this run would fail the same way. ``run()`` stops on it.
+    """
+
+
+def _is_rate_limit_block(exc: Exception) -> bool:
+    # deep-translator raises ``exceptions.TooManyRequests`` when Google
+    # redirects to its /sorry CAPTCHA page. Match by class name so the check
+    # does not depend on importing deep-translator's exception module.
+    return type(exc).__name__ == "TooManyRequests"
+
+
 def _translate(text: str, source_lang: str) -> Optional[str]:
     """Translate one chunk of text to English. Returns None on failure."""
     if not text:
@@ -148,6 +163,8 @@ def _translate(text: str, source_lang: str) -> Optional[str]:
             return None
         return out
     except Exception as exc:
+        if _is_rate_limit_block(exc):
+            raise TranslatorBlocked(str(exc)) from exc
         logger.warning(
             "Google translation failed (%s → en): %s", source_lang, exc
         )
@@ -174,7 +191,7 @@ def run() -> dict:
     skipped_nolang = 0
     errors = 0
 
-    for row in rows:
+    for idx, row in enumerate(rows):
         text_for_detection = " ".join(
             filter(None, [row["title"] or "", row["snippet"] or ""])
         )[:500]
@@ -199,8 +216,18 @@ def run() -> dict:
             skipped_target += 1
             continue
 
-        title_en = _translate(row["title"] or "", lang) if row["title"] else None
-        snippet_en = _translate(row["snippet"] or "", lang) if row["snippet"] else None
+        try:
+            title_en = _translate(row["title"] or "", lang) if row["title"] else None
+            snippet_en = _translate(row["snippet"] or "", lang) if row["snippet"] else None
+        except TranslatorBlocked as exc:
+            # Leave this and all remaining articles untouched (no attempt
+            # recorded) so they are retried once Google lifts the block.
+            logger.warning(
+                "Google translation blocked (rate limit / CAPTCHA); "
+                "stopping translator for this run, %d article(s) deferred: %s",
+                len(rows) - idx, exc,
+            )
+            break
 
         if title_en or snippet_en:
             database.set_translation(

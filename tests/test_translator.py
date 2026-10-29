@@ -251,3 +251,41 @@ def test_portugal_article_stays_untranslated_for_portugal_market(
     assert fake_google == []
     row = database.article_by_id(rid)
     assert row["title_en"] is None
+
+
+def test_rate_limit_block_aborts_run_without_burning_attempts(monkeypatch):
+    """Google's CAPTCHA block (TooManyRequests) hits every request, so the run
+    stops at the first one and no article loses one of its retry attempts."""
+    monkeypatch.setenv("TRANSLATION_ENABLED", "true")
+    calls = []
+
+    class TooManyRequests(Exception):
+        pass
+
+    class BlockedTranslator:
+        def __init__(self, source, target):
+            pass
+
+        def translate(self, text):
+            calls.append(text)
+            raise TooManyRequests("You made too many requests to the server.")
+
+    import sys
+    fake_module = type("M", (), {"GoogleTranslator": BlockedTranslator})
+    monkeypatch.setitem(sys.modules, "deep_translator", fake_module)
+    monkeypatch.setattr(translator, "TRANSLATE_DELAY_S", 0)
+
+    ids = [
+        _seed(title=f"Subvention autocar électrique numéro {i} à Lyon",
+              snippet="La région annonce un nouveau programme de soutien.",
+              country="France")
+        for i in range(3)
+    ]
+
+    summary = translator.run()
+    assert len(calls) == 1
+    assert summary["translated"] == 0
+    for rid in ids:
+        row = database.article_by_id(rid)
+        assert row["translation_attempts"] == 0
+        assert row["translation_attempted"] == 0
