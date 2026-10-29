@@ -235,6 +235,10 @@ class Settings:
     highlight_days: int
     ai_filter_max_parallel: int
     ai_skip_prescreen_days: int
+    # output_config.effort for the scoring call ("low"|"medium"|"high"|...).
+    # Empty string = don't send the parameter (needed for older models such
+    # as Haiku 4.5 that reject it).
+    ai_effort: str = "medium"
 
 
 def get_settings() -> Settings:
@@ -245,10 +249,13 @@ def get_settings() -> Settings:
         aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY", ""),
         aws_session_token=os.getenv("AWS_SESSION_TOKEN", ""),
         aws_region=os.getenv("AWS_REGION", "eu-west-1"),
-        anthropic_model=os.getenv("ANTHROPIC_MODEL", "eu.anthropic.claude-opus-4-7"),
+        anthropic_model=os.getenv("ANTHROPIC_MODEL", "eu.anthropic.claude-sonnet-5-5"),
         anthropic_api_key=os.getenv("ANTHROPIC_API_KEY", ""),
         cowork_api_token=os.getenv("COWORK_API_TOKEN", ""),
-        ai_max_tokens=_int("AI_MAX_TOKENS", 512),
+        # 2048 leaves headroom for adaptive thinking on Sonnet 5.5 (the JSON
+        # answer itself is ~200 tokens; unused headroom costs nothing).
+        ai_max_tokens=_int("AI_MAX_TOKENS", 2048),
+        ai_effort=os.getenv("AI_EFFORT", "medium").strip().lower(),
         dashboard_port=_int("DASHBOARD_PORT", 8766),
         timezone=os.getenv("TIMEZONE", "Europe/Berlin"),
         max_age_days=_int("MAX_AGE_DAYS", 180),

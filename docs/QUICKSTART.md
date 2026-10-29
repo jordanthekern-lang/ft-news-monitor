@@ -107,7 +107,7 @@ the values Jordan sends you separately:
 | `AWS_ACCESS_KEY_ID`     | (from Jordan)                                               |
 | `AWS_SECRET_ACCESS_KEY` | (from Jordan)                                               |
 | Region                  | `eu-west-1` (default)                                       |
-| Model                   | Leave the default `eu.anthropic.claude-opus-4-7`            |
+| Model                   | Leave the default `eu.anthropic.claude-sonnet-5-5`          |
 
 The Advanced section (Provider / ANTHROPIC_API_KEY) stays untouched.
 Click **Save credentials**.

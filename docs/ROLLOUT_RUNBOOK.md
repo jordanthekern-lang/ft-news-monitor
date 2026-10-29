@@ -92,10 +92,10 @@ The minimum needed is roughly:
     "Effect": "Allow",
     "Action": ["bedrock:InvokeModel"],
     "Resource": [
-      "arn:aws:bedrock:eu-west-1:*:inference-profile/eu.anthropic.claude-opus-4-7-*",
-      "arn:aws:bedrock:eu-central-1::foundation-model/anthropic.claude-opus-4-7-*",
-      "arn:aws:bedrock:eu-west-3::foundation-model/anthropic.claude-opus-4-7-*",
-      "arn:aws:bedrock:eu-north-1::foundation-model/anthropic.claude-opus-4-7-*"
+      "arn:aws:bedrock:eu-west-1:*:inference-profile/eu.anthropic.claude-sonnet-5-5-*",
+      "arn:aws:bedrock:eu-central-1::foundation-model/anthropic.claude-sonnet-5-5-*",
+      "arn:aws:bedrock:eu-west-3::foundation-model/anthropic.claude-sonnet-5-5-*",
+      "arn:aws:bedrock:eu-north-1::foundation-model/anthropic.claude-sonnet-5-5-*"
     ]
   }]
 }
@@ -165,7 +165,7 @@ header **Run collection** button.
 3. Wizard step 1: `Italy` + `EU` ticked. Save.
 4. Wizard step 2: paste keys (`AWS_ACCESS_KEY_ID`,
    `AWS_SECRET_ACCESS_KEY`), region `eu-west-1`, model
-   `eu.anthropic.claude-opus-4-7`. Save.
+   `eu.anthropic.claude-sonnet-5-5`. Save.
 5. Wizard step 3: click **Test AI now**. Wait for the green
    confirmation with model + latency. If red: check the region first;
    then re-verify the pasted key values did not gain a trailing space.

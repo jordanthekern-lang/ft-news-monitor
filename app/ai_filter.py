@@ -411,6 +411,7 @@ async def _create_with_retry(
     user_prompt: str,
     article_id: Any,
     max_tokens: int = 512,
+    effort: Optional[str] = None,
 ):
     """Call messages.create with bounded retry on 429 and transient 5xx.
 
@@ -421,14 +422,18 @@ async def _create_with_retry(
     backoff = _BASE_BACKOFF
     for attempt in range(1, _MAX_ATTEMPTS + 1):
         try:
-            # max_tokens is taken from settings.ai_max_tokens (default 512).
-            # Our JSON score response is well under 200 tokens, so 512 is plenty
-            # of headroom while staying within the SDK's non-streaming threshold.
+            # max_tokens is taken from settings.ai_max_tokens (default 2048).
+            # The JSON score response is ~200 tokens; the rest is headroom for
+            # adaptive thinking, well within the SDK's non-streaming threshold.
+            extra: Dict[str, Any] = {}
+            if effort:
+                extra["output_config"] = {"effort": effort}
             return await client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
                 system=system,
                 messages=[{"role": "user", "content": user_prompt}],
+                **extra,
             )
         except RateLimitError as exc:
             wait = _retry_after_seconds(exc) or backoff
@@ -475,6 +480,7 @@ async def _score_one(
     sem: asyncio.Semaphore,
     examples: List[feedback.FeedbackExample],
     suggest_on: bool = False,
+    effort: Optional[str] = None,
 ) -> Optional[AIScore]:
     # If we have an English translation, append it after the original so
     # Claude sees both — useful for languages it might score less reliably.
@@ -508,9 +514,26 @@ async def _score_one(
             user_prompt=user_prompt,
             article_id=row["id"],
             max_tokens=max_tokens,
+            effort=effort,
         )
         if resp is None:
             return None
+
+    stop_reason = getattr(resp, "stop_reason", None)
+    if stop_reason == "refusal":
+        # Safety classifier declined (HTTP 200). Leave the article unscored
+        # so the next run retries it instead of storing a bogus score.
+        details = getattr(resp, "stop_details", None)
+        logger.warning(
+            "Claude declined article %s (category=%s)",
+            row["id"], getattr(details, "category", None),
+        )
+        return None
+    if stop_reason == "max_tokens":
+        logger.warning(
+            "Claude hit max_tokens for article %s; raise AI_MAX_TOKENS",
+            row["id"],
+        )
 
     text_blocks = [b.text for b in resp.content if getattr(b, "type", "") == "text"]
     raw = "\n".join(text_blocks).strip()
@@ -760,6 +783,7 @@ async def run(
             sem=sem,
             examples=examples,
             suggest_on=suggest_on,
+            effort=settings.ai_effort or None,
         )
         for row in pre_pass
     ]

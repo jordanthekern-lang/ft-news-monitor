@@ -136,7 +136,7 @@ def test_run_eval_calls_score_one_and_never_writes_articles(monkeypatch):
     # Patch create_ai_client so we don't need real AWS creds
     monkeypatch.setattr(evalmod, "create_ai_client", lambda settings: _FakeClient())
 
-    async def fake_score(client, *, model, max_tokens, row, sem, examples):
+    async def fake_score(client, *, model, max_tokens, row, sem, examples, effort=None):
         # Give the relevant article a high score, the noise a low one.
         # examples must be empty when no_feedback=True.
         assert isinstance(sem, asyncio.Semaphore)
@@ -163,7 +163,7 @@ def test_run_eval_uses_feedback_examples_when_enabled(monkeypatch):
 
     monkeypatch.setattr(evalmod, "create_ai_client", lambda settings: _FakeClient())
 
-    async def fake_score(client, *, model, max_tokens, row, sem, examples):
+    async def fake_score(client, *, model, max_tokens, row, sem, examples, effort=None):
         seen_examples.append(list(examples))
         return AIScore(relevance_score=5, category="Other", themes=[], reasoning="")
 
@@ -200,7 +200,7 @@ def test_run_eval_handles_model_failure_as_error(monkeypatch):
     _seed_labeled("https://x/rel", label="relevant")
     monkeypatch.setattr(evalmod, "create_ai_client", lambda settings: _FakeClient())
 
-    async def fake_score(client, *, model, max_tokens, row, sem, examples):
+    async def fake_score(client, *, model, max_tokens, row, sem, examples, effort=None):
         return None  # simulates Claude returning nothing after retries
 
     monkeypatch.setattr(evalmod.ai_filter, "_score_one", fake_score)
@@ -236,7 +236,7 @@ def test_run_eval_respects_limit(monkeypatch):
 
     monkeypatch.setattr(evalmod, "create_ai_client", lambda settings: _FakeClient())
 
-    async def fake_score(client, *, model, max_tokens, row, sem, examples):
+    async def fake_score(client, *, model, max_tokens, row, sem, examples, effort=None):
         return AIScore(relevance_score=5, category="Other", themes=[], reasoning="")
 
     monkeypatch.setattr(evalmod.ai_filter, "_score_one", fake_score)

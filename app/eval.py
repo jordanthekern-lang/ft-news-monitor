@@ -128,6 +128,7 @@ def compute_metrics(
 async def _score_labeled_row(
     client, row, *, model: str, max_tokens: int, sem: asyncio.Semaphore,
     examples: List[feedback.FeedbackExample],
+    effort: Optional[str] = None,
 ) -> Optional[AIScore]:
     return await ai_filter._score_one(
         client,
@@ -136,6 +137,7 @@ async def _score_labeled_row(
         row=row,
         sem=sem,
         examples=examples,
+        effort=effort,
     )
 
 
@@ -214,6 +216,7 @@ async def run_eval(
             max_tokens=settings.ai_max_tokens,
             sem=sem,
             examples=examples,
+            effort=settings.ai_effort or None,
         )
         for row in rows
     ]
